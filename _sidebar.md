@@ -1,5 +1,2 @@
-- JavaScript
-  - [闭包](closure.md)
-
-- CSS
-  - [布局](layout.md)
+- 其他
+  - [移动端开发疑难杂症](mobile.md)
