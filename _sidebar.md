@@ -10,9 +10,11 @@
 
   - [Electron 遇到的坑](electron.md)
 
-- [算法笔录](algorithm.md)
+- 算法
 
   - [一些遇到的小窍门](algo-tips.md)
+
+  - [链表类题目](algorithm-link-node.md)
 
 - 复习记录
 
