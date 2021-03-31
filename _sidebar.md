@@ -2,6 +2,8 @@
 
   - [关于 element-ui 的一些小记录](vue-element-ui.md)
 
+  - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
+
 - 移动端
 
   - [移动端开发疑难杂症](mobile.md)
