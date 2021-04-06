@@ -1,27 +1,29 @@
-- 网页
+-   网页
 
-  - [关于 element-ui 的一些小记录](vue-element-ui.md)
+    -   [关于 element-ui 的一些小记录](vue-element-ui.md)
 
-  - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
+    -   [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
 
-- 移动端
+    -   [关于 JavaScript](javascript.md)
 
-  - [移动端开发疑难杂症](mobile.md)
+-   移动端
 
-- 桌面端(electron - vue)
+    -   [移动端开发疑难杂症](mobile.md)
 
-  - [Electron 遇到的坑](electron.md)
+-   桌面端(electron - vue)
 
-- 算法
+    -   [Electron 遇到的坑](electron.md)
 
-  - [一些遇到的小窍门](algo-tips.md)
+-   算法
 
-  - [链表类题目](algorithm-link-node.md)
+    -   [一些遇到的小窍门](algo-tips.md)
 
-- 搭建类
+    -   [链表类题目](algorithm-link-node.md)
 
-  - [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
+-   搭建类
 
-  - [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
+    -   [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
 
-- [MacBook 开发环境搭建](macbook-env.md)
+    -   [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
+
+    -   [MacBook 开发环境搭建](macbook-env.md)
