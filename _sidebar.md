@@ -18,8 +18,6 @@
 
   - [链表类题目](algorithm-link-node.md)
 
-- 复习记录
-
 - 搭建类
 
   - [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
