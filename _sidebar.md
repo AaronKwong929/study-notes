@@ -31,3 +31,5 @@
     -   [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
 
     -   [MacBook 开发环境搭建](macbook-env.md)
+
+    -   [使用 PicGo 和 GitHub 搭建一个图床](picgo-github-image-hosting.md)
