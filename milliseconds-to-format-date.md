@@ -49,7 +49,7 @@ export const milliToHour = (ms = new Date().getTime(), type = `days`) => {
 };
 ```
 
-来测试一下
+测试一下
 
 ![switch-case-method](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210407151400.png)
 
@@ -101,23 +101,66 @@ const milliToHour2 = (
 
 ![better1](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210408095638.png)
 
+不按顺序传值也没有问题！
+
 ## 再再复杂一点
 
 如果其他技术说：“哦哟我 type 不按顺序传，但我还要这个效果” 的情况呢
 
 ~~技术何苦为难技术~~
 
-这里就要加权
+其实也很简单，这里只需要加权排序即可，通过一个额外的 hash 表记录每个字段对应的权重，再根据权重排序
 
 代码如下：
 
 ```javascript
-// 我还没想好怎么写
+// 这是权重
+const orderMap = Object.freeze({
+    seconds: 1,
+    minutes: 2,
+    hours: 3,
+    days: 4,
+});
+
+// 这是单位
+const unitMap = Object.freeze({
+    days: `天`,
+    hours: `小时`,
+    minutes: `分钟`,
+    seconds: `秒`,
+});
+
+const milliToHour = (
+    ms = new Date().getTime(),
+    type = [`days`, `hours`, `minutes`, `seconds`]
+) => {
+    const timeMap = Object.freeze({
+        days: parseInt(ms / (1000 * 60 * 60 * 24)),
+        hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((ms % (1000 * 60)) / 1000),
+    });
+
+    // 加权排序
+    type.sort((a, b) => orderMap[b] - orderMap[a]);
+
+    let result = ``;
+
+    type.forEach((item) => {
+        result += `${timeMap[item]}${unitMap[item]}`;
+    });
+
+    return result;
+};
 ```
+
+测试一下
+
+![better-2](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210409125319.png)
 
 ## 其他需要注意的
 
-传入的值可能会有问题，需要做类型判断
+传入的值可能会有问题，需要加入类型判断
 
 ## 没有函数重载但是期望 type 可以传数组或者字符串？
 
@@ -129,6 +172,4 @@ const milliToHour2 = (
 
 ## 最后
 
-写着写着从一个传值导出变成了一个小工具
-
-不知道说是想把需求做好做完善还是说自己闲的
+> 写着写着从一个传值导出变成了一个小工具，不知道说是想把需求做好做完善还是说自己闲的
