@@ -4,13 +4,13 @@
 
 ```js
 function formatDuring(mss) {
-    var days = parseInt(mss / (1000 * 60 * 60 * 24));
-    var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = (mss % (1000 * 60)) / 1000;
-    return (
-        days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 "
-    );
+  var days = parseInt(mss / (1000 * 60 * 60 * 24));
+  var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = (mss % (1000 * 60)) / 1000;
+  return (
+    days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒 "
+  );
 }
 ```
 
@@ -20,32 +20,32 @@ function formatDuring(mss) {
 
 ```javascript
 export const milliToHour = (ms = new Date().getTime(), type = `days`) => {
-    const days = parseInt(ms / (1000 * 60 * 60 * 24)),
-        hours = parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes = parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds = Math.floor((ms % (1000 * 60)) / 1000);
+  const days = parseInt(ms / (1000 * 60 * 60 * 24)),
+    hours = parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes = parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds = Math.floor((ms % (1000 * 60)) / 1000);
 
-    let result = ``;
-    // note: 不写 break 会顺次执行下去
-    switch (type) {
-        case `days`:
-            result += `${days}天 `;
+  let result = ``;
+  // note: 不写 break 会顺次执行下去
+  switch (type) {
+    case `days`:
+      result += `${days}天 `;
 
-        case `hours`:
-            result += `${hours}小时 `;
+    case `hours`:
+      result += `${hours}小时 `;
 
-        case `minutes`:
-            result += `${minutes}分钟 `;
+    case `minutes`:
+      result += `${minutes}分钟 `;
 
-        case `seconds`:
-            result += `${seconds}秒`;
-            break;
+    case `seconds`:
+      result += `${seconds}秒`;
+      break;
 
-        default:
-            break;
-    }
+    default:
+      break;
+  }
 
-    return result;
+  return result;
 };
 ```
 
@@ -69,29 +69,29 @@ export const milliToHour = (ms = new Date().getTime(), type = `days`) => {
 
 ```javascript
 const milliToHour2 = (
-    ms = new Date().getTime(),
-    type = [`days`, `hours`, `minutes`, `seconds`]
+  ms = new Date().getTime(),
+  type = [`days`, `hours`, `minutes`, `seconds`]
 ) => {
-    const timeMap = Object.freeze({
-            days: parseInt(ms / (1000 * 60 * 60 * 24)),
-            hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
-            seconds: Math.floor((ms % (1000 * 60)) / 1000),
-        }),
-        unitMap = Object.freeze({
-            days: `天`,
-            hours: `小时`,
-            minutes: `分钟`,
-            seconds: `秒`,
-        });
-
-    let result = ``;
-
-    type.forEach((item) => {
-        result += `${timeMap[item]}${unitMap[item]}`;
+  const timeMap = Object.freeze({
+      days: parseInt(ms / (1000 * 60 * 60 * 24)),
+      hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((ms % (1000 * 60)) / 1000),
+    }),
+    unitMap = Object.freeze({
+      days: `天`,
+      hours: `小时`,
+      minutes: `分钟`,
+      seconds: `秒`,
     });
 
-    return result;
+  let result = ``;
+
+  type.forEach((item) => {
+    result += `${timeMap[item]}${unitMap[item]}`;
+  });
+
+  return result;
 };
 ```
 
@@ -116,41 +116,41 @@ const milliToHour2 = (
 ```javascript
 // 这是权重
 const orderMap = Object.freeze({
-    seconds: 1,
-    minutes: 2,
-    hours: 3,
-    days: 4,
+  seconds: 1,
+  minutes: 2,
+  hours: 3,
+  days: 4,
 });
 
 // 这是单位
 const unitMap = Object.freeze({
-    days: `天`,
-    hours: `小时`,
-    minutes: `分钟`,
-    seconds: `秒`,
+  days: `天`,
+  hours: `小时`,
+  minutes: `分钟`,
+  seconds: `秒`,
 });
 
 const milliToHour = (
-    ms = new Date().getTime(),
-    type = [`days`, `hours`, `minutes`, `seconds`]
+  ms = new Date().getTime(),
+  type = [`days`, `hours`, `minutes`, `seconds`]
 ) => {
-    const timeMap = Object.freeze({
-        days: parseInt(ms / (1000 * 60 * 60 * 24)),
-        hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((ms % (1000 * 60)) / 1000),
-    });
+  const timeMap = Object.freeze({
+    days: parseInt(ms / (1000 * 60 * 60 * 24)),
+    hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((ms % (1000 * 60)) / 1000),
+  });
 
-    // 加权排序
-    type.sort((a, b) => orderMap[b] - orderMap[a]);
+  // 加权排序
+  type.sort((a, b) => orderMap[b] - orderMap[a]);
 
-    let result = ``;
+  let result = ``;
 
-    type.forEach((item) => {
-        result += `${timeMap[item]}${unitMap[item]}`;
-    });
+  type.forEach((item) => {
+    result += `${timeMap[item]}${unitMap[item]}`;
+  });
 
-    return result;
+  return result;
 };
 ```
 
@@ -162,12 +162,70 @@ const milliToHour = (
 
 传入的值可能会有问题，需要加入类型判断
 
-## 没有函数重载但是期望 type 可以传数组或者字符串？
+```javascript
+// 检查 type 的输入值是否合法
+if (
+  !Array.isArray(type) ||
+  !type.every((item) => {
+    return [`days`, `hours`, `minutes`, `seconds`].indexOf(item) !== -1;
+  })
+) {
+  console.error(`输入格式化类型错误`);
+  return;
+}
+```
 
 ## 最终完整代码
 
 ```javascript
+const orderMap = Object.freeze({
+  seconds: 1,
+  minutes: 2,
+  hours: 3,
+  days: 4,
+});
 
+const unitMap = Object.freeze({
+  days: `天`,
+  hours: `小时`,
+  minutes: `分钟`,
+  seconds: `秒`,
+});
+
+const milliToHour = (
+  ms = new Date().getTime(),
+  type = [`days`, `hours`, `minutes`, `seconds`]
+) => {
+  if (
+    !Array.isArray(type) ||
+    !type.every((item) => {
+      return [`days`, `hours`, `minutes`, `seconds`].indexOf(item) !== -1;
+    })
+  ) {
+    console.error(`输入格式化类型错误`);
+    return;
+  }
+
+  if (typeof ms !== "number") ms = parseInt(ms);
+
+  const timeMap = Object.freeze({
+    days: parseInt(ms / (1000 * 60 * 60 * 24)),
+    hours: parseInt((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: parseInt((ms % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((ms % (1000 * 60)) / 1000),
+  });
+
+  // 加权排序
+  type.sort((a, b) => orderMap[b] - orderMap[a]);
+
+  let result = ``;
+
+  type.forEach((item) => {
+    result += `${timeMap[item]}${unitMap[item]}`;
+  });
+
+  return result;
+};
 ```
 
 ## 最后
