@@ -36,3 +36,5 @@ this.$Bus.$emit(`lock-screen`, true);
 ```
 
 避免多个路由页面都写 v-loading.fullscreen.lock 每个都单独维护
+
+## 关于el-menu 嵌套路由情况下返回父级路由路由 按钮不高亮的问题
