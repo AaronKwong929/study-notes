@@ -1,43 +1,43 @@
--   网页
+- 网页
 
-    -   [关于 element-ui 的一些小记录](vue-element-ui.md)
+  - [关于 element-ui 的一些小记录](vue-element-ui.md)
 
-    -   [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
+  - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
 
-    -   [关于 JavaScript](javascript.md)
+  - [关于 JavaScript](javascript.md)
 
--   移动端
+- 移动端
 
-    -   [移动端开发疑难杂症](mobile.md)
-
--   桌面端(electron - vue)
-
-    -   [Electron 遇到的坑](electron.md)
-
--   算法
-
-    -   [一些遇到的小窍门](algo-tips.md)
-
-    -   [链表类题目](algorithm-link-node.md)
-
--   小工具
-
-    -   [时间戳转时间的需求的拓展](milliseconds-to-format-date.md)
-
--   搭建类
-
-    -   [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
-
-    -   [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
-
-    -   [MacBook 开发环境搭建](macbook-env.md)
-
-    -   [使用 PicGo 和 GitHub 搭建一个图床](picgo-github-image-hosting.md)
+  - [移动端开发疑难杂症](mobile.md)
 
 - Vue
 
-    - [看源码记下来的一些东西](vue-source-code1.md)
+  - [源码小记录](vue-source-code1.md)
 
-    - [vue-router](vue.md)
+  - [vue-router 小记录](vue.md)
 
-    - [test](testt/aa.md)
+  - [test](testt/aa.md)
+
+- 桌面端(electron - vue)
+
+  - [Electron 踩坑](electron.md)
+
+- 算法
+
+  - [一些遇到的小窍门](algo-tips.md)
+
+  - [链表类题目小记录](algorithm-link-node.md)
+
+- 小工具
+
+  - [时间戳转时间的需求的拓展](milliseconds-to-format-date.md)
+
+- 搭建类
+
+  - [MacBook 开发环境搭建](macbook-env.md)
+
+  - [使用 PicGo 和 GitHub 搭建一个图床](picgo-github-image-hosting.md)
+
+  - [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
+
+  - [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
