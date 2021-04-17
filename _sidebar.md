@@ -16,17 +16,15 @@
 
   - [vue-router 小记录](vue.md)
 
-  - [test](testt/aa.md)
-
 - 桌面端(electron - vue)
 
   - [Electron 踩坑](electron.md)
 
 - 算法
 
-  - [一些遇到的小窍门](algo-tips.md)
+  - [一些遇到的小窍门](algorithm/algo-tips.md)
 
-  - [链表类题目小记录](algorithm-link-node.md)
+  - [链表类题目小记录](algorithm/algorithm-link-node.md)
 
 - 小工具
 
