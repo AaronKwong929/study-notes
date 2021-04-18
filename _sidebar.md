@@ -39,3 +39,5 @@
   - [Docker + Nginx 部署静态资源服务器](build/docker-nginx-static-server.md)
 
   - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
+
+  - [Docsify + Github 搭建一个个人博客](build/docsify-github-blog.md)
