@@ -41,3 +41,5 @@
   - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
 
   - [Docsify + Github 搭建一个个人博客](build/docsify-github-blog.md)
+
+  - [Nginx 做域名接口转发服务](build/nginx-request-redirect-to-server.md)
