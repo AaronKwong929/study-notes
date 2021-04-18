@@ -1,6 +1,7 @@
 - 网页
 
   - [关于 element-ui 的一些小记录](vue-element-ui.md)
+    - [12](3.md)
 
   - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
 
@@ -32,10 +33,10 @@
 
 - 搭建类
 
-  - [MacBook 开发环境搭建](macbook-env.md)
+  - [MacBook 开发环境搭建](build/macbook-env.md)
 
-  - [使用 PicGo 和 GitHub 搭建一个图床](picgo-github-image-hosting.md)
+  - [使用 PicGo 和 GitHub 搭建一个图床](build/picgo-github-image-hosting.md)
 
-  - [Docker + Nginx 部署静态资源服务器](docker-nginx-static-server.md)
+  - [Docker + Nginx 部署静态资源服务器](build/docker-nginx-static-server.md)
 
-  - [Docker + Jenkins 搭建持续构建系统](docker-jenkins-cicd.md)
+  - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
