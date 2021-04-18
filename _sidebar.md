@@ -1,14 +1,14 @@
 - 网页
 
-  - [关于 element-ui 的一些小记录](vue-element-ui.md)
+  - [关于 element-ui 的一些小记录](code/vue-element-ui.md)
 
-  - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
+  - [关于发版需要强制刷新的解决方案](code/fixing-compulsory-refresh.md)
 
   - [关于 JavaScript](javascript.md)
 
 - 移动端
 
-  - [移动端开发疑难杂症](mobile.md)
+  - [移动端开发疑难杂症](code/mobile.md)
 
 - Vue
 
@@ -18,7 +18,7 @@
 
 - 桌面端(electron - vue)
 
-  - [Electron 踩坑](electron.md)
+  - [Electron 踩坑](code/electron.md)
 
 - 算法
 
@@ -28,7 +28,7 @@
 
 - 小工具
 
-  - [时间戳转时间的需求的拓展](milliseconds-to-format-date.md)
+  - [时间戳转时间的需求的拓展](tools/milliseconds-to-format-date.md)
 
 - 搭建类
 
