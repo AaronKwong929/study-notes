@@ -1,7 +1,6 @@
 - 网页
 
   - [关于 element-ui 的一些小记录](vue-element-ui.md)
-    - [12](3.md)
 
   - [关于发版需要强制刷新的解决方案](fixing-compulsory-refresh.md)
 
