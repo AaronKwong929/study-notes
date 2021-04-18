@@ -43,3 +43,5 @@
   - [Docsify + Github 搭建一个个人博客](build/docsify-github-blog.md)
 
   - [Nginx 做域名接口转发服务](build/nginx-request-redirect-to-server.md)
+
+  - [使用七牛云代替 GitHub 做图床](build/qiniu-image-hosting.md)
