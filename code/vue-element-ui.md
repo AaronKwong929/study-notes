@@ -97,7 +97,7 @@ this.$Bus.$emit(`lock-screen`, true);
 
 解决办法：
 
-加一个计算属性，匹配当前 $route.path 和 `${$route.path}`/ 
+加一个计算属性，匹配当前 $route.path 和 `${$route.path}`/
 
 ```js
 computed: {
@@ -110,3 +110,15 @@ computed: {
 ```
 
 完美解决上述问题
+
+**如果有子路由也要高亮父级路由的需求的话**
+
+计算属性改一下就好了~
+
+```js
+computed: {
+    activeRoute() {
+      return `/${this.$route.path.split('/')[1]}`
+    },
+  },
+```
