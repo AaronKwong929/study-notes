@@ -26,7 +26,11 @@
 
   - [链表类题目小记录](algorithm/algorithm-link-node.md)
 
-- 小工具
+- 工作遇到的需求的实现和设计
+
+  - [Vuex模块嵌套实现方案](work/nested-vuex-modules.md)
+
+  - [后台换色实现方案](work/change-theme.md)
 
   - [时间戳转时间的需求的拓展](tools/milliseconds-to-format-date.md)
 
