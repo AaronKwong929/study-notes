@@ -32,7 +32,9 @@
 
   - [后台换色实现方案](work/change-theme.md)
 
-  - [时间戳转时间的需求的拓展](tools/milliseconds-to-format-date.md)
+  - [时间戳转时间的需求的拓展](work/milliseconds-to-format-date.md)
+
+  -[Vue3 父子组件props通信](work/vue3-setup-props.md)
 
 - 搭建类
 
