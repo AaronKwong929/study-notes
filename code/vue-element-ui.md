@@ -2,7 +2,7 @@
 
 ## 关于按需引入 MessageBox 等
 
-注意 Message.confirm，不然实际使用时，this.$confirm(content,title,option)里的 option 会无效
+注意 Message.confirm，不然实际使用时，this.$confirm(content, title, options) 里的 options 会无效
 
 ```js
 import { MessageBox, Message } from "element-ui";

@@ -1,40 +1,38 @@
 - 网页
 
-  - [关于 element-ui 的一些小记录](code/vue-element-ui.md)
-
-  - [关于发版需要强制刷新的解决方案](code/fixing-compulsory-refresh.md)
-
-  - [关于 JavaScript](javascript.md)
-
-- 移动端
-
-  - [移动端开发疑难杂症](code/mobile.md)
+  - [Element-UI 小记](code/vue-element-ui.md)
 
 - Vue
 
-  - [源码小记录](vue-source-code1.md)
+  - [](vue-source-code1.md)
 
-  - [vue-router 小记录](vue.md)
+  - [](vue-router-hook.md)
 
-- 桌面端(electron - vue)
+- 桌面端(electron)
 
   - [Electron 踩坑](code/electron.md)
 
 - 算法
 
-  - [一些遇到的小窍门](algorithm/algo-tips.md)
+  - [一些遇到的小窍门](algorithm/tips.md)
 
-  - [链表类题目小记录](algorithm/algorithm-link-node.md)
+  - [链表类题目小记录](algorithm/link-node.md)
 
-- 工作遇到的需求的实现和设计
+- 工作遇到的小记
 
-  - [Vuex模块嵌套实现方案](work/nested-vuex-modules.md)
-
-  - [后台换色实现方案](work/change-theme.md)
+  - [移动端开发疑难杂症](work/mobile.md)
 
   - [时间戳转时间的需求的拓展](work/milliseconds-to-format-date.md)
 
-  -[Vue3 父子组件props通信](work/vue3-setup-props.md)
+  - [Vue3 父子组件 props 通信](work/vue3-setup-props.md)
+
+  - [封装 Storage 的实践（未完成](work/encapsulating-storage.md)
+
+  - [封装 Axios 的实践（未完成](work/encapsulating-axios.md)
+
+  - [](work/fixing-compulsory-refresh.md)
+
+  - [](work/change-theme.md)
 
 - 搭建类
 
@@ -44,10 +42,28 @@
 
   - [Docker + Nginx 部署静态资源服务器](build/docker-nginx-static-server.md)
 
-  - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
+  - [](build/docker-jenkins-cicd.md)
 
-  - [Docsify + Github 搭建一个个人博客](build/docsify-github-blog.md)
+  - [](build/docsify-github-blog.md)
 
-  - [Nginx 做域名接口转发服务](build/nginx-request-redirect-to-server.md)
+  - [](build/nginx-request-redirect-to-server.md)
 
-  - [使用七牛云代替 GitHub 做图床](build/qiniu-image-hosting.md)
+  - [](build/qiniu-image-hosting.md)
+
+- 未来填坑计划
+
+  - 源码小记录
+
+  - vue-router 小记
+
+  - 关于发版需要强制刷新的解决方案
+
+  - Docker + Jenkins 搭建持续构建系统
+
+  - 使用七牛云代替 GitHub 做图床
+
+  - Nginx 做域名接口转发服务
+
+  - Docsify + Github 搭建一个 个人博客
+
+  - 后台换色实现方案
