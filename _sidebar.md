@@ -34,7 +34,7 @@
 
   - [](work/change-theme.md)
 
-  - [](work/vant-bugs.md)
+  - [Vant 遇到的坑](work/vant-bugs.md)
 
 - 搭建类
 
