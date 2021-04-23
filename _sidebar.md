@@ -34,6 +34,8 @@
 
   - [](work/change-theme.md)
 
+  - [](work/vant-bugs.md)
+
 - 搭建类
 
   - [MacBook 开发环境搭建](build/macbook-env.md)
