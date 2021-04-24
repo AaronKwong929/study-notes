@@ -2,7 +2,7 @@
 
 这个东西是[docsify](https://github.com/docsifyjs/docsify)搭建的。
 
-[个人博客（其实就是本站）](https://aaronkwong929.github.io/study-notes/)
+[个人博客](https://aaronkwong929.github.io/study-notes/)（其实就是本站）
 
 [GitHUb](https://github.com/AaronKwong929)
 
