@@ -25,6 +25,10 @@ add_header Access-Control-Allow-Origin * always;
 add_header Access-Control-Allow-Methods * always;
 ```
 
+## 结束
+
+只要加上 always，后端丢过来的 502 / 401 / 403 等错误就能够被正确发送回前端，就不会在前端报难以追踪的 CORS 错误，被 Axios 拦截器正确响应~~可以甩锅给后端了~~
+
 ## 其他
 
 前端跨域请求会先发送预检请求查询该方法能否使用 ，options 请求可以做一点额外的操作

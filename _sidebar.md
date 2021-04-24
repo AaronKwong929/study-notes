@@ -26,7 +26,7 @@
 
   - [Vue3 父子组件 v-model 通信小坑](work/vue3-setup-props.md)
 
-  - [关于发版需要强制刷新的解决方案](work/fixing-compulsory-refresh.md)
+  - [Nginx 禁用缓存](work/fixing-compulsory-refresh.md)
 
   - [Nginx 正确转发 http 的错误状态码](work/nginx-correct-http-status.md)
 
