@@ -2,12 +2,6 @@
 
   - [Element-UI 小记](code/vue-element-ui.md)
 
-- Vue
-
-  - [](vue-source-code1.md)
-
-  - [](vue-router-hook.md)
-
 - 桌面端(electron)
 
   - [Electron 踩坑](code/electron.md)
@@ -18,25 +12,29 @@
 
   - [链表类题目小记录](algorithm/link-node.md)
 
-- 工作遇到的小记
+- 一些实践
+
+  - [封装 Storage 的实践](practices/encapsulating-storage.md)
+
+  - [封装 Axios 的实践](practices/encapsulating-axios.md)
+
+- 工作遇到的
 
   - [移动端开发疑难杂症](work/mobile.md)
 
   - [时间戳转时间的需求的拓展](work/milliseconds-to-format-date.md)
 
-  - [Vue3 父子组件 props 通信](work/vue3-setup-props.md)
+  - [Vue3 父子组件 v-model 通信小坑](work/vue3-setup-props.md)
 
-  - [封装 Storage 的实践（未完成](work/encapsulating-storage.md)
+  - [关于发版需要强制刷新的解决方案](work/fixing-compulsory-refresh.md)
 
-  - [封装 Axios 的实践（未完成](work/encapsulating-axios.md)
-
-  - [](work/fixing-compulsory-refresh.md)
+  - [Nginx 正确转发 http 的错误状态码](work/nginx-correct-http-status.md)
 
   - [](work/change-theme.md)
 
   - [Vant 遇到的坑](work/vant-bugs.md)
 
-- 搭建类
+- 搭建
 
   - [MacBook 开发环境搭建](build/macbook-env.md)
 
@@ -58,11 +56,7 @@
 
   - vue-router 小记
 
-  - 关于发版需要强制刷新的解决方案
-
   - Docker + Jenkins 搭建持续构建系统
-
-  - 使用七牛云代替 GitHub 做图床
 
   - Nginx 做域名接口转发服务
 
