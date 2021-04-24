@@ -51,7 +51,7 @@ export const milliToHour = (ms = new Date().getTime(), type = `days`) => {
 
 测试一下
 
-![switch-case-method](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210407151400.png)
+![switch-case-method](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210407151400.png)
 
 没有毛病!
 
@@ -99,7 +99,7 @@ const milliToHour2 = (
 
 测试一下：
 
-![better1](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210408095638.png)
+![better1](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210408095638.png)
 
 不按顺序传值也没有问题！
 
@@ -156,7 +156,7 @@ const milliToHour = (
 
 测试一下
 
-![better-2](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210409125319.png)
+![better-2](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210409125319.png)
 
 ## 其他需要注意的
 

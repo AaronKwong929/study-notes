@@ -20,7 +20,7 @@
 
 2. /project/nginx/下有以下文件，其中 nginx.conf 和 mime.types 用于映射到 docker 容器里的/etc/nginx/，作为 nginx 的配置文件
 
-![nginx-config-files](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210418220003.png)
+![nginx-config-files](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210418220003.png)
 
 3. 编写 nginx.conf
 
@@ -62,15 +62,16 @@ services:
       - /project/nginx:/etc/nginx
 ```
 
-root角色，name随意，image指定nginx，监听80端口，需要https的另起一行443:443，将/project文件夹挂载到容器内部，nginx设置挂载到/etc/nginx中；
+root 角色，name 随意，image 指定 nginx，监听 80 端口，需要 https 的另起一行 443:443，将/project 文件夹挂载到容器内部，nginx 设置挂载到/etc/nginx 中；
 
 然后在/project/nginx/下输入 docker-compose up -d 打开链接，/test 是我打包出来的一个测试包。
 
 ## 测试
 
-![test](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210418220434.png)
+![test](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210418220434.png)
 
-可见直接访问ip/test/是能够访问到我打包的内容的
+可见直接访问 ip/test/是能够访问到我打包的内容的
+
 ## 结束
 
 如果不使用 docker-compose，单独输入 docker 命令的话，直接输入下面这行即可

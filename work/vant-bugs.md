@@ -12,11 +12,11 @@
 
 这是 Vue3 版本的，默认关闭状态，进入页面后我手动点击 dropdownItem 打开，在默认收起的情况下表现正常。
 
-![vue3-dropdown-item default closed .png](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210423223818.png)
+![vue3-dropdown-item default closed .png](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210423223818.png)
 
 然后使用 onMounted 和 nextTick，以及 dom 实例来默认 toggle true，会出现定位错误的问题，如图所示，代码如下图所示
 
-![vue3-dropdown-item default opened .png](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210423232250.png)
+![vue3-dropdown-item default opened .png](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210423232250.png)
 
 ```html
 <template>
@@ -81,7 +81,7 @@
 
 然而使用 vue2 版本的 vant 很正常！屁事没有
 
-![vue2-dropdown-item-deafult-open .png](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210423231904.png)
+![vue2-dropdown-item-deafult-open .png](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210423231904.png)
 
 代码如下所示
 
