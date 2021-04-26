@@ -113,3 +113,20 @@ renderFunction(h) {
       );
     },
 ```
+
+```js
+// 节点树渲染 - jsx
+    renderContent(h, node) {
+      const cls = ['tree_node'];
+      return (
+        <div class={cls} onClick={() => this.handleClickNode(node.data)}>
+          <div class="tree_node__name">{node.data.label}</div>
+          <div class="tree_node__id">节点ID：{node.data.id}</div>
+          <div class="tree_node__first_principle">
+            第一负责人：
+            {node.data.principleList && node.data.principleList[0].name}
+          </div>
+        </div>
+      );
+    },
+```
