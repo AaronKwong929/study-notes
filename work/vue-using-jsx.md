@@ -24,15 +24,15 @@ render(h) {
 
 ```html
 <html>
-  <form-dialog />
+    <form-dialog />
 </html>
 <script>
-  import FormDialog from "...";
-  export default {
-    components: {
-      FormDialog,
-    },
-  };
+    import FormDialog from "...";
+    export default {
+        components: {
+            FormDialog,
+        },
+    };
 </script>
 ```
 
@@ -42,4 +42,74 @@ render(h) {
 renderFunction(h) {
     return (<FormDialog />);
 }
+```
+
+```js
+// 节点树渲染 - jsx
+    renderContent(h, node) {
+      const cls = ['tree_node'],
+        orderMap = Object.freeze({
+          1: `第一`,
+          2: `第二`,
+        });
+
+      return (
+        <div class={cls} onClick={() => this.handleClickNode(node.data)}>
+          <div class="tree_node__name">{node.data.label}</div>
+          <div class="tree_node__principle_list">
+            {node.data.principleList &&
+              node.data.principleList.map(principle => (
+                <div class="tree_node__principle_list__item">
+                  <div class="tree_node__principle_list__item__order">
+                    {orderMap[principle.order]}负责人：
+                  </div>
+                  <div class="tree_node__principle_list__item__name">
+                    {principle.name}
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          <div class="tree_node__alert_list">
+            {node.data.businessAlertList &&
+            node.data.businessAlertList.length > 0 ? (
+              <span class="tree_node__alert_list__label">业务告警：</span>
+            ) : (
+              ``
+            )}
+            {node.data.businessAlertList &&
+              node.data.businessAlertList.map(alert => (
+                <div class="tree_node__alert_list__content">
+                  <ContentAlertColorBlock
+                    type="circle"
+                    size="large"
+                    simple={false}
+                    data={alert}
+                  />
+                </div>
+              ))}
+          </div>
+
+          <div class="tree_node__alert_list">
+            {node.data.heartbeatAlertList &&
+            node.data.heartbeatAlertList.length > 0 ? (
+              <span class="tree_node__alert_list__label">心跳告警：</span>
+            ) : (
+              ``
+            )}
+            {node.data.heartbeatAlertList &&
+              node.data.heartbeatAlertList.map(alert => (
+                <div class="tree_node__alert_list__content">
+                  <ContentAlertColorBlock
+                    type="circle"
+                    size="large"
+                    simple={false}
+                    data={alert}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+      );
+    },
 ```

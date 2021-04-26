@@ -12,4 +12,41 @@ localStorage 在设置内容时，如果值没有发生变化，则不会触发 
 localStorage.setItem(key, JSON.stringify({ val, timestamp: Date.now() }));
 ```
 
+## 完整代码
+
+```js
+export const getItem = (key) => {
+    try {
+        const val = JSON.parse(localStorage.getItem(key));
+        return val ? val.data : null;
+    } catch (err) {
+        console.error(`获取本地数据: ${key} 异常`, err);
+    }
+};
+
+export const setItem = (key, data) => {
+    try {
+        // 这里显式指定 key 名为 data
+        localStorage.setItem(
+            key,
+            JSON.stringify({ data: data, timestamp: Date.now() })
+        );
+        return;
+    } catch (err) {
+        console.error(`设置本地数据: ${key} 异常`, err);
+    }
+};
+
+export const removeItem = (key) => {
+    try {
+        localStorage.removeItem(key);
+        return;
+    } catch (err) {
+        console.error(`删除本地数据: ${key} 异常`, err);
+    }
+};
+
+export const clearStorage = () => localStorage.clear();
+```
+
 ## 结束
