@@ -25,6 +25,8 @@ const baseURL = process.env.VUE_APP_API;
 
 #### 拦截重复请求
 
+https://segmentfault.com/a/1190000023073514
+
 #### 重新发送请求
 
 ### 响应拦截
