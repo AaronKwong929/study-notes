@@ -51,3 +51,34 @@ export default class EventBus {
     }
 }
 ```
+
+## 在 Vue3 中使用 EventBus
+
+Vue3 里在 setup 中使用 event bus，因为没有了 this，不能直接使用 this.$Bus.$on /$emit
+
+首先需要在 main.js 里引入 event bus
+
+```js
+// src/main.js
+import EventBus from "@/utils/event-bus";
+
+const $bus = new EventBus();
+
+//...
+
+app.provide(`$bus`, $bus);
+```
+
+然后在各个需要 event-bus 的 vue 文件里
+
+```js
+import {inject} from 'vue'
+
+// ...
+setup() {
+    const $bus = inject(`$bus`);
+    onBeforeUnmount(() => {
+        $bus.$off(`xxxx`);
+    })
+}
+```
