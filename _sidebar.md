@@ -30,11 +30,17 @@
 
   - [Nginx 正确转发 http 的错误状态码](work/nginx-correct-http-status.md)
 
-  - [](work/change-theme.md)
+  - [Vue 项目 换色实现方案](work/change-theme.md)
 
   - [Vant 遇到的坑](work/vant-bugs.md)
 
   - [Git 日常使用](work/git.md)
+
+  - [Draggable 的使用](work/draggable.md)
+
+  - [Quill 富文本编辑器相关（未整理完成）](work/quill.md)
+
+  - [后台权限 - 树形结构渲染](work/auth-group.md)
 
 - 搭建
 
@@ -44,13 +50,11 @@
 
   - [Docker + Nginx 部署静态资源服务器](build/docker-nginx-static-server.md)
 
-  - [](build/docker-jenkins-cicd.md)
+  - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
 
   - [](build/docsify-github-blog.md)
 
   - [](build/nginx-request-redirect-to-server.md)
-
-  - [](build/qiniu-image-hosting.md)
 
 - 未来填坑计划
 
@@ -58,10 +62,6 @@
 
   - vue-router 小记
 
-  - Docker + Jenkins 搭建持续构建系统
-
   - Nginx 做域名接口转发服务
 
   - Docsify + Github 搭建一个 个人博客
-
-  - 后台换色实现方案
