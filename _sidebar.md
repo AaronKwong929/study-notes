@@ -34,6 +34,8 @@
 
   - [Vant 遇到的坑](work/vant-bugs.md)
 
+  - [Git 日常使用](work/git.md)
+
 - 搭建
 
   - [MacBook 开发环境搭建](build/macbook-env.md)
