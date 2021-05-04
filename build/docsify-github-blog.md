@@ -58,7 +58,7 @@ Settings > Developer settings > OAuth apps
 
 填入内容
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210504222508.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210504222508.png)
 
 记住 client id 和 client secret id
 
@@ -83,4 +83,4 @@ index.html 写入以下内容
 </script>
 ```
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210504222652.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210504222652.png)

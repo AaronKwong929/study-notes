@@ -1,0 +1,23 @@
+$error-c: #FF6951;
+
+.form-item{
+    margin-bottom: .3rem;    
+    .form-label{
+        font-size: .16rem;
+        margin-bottom: .16rem;
+        color: $fc1;
+        font-weight: bold;
+
+        .required{
+            color: $error-c;
+        }
+    }
+    .form-content{
+        
+    }
+    .form-tip{
+        font-size: .12rem;
+        color: $error-c;
+        padding-top: .06rem;
+    }
+}
