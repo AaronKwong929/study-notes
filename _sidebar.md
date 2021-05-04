@@ -42,6 +42,8 @@
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
 
+  - [常用工具类](work/js-common-utils.md)
+
 - 搭建
 
   - [MacBook 开发环境搭建](build/macbook-env.md)
@@ -55,6 +57,24 @@
   - [](build/docsify-github-blog.md)
 
   - [](build/nginx-request-redirect-to-server.md)
+
+- [组件](components/README.md)
+
+  - [地址选择器 AreaPicker](components/AreaPicker.md)
+
+  - [轻弹窗 LightModal](components/LightModal.md)
+
+  - [加载 Loading](components/Loading.md)
+
+  - [? Collapse](components/Collapse.md)
+
+  - [消息 Message](components/Message.md)
+
+  - [消息弹窗 MessageBox](components/MessageBox.md)
+
+  - [开关 Switch](components/Switch.md)
+
+  - [轻提示 Toast](components/Toast.md)
 
 - 未来填坑计划
 

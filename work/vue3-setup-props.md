@@ -61,27 +61,27 @@ export default {
 
 上面的操作其实大概等价于下面（封装层）的操作（不太恰当）
 
-```vue
+```html
 <template>
   <!-- el-input 相当于第三层 -->
   <el-input v-model="data" />
 </template>
 
 <script>
-export default {
-  data() {
-    data: this.visible;
-  },
-
-  watch: {
-    value(val) {
-      this.data = val;
+  export default {
+    data() {
+      data: this.visible;
     },
 
-    data(val) {
-      this.$emit(`update:value`, val);
+    watch: {
+      value(val) {
+        this.data = val;
+      },
+
+      data(val) {
+        this.$emit(`update:value`, val);
+      },
     },
-  },
-};
+  };
 </script>
 ```
