@@ -56,7 +56,7 @@
 
   - [](build/docsify-github-blog.md)
 
-  - [](build/nginx-request-redirect-to-server.md)
+  - [Docsify + Github 搭建一个 个人博客](build/nginx-request-redirect-to-server.md)
 
 - [组件](components/README.md)
 
@@ -76,11 +76,13 @@
 
   - [轻提示 Toast](components/Toast.md)
 
-  - [题目录入 V2.0](components/QuestionBank/v2.md)
+  - 题目录入
 
-  -[题目录入 V3.0](components/QuestionBank/v3.md)
+    - [题目录入 V2.0](components/QuestionBank/v2.md)
 
-- 未来填坑计划
+    - [题目录入 V3.0](components/QuestionBank/v3.md)
+
+<!-- - 未来填坑计划
 
   - 源码小记录
 
@@ -88,4 +90,4 @@
 
   - Nginx 做域名接口转发服务
 
-  - Docsify + Github 搭建一个 个人博客
+  -  -->
