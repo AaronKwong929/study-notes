@@ -49,3 +49,38 @@ https://aaronkwong929.github.io/study-notes/
 看自己存储上传的笔记了！
 
 配合 PicGo 和图床仓库以及 jsDelivr 加速，整个在线笔记平台就完成了
+
+### 关于 Git Talk 评论插件
+
+打开 GitHub
+
+Settings > Developer settings > OAuth apps
+
+填入内容
+
+![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210504222508.png)
+
+记住 client id 和 client secret id
+
+index.html 写入以下内容
+
+```html
+<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css" />
+
+<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: "",
+    clientSecret: "",
+    repo: "study-notes",
+    owner: "AaronKwong929",
+    admin: ["AaronKwong929"],
+    id: location.hash,
+    // facebook-like distraction free mode
+    distractionFreeMode: false,
+  });
+</script>
+```
+
+![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210504222652.png)
