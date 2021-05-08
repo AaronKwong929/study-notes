@@ -28,11 +28,12 @@
         <div id="app"></div>
         <script>
             window.$docsify = {
-                name: "AaronKwong's blog",
+                name: "AaronKwong的技术随笔",
                 repo: "https://github.com/AaronKwong929/study-notes",
                 loadSidebar: true,
                 autoHeader: true,
                 subMaxLevel: 2,
+                auto2top: true,
                 search: "auto",
                 alias: {
                     "/.*/_sidebar.md": "/_sidebar.md",
@@ -68,6 +69,11 @@
                     crossChapterText: true,
                 },
             };
+
+            // 这是service worker 注册（离线使用）
+            if (typeof navigator.serviceWorker !== "undefined") {
+                navigator.serviceWorker.register("sw.js");
+            }
         </script>
         <!-- Docsify v4 -->
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
@@ -96,13 +102,6 @@
                 // facebook-like distraction free mode
                 distractionFreeMode: false,
             });
-        </script>
-
-        <!-- 这是service worker 注册（离线使用） -->
-        <script>
-            if (typeof navigator.serviceWorker !== "undefined") {
-                navigator.serviceWorker.register("sw.js");
-            }
         </script>
     </body>
 </html>
