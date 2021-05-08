@@ -52,6 +52,12 @@
           color: "rgb(90,90,90)",
           language: "chinese",
         },
+        pagination: {
+          previousText: '上一章节',
+          nextText: '下一章节',
+          crossChapter: true,
+          crossChapterText: true,
+        },
       };
     </script>
     <!-- Docsify v4 -->
@@ -61,10 +67,14 @@
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
-    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-
+    <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-count@1.1.0/dist/countable.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    
     <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-    <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+    <!-- <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
     <script>
       const gitalk = new Gitalk({
         clientID: "9d800fc0868b4e9d2ad5",
