@@ -20,62 +20,62 @@
 
 ```html
 <template>
-  <div class="home">
-    <div class="placeholder">这里是30vh占位</div>
-    <van-dropdown-menu>
-      <van-dropdown-item title="筛选" ref="item">
-        <van-cell center title="包邮">
-          <template #right-icon>
-            <van-switch size="24" active-color="#ee0a24" />
-          </template>
-        </van-cell>
-        <van-cell center title="团购">
-          <template #right-icon>
-            <van-switch size="24" active-color="#ee0a24" />
-          </template>
-        </van-cell>
-        <div style="padding: 5px 16px;">
-          <van-button type="danger" block round> 确认 </van-button>
-        </div>
-      </van-dropdown-item>
-    </van-dropdown-menu>
-  </div>
+    <div class="home">
+        <div class="placeholder">这里是30vh占位</div>
+        <van-dropdown-menu>
+            <van-dropdown-item title="筛选" ref="item">
+                <van-cell center title="包邮">
+                    <template #right-icon>
+                        <van-switch size="24" active-color="#ee0a24" />
+                    </template>
+                </van-cell>
+                <van-cell center title="团购">
+                    <template #right-icon>
+                        <van-switch size="24" active-color="#ee0a24" />
+                    </template>
+                </van-cell>
+                <div style="padding: 5px 16px;">
+                    <van-button type="danger" block round> 确认 </van-button>
+                </div>
+            </van-dropdown-item>
+        </van-dropdown-menu>
+    </div>
 </template>
 <script>
-  import { onMounted, nextTick, ref } from "vue";
-  export default {
-    setup() {
-      const item = ref(null);
-      onMounted(() => {
-        nextTick(() => {
-          item.value.toggle(true);
-        });
-      });
-      return {
-        item,
-      };
-    },
-  };
+    import { onMounted, nextTick, ref } from "vue";
+    export default {
+        setup() {
+            const item = ref(null);
+            onMounted(() => {
+                nextTick(() => {
+                    item.value.toggle(true);
+                });
+            });
+            return {
+                item,
+            };
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
-  .home {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+    .home {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 
-  .placeholder {
-    height: 30vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
+    .placeholder {
+        height: 30vh;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 ```
 
@@ -87,63 +87,71 @@
 
 ```html
 <template>
-  <div class="home">
-    <div class="placeholder">这里是30vh占位</div>
+    <div class="home">
+        <div class="placeholder">这里是30vh占位</div>
 
-    <van-dropdown-menu>
-      <van-dropdown-item v-model="value" :options="option" />
-      <van-dropdown-item title="筛选" ref="item">
-        <van-cell center title="包邮">
-          <template #right-icon>
-            <van-switch v-model="switch1" size="24" active-color="#ee0a24" />
-          </template>
-        </van-cell>
-        <van-cell center title="团购">
-          <template #right-icon>
-            <van-switch v-model="switch2" size="24" active-color="#ee0a24" />
-          </template>
-        </van-cell>
-        <div style="padding: 5px 16px;">
-          <van-button type="danger" block round @click="onConfirm">
-            确认
-          </van-button>
-        </div>
-      </van-dropdown-item>
-    </van-dropdown-menu>
-  </div>
+        <van-dropdown-menu>
+            <van-dropdown-item v-model="value" :options="option" />
+            <van-dropdown-item title="筛选" ref="item">
+                <van-cell center title="包邮">
+                    <template #right-icon>
+                        <van-switch
+                            v-model="switch1"
+                            size="24"
+                            active-color="#ee0a24"
+                        />
+                    </template>
+                </van-cell>
+                <van-cell center title="团购">
+                    <template #right-icon>
+                        <van-switch
+                            v-model="switch2"
+                            size="24"
+                            active-color="#ee0a24"
+                        />
+                    </template>
+                </van-cell>
+                <div style="padding: 5px 16px;">
+                    <van-button type="danger" block round @click="onConfirm">
+                        确认
+                    </van-button>
+                </div>
+            </van-dropdown-item>
+        </van-dropdown-menu>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: "Home",
+    export default {
+        name: "Home",
 
-    data() {
-      return {
-        value: 0,
-        switch1: false,
-        switch2: false,
-        option: [
-          { text: "全部商品", value: 0 },
-          { text: "新款商品", value: 1 },
-          { text: "活动商品", value: 2 },
-        ],
-      };
-    },
+        data() {
+            return {
+                value: 0,
+                switch1: false,
+                switch2: false,
+                option: [
+                    { text: "全部商品", value: 0 },
+                    { text: "新款商品", value: 1 },
+                    { text: "活动商品", value: 2 },
+                ],
+            };
+        },
 
-    methods: {
-      onConfirm() {
-        this.$refs.item.toggle();
-      },
-    },
+        methods: {
+            onConfirm() {
+                this.$refs.item.toggle();
+            },
+        },
 
-    mounted() {
-      this.$refs[`item`].toggle(true);
-    },
-  };
+        mounted() {
+            this.$refs[`item`].toggle(true);
+        },
+    };
 </script>
 ```
 
-## 大概的原因？
+### 大概的原因？
 
 从 F12 查阅区别，会发现异常状态下
 
@@ -165,9 +173,9 @@ var { offset } = parent;
 var style = (0, _utils.getZIndexStyle)(zIndex);
 
 if (direction === "down") {
-  style.top = offset.value + "px";
+    style.top = offset.value + "px";
 } else {
-  style.bottom = offset.value + "px";
+    style.bottom = offset.value + "px";
 }
 ```
 
@@ -199,33 +207,33 @@ var { parent } = (0, _use.useParent)(_DropdownMenu.DROPDOWN_KEY);
 
 ```js
 export function useParent(key) {
-  var parent = inject(key, null);
+    var parent = inject(key, null);
 
-  if (parent) {
-    var instance = getCurrentInstance();
-    var { link: _link, unlink: _unlink, internalChildren } = parent;
-    _link(instance);
-    onUnmounted(() => _unlink(instance));
-    var index = computed(() => internalChildren.indexOf(instance));
+    if (parent) {
+        var instance = getCurrentInstance();
+        var { link: _link, unlink: _unlink, internalChildren } = parent;
+        _link(instance);
+        onUnmounted(() => _unlink(instance));
+        var index = computed(() => internalChildren.indexOf(instance));
+        return {
+            parent,
+            index,
+        };
+    }
+
     return {
-      parent,
-      index,
+        parent: null,
+        index: ref(-1),
     };
-  }
-
-  return {
-    parent: null,
-    index: ref(-1),
-  };
 }
 ```
 
 ```js
 // /node_modules/vant/lib/dropdown-menu/DropdownMenu.js:69
 if (props.direction === "down") {
-  offset.value = rect.bottom;
+    offset.value = rect.bottom;
 } else {
-  offset.value = window.innerHeight - rect.top;
+    offset.value = window.innerHeight - rect.top;
 }
 ```
 
@@ -235,34 +243,34 @@ if (props.direction === "down") {
 import { unref } from "vue";
 
 function isWindow(val) {
-  return val === window;
+    return val === window;
 }
 
 function makeDOMRect(width, height) {
-  return {
-    top: 0,
-    left: 0,
-    right: width,
-    bottom: height,
-    width,
-    height,
-  };
+    return {
+        top: 0,
+        left: 0,
+        right: width,
+        bottom: height,
+        width,
+        height,
+    };
 }
 
 export var useRect = (elementOrRef) => {
-  var element = unref(elementOrRef);
+    var element = unref(elementOrRef);
 
-  if (isWindow(element)) {
-    var width = element.innerWidth;
-    var height = element.innerHeight;
-    return makeDOMRect(width, height);
-  }
+    if (isWindow(element)) {
+        var width = element.innerWidth;
+        var height = element.innerHeight;
+        return makeDOMRect(width, height);
+    }
 
-  if (element && element.getBoundingClientRect) {
-    return element.getBoundingClientRect();
-  }
+    if (element && element.getBoundingClientRect) {
+        return element.getBoundingClientRect();
+    }
 
-  return makeDOMRect(0, 0);
+    return makeDOMRect(0, 0);
 };
 ```
 
@@ -274,26 +282,54 @@ export var useRect = (elementOrRef) => {
 
 只能是不存在该 element 了
 
-## 问题结论
+### 问题结论
 
 dropdownMenu 找不到对应的 barRef 的实例，导致计算 rect 失败返回了 0
 
 触发原因不知道（
 
-## 不完美解决方案
+### 不完美解决方案
 
 Vue3 下通过获取 dom 实例进行一个点击事件，模拟用户点击来进行 dropdown 触发，vue2 没有这个问题
 
 ```js
 onMounted(() => {
-  const dom = document.querySelector(`.filter-details-ref`);
-  dom &&
-    dom.dispatchEvent(
-      new Event(`click`, {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-      })
-    );
+    const dom = document.querySelector(`.filter-details-ref`);
+    dom &&
+        dom.dispatchEvent(
+            new Event(`click`, {
+                view: window,
+                bubbles: true,
+                cancelable: true,
+            })
+        );
 });
+```
+
+## 关于 PullRefresh 结合 List 组件官方文档的 bug
+
+[VanList](https://youzan.github.io/vant/v3/#/zh-CN/list)
+
+```html
+<van-pull-refresh v-model="state.refreshing" @refresh="onRefresh">
+    <van-list
+        v-model:loading="state.loading"
+        :finished="state.finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+    >
+        <van-cell v-for="item in state.list" :key="item" :title="item" />
+    </van-list>
+</van-pull-refresh>
+```
+
+上面这段是文档里写的，其实没有问题，但是实际使用的时候会发现下拉刷新完成后，“加载中”不会消失，并且卡主滚动，需要加入以下 css
+
+```scss
+// 这里的 deep 是穿透，vue3的写法，相当于 ::v-deep(.van-pull-refresh)
+:deep(.van-pull-refresh) {
+    // flex是项目中用了flex布局，用与撑开容器
+    flex: 1;
+    overflow: auto;
+}
 ```
