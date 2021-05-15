@@ -14,9 +14,15 @@
 
 - 一些实践
 
-  - [封装 Storage 的实践](practices/encapsulating-storage.md)
+  - [封装 Storage](practices/encapsulating-storage.md)
 
-  - [封装 Axios 的实践](practices/encapsulating-axios.md)
+  - [封装 Axios](practices/encapsulating-axios.md)
+
+  - [封装 EventBus](practices/encapsulating-event-bus.md)
+
+  - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
+
+  - [尽可能准确的 setTimeout](practices/zero-timeout-fn.md)
 
 - 工作遇到的
 

@@ -5,7 +5,6 @@ const getRawType = (val) => Object.prototype.toString.call(val).slice(8, -1);
 
 export const isInt = (val) => /^[0-9]*$/.test(val);
 export const isFloat = (val) => isNumber(val) && ~~val !== val;
-
 export const isNumber = (val) => getRawType(val) === "Number";
 export const isString = (val) => getRawType(val) === "String";
 export const isBoolean = (val) => getRawType(val) === "Boolean";
@@ -16,12 +15,6 @@ export const isFunction = (val) => getRawType(val) === "Function";
 export const isDate = (val) => getRawType(val) === "Date";
 export const isArray = (val) => getRawType(val) === "Array";
 export const isRegExp = (val) => getRawType(val) === "RegExp";
-
-export const isEmptyObject = (obj) => {
-    return Object.keys(obj).length === 0;
-};
-
-export const compareFloat = (a, b) => {
-    return Math.abs(a - b) <= Number.EPSILON;
-};
+export const isEmptyObject = (obj) => Object.keys(obj).length === 0;
+export const compareFloat = (a, b) => Math.abs(a - b) <= Number.EPSILON;
 ```
