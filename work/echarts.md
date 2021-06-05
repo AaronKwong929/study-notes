@@ -112,3 +112,21 @@ yAxis: [
           },
         ],
 ```
+
+## 移动端下，数据表失焦后浮窗不会自动关闭的解决办法
+
+目前的解决方案比较粗略，在点击部分表单的情况下会出现这个情况，如图所示
+
+![pic](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210605113101.png)
+
+通过 event-bus 在需要隐藏 tooltip 时触发一个事件，在 echarts 组件里监听事件，使用 echarts 提供的 dispatchAction 进行隐藏
+
+```js
+const clearTooltip = () => {
+    chartInstance.dispatchAction({ type: `hideTip` });
+};
+
+$bus.on(`handle-hide-tooltip`, clearTooltip);
+```
+
+dispatchAction 内容可以参考[官网](https://echarts.apache.org/zh/api.html#echartsInstance.dispatchAction)，自动轮播 tooltip 也是以 dispatchAction 为核心进行完成的
