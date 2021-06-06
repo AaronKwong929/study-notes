@@ -9,26 +9,26 @@
 ```js
 // map，判断 yAxis 的 label 应该如何渲染
 const yAxisLabelFormatter = Object.freeze({
-    value: `{value}`,
-    precent: `{value}%`,
+  value: `{value}`,
+  precent: `{value}%`,
 });
 // map，是否需要对数据进行格式化
 const yDataFormatMap = Object.freeze({
-    value: (val) => val,
-    precent: (val) => parseFloat(val),
+  value: (val) => val,
+  precent: (val) => parseFloat(val),
 });
 ```
 
 ```js
 // 这是用来判断传入值类型是否是字符串，是则再判断这个字符串是否包含百分号，如果有可以判断传入的数据是百分比数据
 if (
-    col.data.some((item) => {
-        if (getType(item.value) === `string`) {
-            return item.value.includes(`%`);
-        }
-    })
+  col.data.some((item) => {
+    if (getType(item.value) === `string`) {
+      return item.value.includes(`%`);
+    }
+  })
 ) {
-    yAxisType = `precent`;
+  yAxisType = `precent`;
 }
 ```
 
@@ -117,13 +117,13 @@ yAxis: [
 
 目前的解决方案比较粗略，在点击部分表单的情况下会出现这个情况，如图所示
 
-![pic](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210605113101.png)
+![pic](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210605113101.png)
 
 通过 event-bus 在需要隐藏 tooltip 时触发一个事件，在 echarts 组件里监听事件，使用 echarts 提供的 dispatchAction 进行隐藏
 
 ```js
 const clearTooltip = () => {
-    chartInstance.dispatchAction({ type: `hideTip` });
+  chartInstance.dispatchAction({ type: `hideTip` });
 };
 
 $bus.on(`handle-hide-tooltip`, clearTooltip);
