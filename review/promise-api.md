@@ -152,7 +152,7 @@ Promise.allSettled = function (promises) {
     };
 
     for (let promise of promises) {
-      Promise.resolve(promise).then(wrapFufilled(index), wrapRejected(index));
+      Promise.resolve(promise).then(wrapFulfilled(index), wrapRejected(index));
       index += 1;
     }
   });
