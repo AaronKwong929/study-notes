@@ -86,9 +86,9 @@ Promise.all = function (promises) {
 ```js
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
-    promises.forEach((promise) => {
+    for (let promise of promises) {
       promise.then(resolve, reject);
-    });
+    }
   });
 };
 ```
