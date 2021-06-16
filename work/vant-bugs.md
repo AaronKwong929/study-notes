@@ -333,3 +333,42 @@ onMounted(() => {
     overflow: auto;
 }
 ```
+
+## 当 VanPullRefresh 组件发生滚动穿透时
+
+在组件内监听滚动，当滚动高度为 0 时才激活 pull-refresh
+
+```html
+<van-pull-refresh
+    :disabled="!pullRefreshActive"
+    :pull-distance="200"
+    success-text="刷新成功"
+    v-model="tableLoading"
+    @refresh="getTableData"
+></van-pull-refresh>
+```
+
+```js
+const scrollTop = ref(0);
+const pullRefreshActive = ref(true);
+watch(scrollTop, (val) => {
+    if (val === 0) {
+        pullRefreshActive.value = true;
+        return;
+    } else if (val !== 0) {
+        pullRefreshActive.value = false;
+    }
+});
+const handleScroll = (e) => {
+    scrollTop.value = e.srcElement.scrollingElement.scrollTop; // 获取页面滚动高度
+    return;
+};
+
+onMounted(() => {
+    window.addEventListener(`scroll`, handleScroll, { passive: true });
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener(`scroll`, handleScroll, { passive: true });
+});
+```
