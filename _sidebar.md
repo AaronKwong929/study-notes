@@ -1,16 +1,11 @@
-- 网页
+- Web
 
-  - [Element-UI 小记](code/vue-element-ui.md)
+  - [Element-UI 踩坑](code/vue-element-ui.md)
 
 - 桌面端(electron)
 
   - [Electron 踩坑](code/electron.md)
 
-- 算法
-
-  - [一些遇到的小窍门](algorithm/tips.md)
-
-  - [链表类题目小记录](algorithm/link-node.md)
 
 - 一些实践
 
@@ -25,6 +20,8 @@
   - [尽可能准确的 setTimeout](practices/zero-timeout-fn.md)
 
 - 工作遇到的
+
+  - [Vue3 + Echarts封装业务组件的思路](work/echarts-component.md)
 
   - [移动端开发疑难杂症](work/mobile.md)
 
@@ -44,11 +41,11 @@
 
   - [Draggable 的使用](work/draggable.md)
 
-  - [Quill 富文本编辑器相关（未整理完成）](work/quill.md)
+  - [Quill 富文本编辑器相关](work/quill.md)
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
 
-  - [常用工具类](work/js-common-utils.md)
+  - [JS常用函数](work/js-common-utils.md)
 
 - 搭建
 
@@ -61,8 +58,6 @@
   - [Docker + Jenkins 搭建持续构建系统](build/docker-jenkins-cicd.md)
 
   - [Docsify + Github 搭建一个 个人博客](build/docsify-github-blog.md)
-
-  - [](build/nginx-request-redirect-to-server.md)
 
 - [组件](components/README.md)
 
@@ -88,8 +83,9 @@
 
     - [题目录入 V3.0](components/QuestionBank/v3.md)
 
-<!--
-- 未来填坑计划
-  - 源码小记录
-  - vue-router 小记
- -->
+
+- 算法
+
+  - [一些遇到的小窍门](algorithm/tips.md)
+
+  - [链表类题目小记录](algorithm/link-node.md)
