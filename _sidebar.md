@@ -1,11 +1,4 @@
-- Web
-
-
-- 桌面端(electron)
-
-
-
-- 一些实践
+- 实践
 
   - [封装 Storage](practices/encapsulating-storage.md)
 
@@ -18,6 +11,8 @@
   - [尽可能准确的 setTimeout](practices/zero-timeout-fn.md)
 
 - 工作遇到的
+
+  - [Git 日常使用](work/git.md)
 
   - [Vue3 + Echarts封装业务组件的思路](work/echarts-component.md)
 
@@ -33,17 +28,15 @@
 
   - [Vue 项目 换色实现方案](work/change-theme.md)
 
-  - [Vant 遇到的坑](work/vant-bugs.md)
+  - [Vant 踩坑](work/vant-bugs.md)
 
-  - [Git 日常使用](work/git.md)
+  - [Element-UI 踩坑](work/vue-element-ui.md)
+
+  - [Electron 踩坑](work/electron.md)
 
   - [Draggable 的使用](work/draggable.md)
 
   - [Quill 富文本编辑器相关](work/quill.md)
-
-  - [Electron 踩坑](work/electron.md)
-
-  - [Element-UI 踩坑](work/vue-element-ui.md)
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
 
@@ -84,7 +77,6 @@
     - [题目录入 V2.0](components/QuestionBank/v2.md)
 
     - [题目录入 V3.0](components/QuestionBank/v3.md)
-
 
 - 算法
 
