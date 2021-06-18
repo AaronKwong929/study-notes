@@ -15,15 +15,13 @@ import router from "@/router";
 const baseURL = process.env.VUE_APP_API;
 ```
 
-## 请求拦截
-
-### 拦截重复请求
+## 拦截重复请求
 
 https://segmentfault.com/a/1190000023073514
 
-### 重新发送请求
+## 重新发送请求
 
-### 限制并发请求个数
+## 限制并发请求个数
 
 ## 完整代码
 

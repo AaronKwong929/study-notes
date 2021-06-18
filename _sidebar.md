@@ -1,10 +1,8 @@
 - Web
 
-  - [Element-UI 踩坑](code/vue-element-ui.md)
 
 - 桌面端(electron)
 
-  - [Electron 踩坑](code/electron.md)
 
 
 - 一些实践
@@ -42,6 +40,10 @@
   - [Draggable 的使用](work/draggable.md)
 
   - [Quill 富文本编辑器相关](work/quill.md)
+
+  - [Electron 踩坑](work/electron.md)
+
+  - [Element-UI 踩坑](work/vue-element-ui.md)
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
 
