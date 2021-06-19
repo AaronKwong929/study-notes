@@ -156,3 +156,88 @@ const postOrderTraverse = (root) => {
 ```
 
 ### 迭代
+
+本质是模拟递归，要用到栈
+
+#### 前序
+
+初始化栈，根节点入栈
+
+当栈不为空时
+
+-   弹出栈顶元素，将值加入结果中
+
+-   若右子树非空，右子树入栈
+
+-   若左子树非空，左子树入栈
+
+栈是先进后出/后进先出的，这样遍历就是根->左->右的结构
+
+```js
+const preOrderTraverse = (root) => {
+    if (!root) return [];
+    const stack = [root],
+        res = [];
+    while (stack.length) {
+        const node = stack.pop();
+        res.push(node.val);
+        if (node.right) stack.push(node.right);
+        if (node.left) stack.push(node.left);
+    }
+    return res;
+};
+```
+
+#### 中序
+
+初始化栈为空，循环条件：root 有值/栈有元素
+
+最左子树依次加入到栈中，然后取栈顶元素 tmp 并输出结果，然后取 tmp 的右子树为 root，继续循环
+
+（到达最左子节点 tmp1，其右子树为 null，此时循环条件 root 不成立，但 stack.length > 0（最少有一个根节点），所以可以继续循环）
+
+```js
+const inOrderTraverse = (root) => {
+    if (!root) return [];
+    const stack = [],
+        res = [];
+    while (root || stack.length) {
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        res.push(root.val);
+        root = root.right;
+    }
+    return res;
+};
+```
+
+#### 后序
+
+跟前序差不多，区别：
+
+前序是中->左->右，写法是push(val), push(node.right), push(node.left)
+
+后序是左->右->中，修改前序的，push(val), push(node.left), push(node.right) 得出来的结果是中->右->左，数组反转即可得到答案
+
+```js
+const reverse = array => {
+        let res = [];
+        for (let i = array.length - 1; i >= 0; i--) {
+            res.push(array[i]);
+        }
+        return res;
+    };
+    if (!root) return [];
+    const stack = [root],
+        res = [];
+    while (stack.length) {
+        const node = stack.pop();
+        res.push(node.val);
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+    return reverse(res);
+```
