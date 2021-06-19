@@ -80,6 +80,8 @@
 
 - 算法
 
-  - [一些遇到的小窍门](algorithm/tips.md)
+  - [二叉树](algorithm/tree.md)
 
-  - [链表类题目小记录](algorithm/link-node.md)
+  - [一些小窍门](algorithm/tips.md)
+
+  - [链表](algorithm/link-node.md)
