@@ -218,19 +218,23 @@ const inOrderTraverse = (root) => {
 
 跟前序差不多，区别：
 
-前序是中->左->右，写法是push(val), push(node.right), push(node.left)
+前序是中->左->右，写法是 push(val), push(node.right), push(node.left)
 
 后序是左->右->中，修改前序的，push(val), push(node.left), push(node.right) 得出来的结果是中->右->左，数组反转即可得到答案
 
 ```js
-const reverse = array => {
-        let res = [];
-        for (let i = array.length - 1; i >= 0; i--) {
-            res.push(array[i]);
-        }
-        return res;
-    };
+const postOrderTraverse = (root) => {
     if (!root) return [];
+    const reverse = (array) => {
+        const length = array.length;
+        for (let i = 0; i < Math.floor(length / 2); i++) {
+            [array[i], array[length - 1 - i]] = [
+                array[length - 1 - i],
+                array[i],
+            ];
+        }
+        return array;
+    };
     const stack = [root],
         res = [];
     while (stack.length) {
@@ -240,4 +244,5 @@ const reverse = array => {
         if (node.right) stack.push(node.right);
     }
     return reverse(res);
+};
 ```
