@@ -125,6 +125,8 @@ var pathSum = function (root, targetSum) {
 
 递归函数可以传入一个辅助参数参与递归，这里是空字符串
 
+<!-- TODO: 这里还没做 -->
+
 ## 前序，中序，后序的递归/迭代方法
 
 ### 递归
@@ -329,3 +331,13 @@ var buildTree = function (preorder, inorder) {
     return helper(0, preorder.length - 1, 0, inorder.length - 1);
 };
 ```
+
+## [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees/)
+
+要看[题解](https://leetcode-cn.com/problems/unique-binary-search-trees/solution/bu-tong-de-er-cha-sou-suo-shu-by-leetcode-solution/)
+
+分解两个子问题且子问题解可以复用 -> dp
+
+n 个节点，i 作为根节点，根节点左侧的子树数量为 dp[i-1]，根节点右侧子树数量为 dp[n-i]，所以 i 作为根节点拥有的子树形态为 dp[i] = dp[i-1]\*dp[n-i]
+
+dp[i-1]和 dp[n-i]又可以分解为更多的子问题，所以这里会产生连加求和（第二层 for 循环）
