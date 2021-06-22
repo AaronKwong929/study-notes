@@ -246,3 +246,86 @@ const postOrderTraverse = (root) => {
     return reverse(res);
 };
 ```
+
+## [前序、中序构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+leetCode 的第 105 题，这题思考了很久，最后还是看[官方题解](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/)就明白是什么意思了
+
+个人对于这种索引值传入的值会比较紧张，其实只需要画图就行了
+
+![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210622162542.png)
+
+图里面已经写出来的索引值可以直接得到，关键就在于**前序左子树**的终点，以及**前序右子树**的起点（前者 + 1 得到）
+
+由于**左子树长度相等**，求中序左子树长度
+
+```js
+const leftTreeLength = mid - inStart;
+```
+
+索引是从 0 开始算的，根节点索引 减去 中序左子树起点索引 即为长度
+
+（其实就是 mid-1 - inStart + 1）
+
+或者
+
+```js
+// [0, 1, 2, 3]
+// 求子序列[0, 1, 2]的长度，将 3 当做根节点
+// 3 - 0  或者 2 - 0 + 1 = 3
+```
+
+得到左子树长度后，前序左子树 的终点和 前序右子树 的起点就可以得到了
+
+```js
+preLeftEnd = preStart + leftTreeLength;
+
+preRightStart = preStart + leftTreeLength + 1;
+```
+
+这里的 preLeftEnd 跟上面其实是一样的，举个例子
+
+```js
+// [0, 1, 2, 3]
+// 0 是根节点，[1, 2, 3]是子树，子树长度为 3
+// preLeftEnd = preStart + leftTreeLength = 0 + 3 = 3
+```
+
+得出来所有位置后进行递归即可
+
+### 完整代码
+
+```js
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function (preorder, inorder) {
+    const map = new Map();
+    for (let i = 0; i < inorder.length; i++) {
+        map.set(inorder[i], i);
+    }
+    const helper = (preStart, preEnd, inStart, inEnd) => {
+        if (preStart > preEnd || inStart > inEnd) return null;
+        const rootVal = preorder[preStart];
+        const root = new TreeNode(rootVal);
+        const mid = map.get(rootVal);
+        const leftTreeLength = mid - inStart;
+        root.left = helper(
+            preStart + 1,
+            preStart + leftTreeLength,
+            inStart,
+            mid - 1
+        );
+        root.right = helper(
+            preStart + leftTreeLength + 1,
+            preEnd,
+            mid + 1,
+            inEnd
+        );
+        return root;
+    };
+    return helper(0, preorder.length - 1, 0, inorder.length - 1);
+};
+```
