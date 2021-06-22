@@ -253,7 +253,7 @@ leetCode 的第 105 题，这题思考了很久，最后还是看[官方题解](
 
 个人对于这种索引值传入的值会比较紧张，其实只需要画图就行了
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210622162542.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210622162542.png)
 
 图里面已经写出来的索引值可以直接得到，关键就在于**前序左子树**的终点，以及**前序右子树**的起点（前者 + 1 得到）
 
