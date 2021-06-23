@@ -332,7 +332,7 @@ var buildTree = function (preorder, inorder) {
 };
 ```
 
-## []()
+## [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 
 换汤不换药，画图获得各个关键位置的索引值即可
 
