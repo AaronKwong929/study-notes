@@ -85,3 +85,5 @@
   - [一些小窍门](algorithm/tips.md)
 
   - [链表](algorithm/link-node.md)
+
+  - [剑指Offer的部分题目理解](algo/剑指Offer.md)
