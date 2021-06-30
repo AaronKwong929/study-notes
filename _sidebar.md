@@ -86,4 +86,4 @@
 
   - [链表](algorithm/link-node.md)
 
-  - [剑指Offer的部分题目理解](algo/剑指Offer.md)
+  - [剑指Offer的部分题目理解](algorithm/剑指Offer.md)
