@@ -126,4 +126,122 @@ var minArray = function (numbers) {
 // }
 ```
 
-上边注释的是针对有相同元素的情况，本题对应 153 题，注释对应 154 题
+上边注释的是针对有相同元素的情况
+
+### 类似题目 153（本题），154（进阶题）
+
+## [剑指 Offer 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
+
+> 类似于 “向上/下/左/右移动” 的题目要想到采用 BFS 解决，考虑 方格临界值 以及 题目本身限制条件
+
+### 计算位数和
+
+```js
+const getSum = (num) => {
+    let res = 0;
+    while (num) {
+        res += num % 10;
+        // 向下取整，因为可能出现小数
+        num = Math.floor(num / 10);
+    }
+    return res;
+};
+```
+
+### 四周方向遍历
+
+> 使用方向数组进行遍历
+
+这个和之前的小岛陆地题，以及螺旋数组输出是相似的
+
+```js
+// 方向数组
+const directions = [
+    [-1, 0], // 上
+    [0, 1], // 右
+    [1, 0], // 下
+    [0, -1], // 左
+];
+```
+
+### 限制条件
+
+1. 不能超过数组边界
+
+```js
+i >= 0;
+j >= 0;
+i < m;
+j < n;
+```
+
+2. 行列坐标位数和不能大于 k
+
+```js
+getSum(i) + getSum(j) < k;
+```
+
+3. ~已到达过的单元格不计入统计范围内~
+
+### 完整代码
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var movingCount = function (m, n, k) {
+    const getSum = (num) => {
+        let res = 0;
+        while (num) {
+            res += num % 10;
+            num = Math.floor(num / 10);
+        }
+        return res;
+    };
+
+    const directions = [
+        // [-1, 0], // 向上
+        // [0, -1], // 向左
+        [1, 0], // 向下
+        [0, 1], // 向右
+    ];
+
+    // 已走过的坐标
+    const set = new Set([`0,0`]);
+
+    // 遍历的坐标队列
+    let queue = [[0, 0]];
+    while (queue.length) {
+        // 移除队首
+        const [x, y] = queue.shift();
+
+        // 遍历方向
+        for (let i = 0; i < directions.length; i++) {
+            const newX = x + directions[i][0];
+            const newY = y + directions[i][1];
+
+            // 临界判断
+            if (
+                newX < 0 ||
+                newY < 0 ||
+                newX >= m ||
+                newY >= n ||
+                getSum(newX) + getSum(newY) > k ||
+                set.has(`${newX},${newY}`)
+            )
+                continue;
+
+            set.add(`${newX},${newY}`);
+            queue.push([newX, newY]);
+        }
+    }
+    return set.size;
+};
+```
+
+> 此处 set 记录已走过的格子，set key 的唯一性，返回 size 即可获得总格数
+
+### 类似题目：289/999
