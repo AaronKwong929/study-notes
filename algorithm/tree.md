@@ -1,7 +1,5 @@
 # 二叉树相关
 
-## BFS 和 DFS
-
 ## 路径问题
 
 参考[这里](https://leetcode-cn.com/problems/binary-tree-paths/solution/yi-pian-wen-zhang-jie-jue-suo-you-er-cha-5f58/)的模板解法
