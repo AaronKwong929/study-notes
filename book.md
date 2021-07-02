@@ -13,3 +13,5 @@
 [面试指南](https://blog.poetries.top/FE-Interview-Questions/docs/base.html)
 
 [浏览器原理](https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B)
+
+[好玩的](https://jsisweird.com/)
