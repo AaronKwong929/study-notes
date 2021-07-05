@@ -72,6 +72,8 @@
 
   - [轻提示 Toast](components/Toast.md)
 
+  - [JSON预览 JSON Viewer](components/JSONViewer.md)
+
   - 题目录入
 
     - [题目录入 V2.0](components/QuestionBank/v2.md)
