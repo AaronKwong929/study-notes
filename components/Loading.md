@@ -21,21 +21,21 @@ export default function (vue) {
     mask = true,
     duration = 0,
   }) => {
-    (Instance.text = text), //文字
-      (Instance.txtColor = txtColor), //文字颜色
-      (Instance.color = color), //loading颜色
-      (Instance.bgColor = bgColor), //背景颜色
-      (Instance.spinnerColor = spinnerColor), //加载颜色
-      (Instance.size = type == "mini" ? 50 : 100), //loading大小
-      (Instance.isShow = true), // 是否显示组件
-      (Instance.type = type), //类型，mini为小框，normal为页面
-      (Instance.mask = mask); //是否显示遮罩
+    Instance.text = text; // 文字
+    Instance.txtColor = txtColor; // 文字颜色
+    Instance.color = color; // loading颜色
+    Instance.bgColor = bgColor; // 背景颜色
+    Instance.spinnerColor = spinnerColor; // 加载颜色
+    Instance.size = type == "mini" ? 50 : 100; // loading大小
+    Instance.isShow = true; // 是否显示组件
+    Instance.type = type; // 类型，mini为小框，normal为页面
+    Instance.mask = mask; // 是否显示遮罩
     if (!id) {
       document.body.appendChild(Instance.$el);
     } else {
       document.getElementById(id).appendChild(Instance.$el);
     }
-    if (duration != 0) {
+    if (duration !== 0) {
       // 过了 duration 时间后隐藏整个组件
       clearTimeout(timeout);
       timeout = setTimeout(() => {
@@ -45,8 +45,9 @@ export default function (vue) {
     return Instance;
   };
 
-  vue.prototype.$hiddenLoading = () => {
+  vue.prototype.$hideLoading = () => {
     Instance.isShow = false;
+    Instance.$destroy();
   };
 }
 ```
