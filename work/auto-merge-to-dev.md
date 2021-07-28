@@ -28,6 +28,24 @@ git checkout xxx
 
 将上述过程封装成一个工具方法，尽可能减少部署出错，配合 commitizen 规范化 commit message
 
+## 遇到的问题
+
+在 windows10 下 `git push` 之后会导致 chalk 丢失颜色
+
+### 猜测原因
+
+win10 的系统问题，run 函数的 pipe 模式会丢失和父进程的 IO 交互，具体表现为 git-cz 无法进行操作，只能打印出来
+
+inherit 是和父进程共用 IO，pipe 则会丢失 IO
+
+> 上述是基于此时自己对 Node child_process 的一知半解得出来的答案
+
+### 解决方案(暂时)
+
+macOS 下无需解决方案，不会复现该问题
+
+win10 下执行 git push 使用 pipe 模式（git push 不需要和父进程共用 IO
+
 ## 完整代码
 
 ```js
@@ -62,7 +80,7 @@ async function main() {
     await run(`git-cz`);
   } else notice(`没有更新的文件`);
 
-  await run(`git`, [`push`], { stdio: `pipe` });
+  await run(`git`, [`push`]); // win 下使用 inherit 会导致 chalk 丢失颜色，要使用pipe解决；macOS 下不会发生这个问题
   step(`切换到 dev 分支并拉取最新代码`);
   await run(`git`, [`checkout`, `dev`]);
   await run(`git`, [`pull`, `origin`, `dev`]);
@@ -72,7 +90,7 @@ async function main() {
   await run(`git`, [`merge`, currentBranch]);
   success(`合并到 dev 分支完成`);
   step(`推送到远端`);
-  await run(`git`, [`push`], { stdio: `pipe` });
+  await run(`git`, [`push`]); // win 下使用 inherit 会导致 chalk 丢失颜色，要使用pipe解决；macOS 下不会发生这个问题
   success(`推送 dev 完成，稍后 Jenkins 将启动构建并通知`);
   return;
 }
@@ -86,7 +104,3 @@ main()
     await run(`git`, [`checkout`, currentBranch]);
   });
 ```
-
-## 后序迭代
-
-项目可配置 commit-lint （husky 等）
