@@ -12,6 +12,8 @@
 
 - 工作遇到的
 
+  - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
+
   - [Git 日常使用](work/git.md)
 
   - [Vue3 + Echarts封装业务组件的思路](work/echarts-component.md)
