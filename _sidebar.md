@@ -8,9 +8,9 @@
 
   - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
 
-  - [尽可能准确的 setTimeout](practices/zero-timeout-fn.md)
-
 - 工作遇到的
+
+  - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
 
   - [Git 日常使用](work/git.md)
 
@@ -91,3 +91,9 @@
   - [剑指Offer的部分题目理解](algorithm/剑指Offer.md)
 
   - [一些做过的题目记录](algorithm/leetcode.md)
+
+- 手写题
+
+  - [模拟实现远程加法](hand-write/远程加法的实现.md)
+
+  - [没有延迟的 setTimeout](hand-write/zero-timeout-fn.md)
