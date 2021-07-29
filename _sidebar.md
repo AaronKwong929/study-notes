@@ -14,7 +14,7 @@
 
   - [Git 日常使用](work/git.md)
 
-  - [Vue3 + Echarts封装业务组件的思路](work/echarts-component.md)
+  - [Vue3 + Echarts 封装业务组件的思路](work/echarts-component.md)
 
   - [移动端开发疑难杂症](work/mobile.md)
 
@@ -40,7 +40,7 @@
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
 
-  - [JS常用函数](work/js-common-utils.md)
+  - [JS 常用函数](work/js-common-utils.md)
 
 - 搭建
 
@@ -72,7 +72,7 @@
 
   - [轻提示 Toast](components/Toast.md)
 
-  - [JSON预览 JSON Viewer](components/JSONViewer.md)
+  - [JSON 预览 JSON Viewer](components/JSONViewer.md)
 
   - 题目录入
 
@@ -88,14 +88,14 @@
 
   - [链表](algorithm/link-node.md)
 
-  - [剑指Offer的部分题目理解](algorithm/剑指Offer.md)
+  - [剑指 Offer 的部分题目理解](algorithm/剑指Offer.md)
 
   - [一些做过的题目记录](algorithm/leetcode.md)
 
 - 手写题
 
-  - [模拟实现远程加法](hand-write/远程加法的实现.md)
+  - [模拟实现远程加法](hand-write/remote-add.md)
 
   - [没有延迟的 setTimeout](hand-write/zero-timeout-fn.md)
 
-  - [睡眠函数](hand-write/睡眠函数.md)
+  - [睡眠函数](hand-write/sleep.md)
