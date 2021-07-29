@@ -36,9 +36,11 @@ git checkout xxx
 
 win10 的系统问题，run 函数的 pipe 模式会丢失和父进程的 IO 交互，具体表现为 git-cz 无法进行操作，只能打印出来
 
-inherit 是和父进程共用 IO，pipe 则会丢失 IO
+关于 inherit 和 pipe 的解释
 
-> 上述是基于此时自己对 Node child_process 的一知半解得出来的答案
+![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210729094409.png)
+
+pipe 具体要怎么处理通信暂时还没有摸索明白
 
 ### 解决方案(暂时)
 
