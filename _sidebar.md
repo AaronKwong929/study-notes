@@ -56,13 +56,25 @@
 
 - [组件](components/README.md)
 
+  - [虚拟滚动 VirtualScroll](components/VirtualScroll.md)
+
+  - [JSON 预览 JSON Viewer](components/JSONViewer.md)
+
+  - [组织架构树 OrganizationTree（待填坑）]()
+
+  - 题目录入
+
+    - [v2.0](components/QuestionBank/v2.md)
+
+    - [v3.0](components/QuestionBank/v3.md)
+
   - [地址选择器 AreaPicker](components/AreaPicker.md)
 
   - [轻弹窗 LightModal](components/LightModal.md)
 
   - [加载 Loading](components/Loading.md)
 
-  - [? Collapse](components/Collapse.md)
+  <!-- - [? Collapse](components/Collapse.md) -->
 
   - [消息 Message](components/Message.md)
 
@@ -71,14 +83,6 @@
   - [开关 Switch](components/Switch.md)
 
   - [轻提示 Toast](components/Toast.md)
-
-  - [JSON 预览 JSON Viewer](components/JSONViewer.md)
-
-  - 题目录入
-
-    - [题目录入 V2.0](components/QuestionBank/v2.md)
-
-    - [题目录入 V3.0](components/QuestionBank/v3.md)
 
 - 算法
 
