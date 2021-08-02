@@ -32,8 +32,8 @@
 
 ```js
 var CQueue = function () {
-    this.stackA = [];
-    this.stackB = [];
+  this.stackA = [];
+  this.stackB = [];
 };
 
 /**
@@ -41,18 +41,18 @@ var CQueue = function () {
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-    this.stackA.push(value);
-    return;
+  this.stackA.push(value);
+  return;
 };
 
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-    if (this.stackB.length) return this.stackB.pop();
-    while (this.stackA.length) this.stackB.push(this.stackA.pop());
-    if (!this.stackB.length) return -1;
-    return this.stackB.pop();
+  if (this.stackB.length) return this.stackB.pop();
+  while (this.stackA.length) this.stackB.push(this.stackA.pop());
+  if (!this.stackB.length) return -1;
+  return this.stackB.pop();
 };
 
 /**
@@ -73,9 +73,9 @@ CQueue.prototype.deleteHead = function () {
 
 最优解：二分查找
 
-注意 high 是 numbers.length-1，【左闭右闭区间】循环终点为 low < high
+注意 high 是 numbers.length-1，【左闭右闭区间】循环条件 low < high
 
-~~high 是 numbers.length 的话，【左闭右开区间】循环终点 low <= high （不在本次讨论范围）~~
+~~high 是 numbers.length 的话，【左闭右开区间】循环条件 low <= high （不在本次讨论范围）~~
 
 ```js
 const pivot = low + Math.floor((high - low) / 2);
@@ -91,42 +91,34 @@ const pivot = low + Math.floor((high - low) / 2);
 
 ### 为什么 high = pivot 而 low = pivot + 1？
 
-贴一个大佬的解析
+详情看东哥的[解析](https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-3/er-fen-cha-zhao-xiang-jie#si-luo-ji-tong-yi)
 
-![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210630161045.png)
+`let left = 0, right = length - 1`，`决定`了这是`左闭右闭`区间，就`决定`了循环条件是`left <= right`，也`决定`了`left = mid + 1`与`right = mid - 1`（mid 值是在区间里的，但 mid 值不是目标值，right = mid - 1）
 
-上图底部说的[大佬的总结](https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)
+而`let left = 0, right = length`，`决定`了这是`左闭右开`区间，就`决定`了循环条件是`left < right`，也`决定`了`left = mid + 1`与`right = mid`（mid 值不在区间里，mid 值可能是目标值，right = mid）
 
 ### 完整代码
 
 ```js
+/**
+ * @param {number[]} numbers
+ * @return {number}
+ */
 var minArray = function (numbers) {
-    let low = 0;
-    let high = numbers.length - 1;
-
-    if (numbers[high] > numbers[low]) return numbers[low]; // 先考虑特殊情况，没有旋转数组，直接返回第一个数字
-
-    while (low < high) {
-        const pivot = low + Math.floor((high - low) / 2);
-        if (numbers[pivot] < numbers[high]) {
-            high = pivot;
-        } else {
-            low = pivot + 1;
-        }
-    }
-    return numbers[low];
+  const { length } = numbers;
+  let left = 0,
+    right = length - 1;
+  if (numbers[0] < numbers[length - 1]) return numbers[0];
+  while (left <= right) {
+    const mid = left + ((right - left) >> 1);
+    if (numbers[mid] > numbers[mid] + 1) return numbers[mid + 1];
+    else if (numbers[mid] < numbers[mid - 1]) return numbers[mid];
+    else if (numbers[mid] > numbers[left]) left = mid + 1;
+    else right = mid - 1;
+  }
+  return numbers[left];
 };
-
-// if (numbers[pivot] < numbers[high]) {
-//     high = pivot;
-// } else if (numbers[pivot] > numbers[high]) {
-//     low = pivot + 1;
-// } else {
-//     high -= 1;
-// }
 ```
-
-上边注释的是针对有相同元素的情况
 
 ### 类似题目 153（本题），154（进阶题）
 
@@ -137,14 +129,14 @@ var minArray = function (numbers) {
 ### 计算位数和
 
 ```js
-const getSum = (num) => {
-    let res = 0;
-    while (num) {
-        res += num % 10;
-        // 向下取整，因为可能出现小数
-        num = Math.floor(num / 10);
-    }
-    return res;
+const getSum = num => {
+  let res = 0;
+  while (num) {
+    res += num % 10;
+    // 向下取整，因为可能出现小数
+    num = Math.floor(num / 10);
+  }
+  return res;
 };
 ```
 
@@ -157,10 +149,10 @@ const getSum = (num) => {
 ```js
 // 方向数组
 const directions = [
-    [-1, 0], // 上
-    [0, 1], // 右
-    [1, 0], // 下
-    [0, -1], // 左
+  [-1, 0], // 上
+  [0, 1], // 右
+  [1, 0], // 下
+  [0, -1], // 左
 ];
 ```
 
@@ -193,52 +185,52 @@ getSum(i) + getSum(j) < k;
  * @return {number}
  */
 var movingCount = function (m, n, k) {
-    const getSum = (num) => {
-        let res = 0;
-        while (num) {
-            res += num % 10;
-            num = Math.floor(num / 10);
-        }
-        return res;
-    };
-
-    const directions = [
-        // [-1, 0], // 向上
-        // [0, -1], // 向左
-        [1, 0], // 向下
-        [0, 1], // 向右
-    ];
-
-    // 已走过的坐标
-    const set = new Set([`0,0`]);
-
-    // 遍历的坐标队列
-    let queue = [[0, 0]];
-    while (queue.length) {
-        // 移除队首
-        const [x, y] = queue.shift();
-
-        // 遍历方向
-        for (let i = 0; i < directions.length; i++) {
-            const newX = x + directions[i][0];
-            const newY = y + directions[i][1];
-
-            // 临界判断
-            if (
-                newX < 0 ||
-                newY < 0 ||
-                newX >= m ||
-                newY >= n ||
-                getSum(newX) + getSum(newY) > k ||
-                set.has(`${newX},${newY}`)
-            )
-                continue;
-
-            set.add(`${newX},${newY}`);
-            queue.push([newX, newY]);
-        }
+  const getSum = num => {
+    let res = 0;
+    while (num) {
+      res += num % 10;
+      num = Math.floor(num / 10);
     }
-    return set.size;
+    return res;
+  };
+
+  const directions = [
+    // [-1, 0], // 向上
+    // [0, -1], // 向左
+    [1, 0], // 向下
+    [0, 1], // 向右
+  ];
+
+  // 已走过的坐标
+  const set = new Set([`0,0`]);
+
+  // 遍历的坐标队列
+  let queue = [[0, 0]];
+  while (queue.length) {
+    // 移除队首
+    const [x, y] = queue.shift();
+
+    // 遍历方向
+    for (let i = 0; i < directions.length; i++) {
+      const newX = x + directions[i][0];
+      const newY = y + directions[i][1];
+
+      // 临界判断
+      if (
+        newX < 0 ||
+        newY < 0 ||
+        newX >= m ||
+        newY >= n ||
+        getSum(newX) + getSum(newY) > k ||
+        set.has(`${newX},${newY}`)
+      )
+        continue;
+
+      set.add(`${newX},${newY}`);
+      queue.push([newX, newY]);
+    }
+  }
+  return set.size;
 };
 ```
 
