@@ -103,3 +103,7 @@
   - [没有延迟的 setTimeout](hand-write/zero-timeout-fn.md)
 
   - [睡眠函数](hand-write/sleep.md)
+
+- 源码相关
+
+  - [vue-cli open-in-editor](source-code/open-in-editor.md)
