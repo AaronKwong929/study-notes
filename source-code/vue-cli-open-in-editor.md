@@ -1,13 +1,19 @@
 # Vue DevTool open in editor 的一些想法
 
-launch-editor-middleware 是基于 launch-editor 的一个封装：判断参数类型, 判断文件是否存在以及读出路径，再传入 launch-editor 完成打开工作
+launch-editor-middleware 是基于 launch-editor 封装的一个中间件：判断参数类型, 判断文件是否存在以及读出路径，再传入 launch-editor 完成打开工作
 
 ## 记一些东西
+
+### 启动调试
+
+打开项目的`package.json`，`scripts`上方（新版 VSC）有一个调试按钮，按照自己需求配置 launch.json
+
+然后 vsc 底部变色，自己去浏览器打开项目地址，进行操作即可触发断点。在 vsc 调试栏打开的 chrome 用不了插件，这里要注意
 
 ### launch-editor-middleware.js 的参数传递
 
 ```js
-// 第六行
+// launch-editor-middleware.js:6
 if (typeof specifiedEditor === 'function') {
   onErrorCallback = specifiedEditor;
   specifiedEditor = undefined;
@@ -38,15 +44,13 @@ app.use(
 
 ### launch-editor 包
 
-区分执行环境，然后使用 child_process.spawn 去产生一个子进程执行编辑器打开文件命令。其中 windows 系统下需要额外执行一个 cmd 去打开文件（spawn 只能启动.exe）
+区分执行环境(win/linux)，然后使用 child_process.spawn 去产生一个子进程执行命令让编辑器打开文件。其中 windows 系统下需要额外执行一个 cmd 去打开文件（spawn 只能启动.exe 进程）
 
 guessEditor 先判断系统环境，再根据外部传入的参数去判断在使用的编辑器
 
 ## 总结
 
-看这篇源码，重点是学习到一些方法，不是完全去掌握整个执行流程。
-
-launch-editor 判断系统环境，然后通过传入的 editor 以及获取进程比对确定出目标编辑器，然后通过 child_process 的 spawn 去执行命令打开文件；launch-editor-middleware 是基于此封装的中间件
+launch-editor 判断系统环境，通过传入的 editor 以及获取进程比对，用`guessEditor`获得函数目标编辑器，然后通过 child_process 的 spawn 去执行命令打开文件；launch-editor-middleware 是基于此封装的中间件
 
 尝试进行源码调试，打开到调试位置先去看整个函数体大概的样子，不用先去纠结函数细节，先明白函数做了什么
 
