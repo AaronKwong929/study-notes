@@ -10,12 +10,12 @@ setTimeout / setInterval 有最小延迟时间 4ms，嵌套层数多了打印就
 
 ```js
 (function () {
-  const timeouts = [];
+  const fns = [];
   const messageName = `zero-timeout-message`;
 
   // 每一次加入一个方法就触发一次 postMessage
   function setZeroTimeout(fn) {
-    timeouts.push(fn);
+    fns.push(fn);
     window.postMessage(messageName, `*`);
   }
 
@@ -23,7 +23,7 @@ setTimeout / setInterval 有最小延迟时间 4ms，嵌套层数多了打印就
   function handleFn(event) {
     if (event.source === window && event.data === messageName) {
       event.stopPropagation();
-      const fn = timeouts.shift(); // 取队头并执行
+      const fn = fns.shift(); // 取队头并执行
       fn();
     }
   }

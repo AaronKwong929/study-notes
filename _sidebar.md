@@ -12,8 +12,6 @@
 
   - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
 
-  - [Git 日常使用](work/git.md)
-
   - [Vue3 + Echarts 封装业务组件的思路](work/echarts-component.md)
 
   - [移动端开发疑难杂症](work/mobile.md)
@@ -39,6 +37,8 @@
   - [Quill 富文本编辑器相关](work/quill.md)
 
   - [后台权限 - 树形结构渲染](work/auth-group.md)
+
+  - [Git 日常使用](work/git.md)
 
   - [JS 常用函数](work/js-common-utils.md)
 
@@ -84,6 +84,12 @@
 
   - [轻提示 Toast](components/Toast.md)
 
+- 复习
+
+  - [浏览器导航过程](review/网页导航过程.md)
+
+  - [网页渲染过程](review/网页渲染过程.md)
+
 - 算法
 
   - [二叉树](algorithm/tree.md)
@@ -108,4 +114,4 @@
 
 - 源码相关
 
-  - [vue-cli open-in-editor](source-code/open-in-editor.md)
+  - [vue-cli open-in-editor](source-code/vue-cli-open-in-editor.md)
