@@ -112,6 +112,10 @@
 
   - [睡眠函数](hand-write/sleep.md)
 
+- 面试遇到过的
+
+  - [[1,2,3].map(parseInt)](<interview/[1,2,3].map(parseInt).md>)
+
 - 源码相关
 
   - [vue-cli open-in-editor](source-code/vue-cli-open-in-editor.md)
