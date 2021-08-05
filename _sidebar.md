@@ -90,6 +90,8 @@
 
   - [网页渲染过程](review/网页渲染过程.md)
 
+  - [缓存](review/网页缓存.md)
+
 - 算法
 
   - [二叉树](algorithm/tree.md)
@@ -115,6 +117,8 @@
 - 面试遇到过的
 
   - [[1,2,3].map(parseInt)](<interview/[1,2,3].map(parseInt).md>)
+
+  - [a==1 && a==2 && a==3 = true](interview/a==1&&a==2&&a==3=true.md)
 
 - 源码相关
 
