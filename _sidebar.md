@@ -8,7 +8,7 @@
 
   - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
 
-- 工作遇到的
+- 工作遇到问题的小记录
 
   - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
 
@@ -91,6 +91,12 @@
   - [网页渲染过程](review/网页渲染过程.md)
 
   - [缓存](review/网页缓存.md)
+
+  - [DNS 解析](review/dns解析.md)
+
+  - [常见的 HTTP 状态码](review/http状态码.md)
+
+  - [TCP 连接](review/tcp连接.md)
 
 - 算法
 
