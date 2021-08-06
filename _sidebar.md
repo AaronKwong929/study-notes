@@ -54,7 +54,9 @@
 
   - [Docsify + Github 搭建一个 个人博客](build/docsify-github-blog.md)
 
-- [组件](components/README.md)
+- 组件
+
+  - [组件食用指南](components/README.md)
 
   - [虚拟滚动 VirtualScroll](components/VirtualScroll.md)
 
