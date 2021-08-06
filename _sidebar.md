@@ -106,6 +106,8 @@
 
   - [买卖股票系列](algorithm/sell-stock.md)
 
+  - [N 数之和](algorithm/N数之和.md)
+
   - [一些小窍门](algorithm/tips.md)
 
   - [链表](algorithm/link-node.md)
