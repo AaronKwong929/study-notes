@@ -60,7 +60,7 @@
 
   - [JSON 预览 JSON Viewer](components/JSONViewer.md)
 
-  - [组织架构树 OrganizationTree（待填坑）]()
+  - [组织架构树 OrganizationTree（待填坑）](components/organization-tree.md)
 
   - 题目录入
 
