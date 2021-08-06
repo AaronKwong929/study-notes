@@ -126,6 +126,10 @@
 
   - [a==1 && a==2 && a==3 = true](interview/a==1&&a==2&&a==3=true.md)
 
-- 源码相关
+- 源码学习
 
-  - [vue-cli open-in-editor](source-code/vue-cli-open-in-editor.md)
+  - [从 Vue-DevTool 打开组件页面的学习](source-code/vue-cli-open-in-editor.md)
+
+  - [学习 Vue 发布方法，增强发布构建自动化](source-code/vue-release.md)
+
+  - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
