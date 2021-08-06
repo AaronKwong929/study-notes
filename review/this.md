@@ -57,7 +57,7 @@ var obj = {
 foo.call(obj);
 ```
 
-4. new 绑定
+4. new 绑定，this 指向 new 的对象
 
 ```js
 function a() {
