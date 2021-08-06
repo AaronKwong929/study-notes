@@ -1,4 +1,4 @@
-# 构建
+# 一键发起构建部署
 
 > 参考了尤大 vue-next 的 scripts/release.js，写一个适用于项目的构建发版脚本
 
