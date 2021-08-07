@@ -12,7 +12,7 @@
 
 301 Moved Permanently 永久重定向，会被缓存
 
-302 Found 临时重定向，不会缓存
+302 Found 临时重定向，不会缓存，暂时不能访问该 url
 
 304 Not Modified `协商缓存`命中时服务器返回的状态码
 
@@ -28,7 +28,7 @@
 
 405 Method Not Allowed 请求方法有误，例如 get 请求接口发送了 post 请求
 
-429 Too Many Requests 请求速率过高（见于 Sentry 触发错误次数过多）
+429 Too Many Requests 请求速率过高（ 见于 Sentry 触发错误次数过多）
 
 ## 5 开头
 
