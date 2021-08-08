@@ -128,7 +128,7 @@
 
   - [睡眠函数](hand-write/sleep.md)
 
-  - [Promise 以及全家桶](review/Promise.md)
+  - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
 
