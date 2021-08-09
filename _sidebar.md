@@ -130,6 +130,8 @@
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
+  - [](hand-write/概率相同的随机数.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
