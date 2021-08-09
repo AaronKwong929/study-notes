@@ -316,7 +316,7 @@ class MyPromise {
 
 4. 命令行 `yarn test`，跑测试，直到完成
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210808202930.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210808202930.png)
 
 完美通过所有测试用例
 

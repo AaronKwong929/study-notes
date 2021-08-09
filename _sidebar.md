@@ -128,6 +128,8 @@
 
   - [睡眠函数](hand-write/sleep.md)
 
+  - [实现类似 ORM 链式调用](hand-write/find-chain.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
