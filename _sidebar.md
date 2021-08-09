@@ -66,25 +66,21 @@
 
   - 题目录入
 
+    v1.0
+
     - [v2.0](components/QuestionBank/v2.md)
 
     - [v3.0](components/QuestionBank/v3.md)
 
   - [地址选择器 AreaPicker](components/AreaPicker.md)
 
-  - [轻弹窗 LightModal](components/LightModal.md)
-
   - [加载 Loading](components/Loading.md)
 
-  <!-- - [? Collapse](components/Collapse.md) -->
+  - [轻提示 Toast](components/Toast.md)
 
   - [消息 Message](components/Message.md)
 
   - [消息弹窗 MessageBox](components/MessageBox.md)
-
-  - [开关 Switch](components/Switch.md)
-
-  - [轻提示 Toast](components/Toast.md)
 
 - 复习
 
