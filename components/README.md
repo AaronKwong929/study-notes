@@ -18,6 +18,8 @@
 
   - Toast 轻提示
 
+## 使用方法
+
 ```js
 import `componentName` from `${path}/${useComponent}/`;
 Vue.use(componentName);

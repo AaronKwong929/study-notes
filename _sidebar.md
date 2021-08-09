@@ -56,7 +56,7 @@
 
 - 组件
 
-  - [组件食用指南](components/README.md)
+  - [组件 Readme](components/README.md)
 
   - [虚拟滚动 VirtualScroll](components/VirtualScroll.md)
 
@@ -132,7 +132,7 @@
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
-  - [](hand-write/概率相同的随机数.md)
+  - [概率相同的随机数](hand-write/概率相同的随机数.md)
 
   - [Promise 以及全家桶](hand-write/Promise.md)
 
