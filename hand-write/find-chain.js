@@ -35,6 +35,8 @@ const data = [
   { id: 4, title: `title` },
 ];
 
-const result = find(data).where({ id: 1, title: /\d$/ }).orderBy(`id`, `desc`);
+const result = find(data)
+  .where({ id: 1, title: `title1` }) // , title: /\d$/
+  .orderBy(`id`, `desc`);
 
 console.log(result.value);
