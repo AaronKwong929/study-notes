@@ -134,6 +134,8 @@
 
   - [概率相同的随机数](hand-write/概率相同的随机数.md)
 
+  - [实现 instanceof](hand-write/instanceof.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
