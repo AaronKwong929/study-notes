@@ -136,6 +136,10 @@
 
   - [实现 instanceof](hand-write/instanceof.md)
 
+  - [实现 trim](hand-write/trim.md)
+
+  - [实现深克隆](hand-write/deep-clone.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
