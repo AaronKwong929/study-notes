@@ -555,11 +555,11 @@ Promise.reject = function (val) {
 ```js
 Promise.prototype.finally = function (onFinished) {
   return this.then(val => {
-    onFinished();
-    return val;
+    return Promise.resolve(onFinished()).then(() => val);
   }).catch(err => {
-    onFinished();
-    return err;
+    return Promise.resolve(onFinished()).then(() => {
+      throw err;
+    });
   });
 };
 ```
@@ -612,7 +612,7 @@ Promise.all = function (promises) {
 ```js
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
-    for (let promise of promises) {
+    for (const promise of promises) {
       promise.then(resolve, reject);
     }
   });
