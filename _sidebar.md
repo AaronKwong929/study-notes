@@ -156,4 +156,6 @@
 
   - [学习 Vue3 工具函数，提升开发效率](source-code/vue3-tool-fns.md)
 
+  - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
+
   - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
