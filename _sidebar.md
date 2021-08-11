@@ -154,4 +154,6 @@
 
   - [学习 Vue 发布方法，增强发布构建自动化](source-code/vue-release.md)
 
+  - [学习 Vue3 工具函数，提升开发效率](source-code/vue3-tool-fns.md)
+
   - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
