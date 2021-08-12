@@ -263,3 +263,11 @@ obj2.a = 2;
 //  - 到obj2.a的 dep 里面
 // obj2.a更新的时候 setter会触发dep.notify() 将通知所有依赖的数据：我更新了
 // 然后watcher接收到通知，去执行回调
+
+// 调用 observe 将obj 设置成响应式对象
+// observe ==> Observer ==> defineReactive ===> observe
+// 递归调用将整个数据变成响应式对象
+
+// 渲染页面时实例化 watcher，实例化过程中 watcher把自身放到全局环境
+// 获取响应数据时会被响应数据收集依赖 getter依赖
+// 依赖变化的时候通知更新回调 setter派发更新 执行回调
