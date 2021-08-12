@@ -45,7 +45,9 @@ console.log(add1(1, 2, 3));
 
 ## 复杂一点的 无限参数
 
-改写`toString`
+实现数组连加
+
+改写`toString`，返回 sum1
 
 ```js
 function argsSum(args) {
