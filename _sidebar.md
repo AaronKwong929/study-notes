@@ -142,6 +142,10 @@
 
   - [实现深克隆](hand-write/deep-clone.md)
 
+  - [柯里化的两个版本](hand-write/curry.md)
+
+  - [大数相加](hand-write/big-sum.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
