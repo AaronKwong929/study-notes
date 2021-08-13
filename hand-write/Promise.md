@@ -587,6 +587,7 @@ Promise.prototype.catch = function (onRejected) {
 ```js
 Promise.all = function (promises) {
   return new Promise((resolve, reject) => {
+    const result = [];
     const helper = (i, data) => {
       result[i] = data;
       if (++i === promises.length) {

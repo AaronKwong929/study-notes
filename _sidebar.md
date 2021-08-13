@@ -144,6 +144,10 @@
 
   - [大数相加](hand-write/big-sum.md)
 
+  - [控制超时(Promise)](hand-write/timeout-control.md)
+
+  - [转盘问题(Promise)](hand-write/turn-table.md)
+
   - [Promise 以及全家桶](hand-write/Promise.md)
 
 - 面试遇到过的
@@ -164,6 +168,6 @@
 
   - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md)
 
-  - [Vue响应式原理小记](source-code/vue-reactive.md)
+  - [Vue 响应式原理小记](source-code/vue-reactive.md)
 
   - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
