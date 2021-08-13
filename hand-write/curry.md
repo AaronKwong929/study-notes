@@ -47,7 +47,9 @@ console.log(add1(1, 2, 3));
 
 1. 实现数组连加
 
-2. 改写`toString`，返回 sum1
+2. add 一直返回的是一个方法，通过改写`toString`，返回 `sum1`
+
+3. 方法内部闭包保存上一次执行的结果
 
 ```js
 function argsSum(args) {
