@@ -21,18 +21,18 @@ console.log(fn.length); // 3
 
 ```js
 const curry = (fn, ...args) =>
-    fn.length <= args.length
-        ? fn(...args)
-        : (..._args) => curry(fn, ...args, ..._args);
+  fn.length <= args.length
+    ? fn(...args)
+    : (..._args) => curry(fn, ...args, ..._args);
 ```
 
-## 测试
+### 测试
 
 ```js
 const curry = (fn, ...args) =>
-    fn.length <= args.length
-        ? fn(...args)
-        : (..._args) => curry(fn, ...args, ..._args);
+  fn.length <= args.length
+    ? fn(...args)
+    : (..._args) => curry(fn, ...args, ..._args);
 
 const add = (a, b, c) => a + b + c;
 
@@ -45,26 +45,36 @@ console.log(add1(1, 2, 3));
 
 ## 复杂一点的 无限参数
 
-实现数组连加
+1. 实现数组连加
 
-改写`toString`，返回 sum1
+2. 改写`toString`，返回 sum1
 
 ```js
 function argsSum(args) {
-    return args.reduce((pre, cur) => {
-        return pre + cur;
-    });
+  return args.reduce((pre, cur) => {
+    return pre + cur;
+  });
 }
 function add(...args1) {
-    let sum1 = argsSum(args1);
-    let fn = function (...args2) {
-        let sum2 = argsSum(args2);
-        return add(sum1 + sum2);
-    };
-    fn.toString = function () {
-        return sum1;
-    };
-    return fn;
+  const sum1 = argsSum(args1);
+  const fn = function (...args2) {
+    const sum2 = argsSum(args2);
+    return add(sum1 + sum2);
+  };
+  fn.toString = function () {
+    return sum1;
+  };
+  return fn;
 }
 console.log(add(1, 2)(3)(4).toString());
 ```
+
+### 测试
+
+```js
+add(1)(2)(3).toString();
+
+Number(add(2, 3)(4)); // 这样也可以，转类型会先执行toString()
+```
+
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210813105453.png)
