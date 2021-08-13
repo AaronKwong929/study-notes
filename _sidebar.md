@@ -62,8 +62,6 @@
 
   - [JSON 预览 JSON Viewer](components/JSONViewer.md)
 
-  - [组织架构树 OrganizationTree（待填坑）](components/organization-tree.md)
-
   - 题目录入
 
     - [v1.0](components/QuestionBank/v1.md)
@@ -164,6 +162,6 @@
 
   - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
 
-  - [new Vue做了什么?Vue源码学习(1)](source-code/what-does-new-Vue-do.md)
+  - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md)
 
   - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
