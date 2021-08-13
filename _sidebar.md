@@ -94,7 +94,7 @@
 
   - [TCP](review/tcp.md)
 
-  - [Http/123](review/http1-3.md)
+  - [HTTP/123](review/http1-3.md)
 
   - [https](review/https.md)
 
@@ -163,5 +163,7 @@
   - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
 
   - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md)
+
+  - [Vue响应式原理小记](source-code/vue-reactive.md)
 
   - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)

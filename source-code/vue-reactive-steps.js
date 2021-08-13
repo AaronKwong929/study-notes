@@ -191,7 +191,7 @@ class Dep {
 
 function defineReactive(data, key, value = data[key]) {
     const dep = new Dep();
-    observe(data);
+    observe(value); // 如果value是对象，递归调用
     Object.defineProperty(data, key, {
         get: function reactiveGetter() {
             dep.depend(); // 从 全局环境获得当前正在订阅的watcher
