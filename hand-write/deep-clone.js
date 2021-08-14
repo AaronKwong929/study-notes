@@ -1,7 +1,7 @@
 // 判断是不是对象
 const isObject = source => {
   const type = typeof source;
-  return source !== null && (type === `object` || type === `function`);
+  return type === `function` || (type === `object` && source !== null);
 };
 
 // while 迭代器 - 性能优化
