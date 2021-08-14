@@ -146,9 +146,13 @@
 
   - [大数相加](hand-write/big-sum.md)
 
-  - [控制超时(Promise)](hand-write/timeout-control.md)
+  - [Promise - 控制超时](hand-write/timeout-control.md)
 
-  - [转盘问题(Promise)](hand-write/turn-table.md)
+  - [Promise - 转盘问题](hand-write/turn-table.md)
+
+  - [Promise - 隔秒输出 123](hand-write/promise-1-2-3.md)
+
+  - [Promise - 红绿灯](hand-write/promise-traffic-light.md)
 
   - [Promise 以及全家桶](hand-write/Promise.md)
 
