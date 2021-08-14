@@ -132,6 +132,8 @@
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
+  - [实现 groupBy](hand-write/group-by.md)
+
   - [概率相同的随机数](hand-write/概率相同的随机数.md)
 
   - [实现 instanceof](hand-write/instanceof.md)
