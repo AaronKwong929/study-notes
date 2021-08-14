@@ -84,15 +84,13 @@ forEach(keys, item => {
 // 判断是不是对象
 const isObject = source => {
   const type = typeof source;
-  return source !== null && (type === `object` || type === `function`);
+  return (source !== null && type === `object`) || type === `function`;
 };
 
 // while 迭代器 - 性能优化
 const forEach = (list, iterator) => {
   let index = -1;
-  while (++index < list.length) {
-    iterator(list[index]);
-  }
+  while (++index < list.length) iterator(list[index]);
 };
 
 const deepClone = (source, map = new Map()) => {
