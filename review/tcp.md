@@ -97,6 +97,4 @@ TCP 工作在传输层，没有 IP（IP 在网络层）但有目标端口和源�
 
 对于 4 次挥手，其实`仔细看是 2 次`，因为 TCP 是`全双工`的，所以，发送方和接收方都需要 Fin 和 Ack。只不过，有一方是被动的，所以看上去就成了所谓的 4 次挥手。如果两边同时断连接，那就会就进入到 CLOSING 状态，然后到达 TIME_WAIT 状态。
 
-[一些面试题](https://mp.weixin.qq.com/s/3FTuMZaUrT9Vw-ZScJkQbg)
-
 ![pic](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210815105853.png)

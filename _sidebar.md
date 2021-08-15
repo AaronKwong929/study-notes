@@ -58,7 +58,7 @@
 
   - [组件 Readme](components/README.md)
 
-  - [虚拟滚动 VirtualScroll](components/VirtualScroll.md)
+  - [虚拟滚动 Virtual Scroll](components/VirtualScroll.md)
 
   - [JSON 预览 JSON Viewer](components/JSONViewer.md)
 
@@ -70,15 +70,13 @@
 
     - [v3.0](components/QuestionBank/v3.md)
 
-  - [地址选择器 AreaPicker](components/AreaPicker.md)
-
-  - [加载 Loading](components/Loading.md)
+  - [地址选择器 Area Picker](components/AreaPicker.md)
 
   - [轻提示 Toast](components/Toast.md)
 
   - [消息 Message](components/Message.md)
 
-  - [消息弹窗 MessageBox](components/MessageBox.md)
+  - [消息弹窗 Message Box](components/MessageBox.md)
 
 - 复习
 

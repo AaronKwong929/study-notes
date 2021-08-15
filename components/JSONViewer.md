@@ -2,9 +2,11 @@
 
 ## 实现思路
 
+能够展开收起某层，能够在数组层外展示包含元素个数，能用颜色区分不同类型
+
 ## 完整代码
 
-```html
+```vue
 <template>
   <div class="json-view-container" v-if="visible">
     <div :class="['json-view', length ? 'closeable' : '']">
@@ -42,14 +44,14 @@
 
           <span v-if="length"
             >{{ prefix }}{{ innerclosed ? '...' + subfix : '' }}
-            <span class="json-note"
-              >{{ innerclosed ? length + ' items' : '' }}</span
-            >
+            <span class="json-note">{{
+              innerclosed ? length + ' items' : ''
+            }}</span>
           </span>
 
-          <span v-if="!length"
-            >{{ `${isArray ? '[]' : '{}'}${isLast ? '' : ','}` }}</span
-          >
+          <span v-if="!length">{{
+            `${isArray ? '[]' : '{}'}${isLast ? '' : ','}`
+          }}</span>
         </p>
 
         <div v-if="!innerclosed && length" class="json-body">
@@ -70,13 +72,15 @@
             <!-- 否则直接渲染对象/数字 -->
             <template v-else>
               <p class="json-item" :key="index">
-                <span class="json-key"
-                  >{{ isArray ? '' : `"${item.key}":` }}</span
-                >
+                <span class="json-key">{{
+                  isArray ? '' : `"${item.key}":`
+                }}</span>
                 <span :class="['json-value', getDataType(item.value)]">
-                  {{ `${isString(item.value) ? '"' : ''}${item.value}${
-                  isString(item.value) ? '"' : '' }${index === items.length - 1
-                  ? '' : ','}` }}
+                  {{
+                    `${isString(item.value) ? '"' : ''}${item.value}${
+                      isString(item.value) ? '"' : ''
+                    }${index === items.length - 1 ? '' : ','}`
+                  }}
                 </span>
               </p>
             </template>
@@ -94,238 +98,234 @@
 </template>
 
 <script>
-  import {
-    isArray,
-    isObject,
-    isString,
-    getDataType,
-  } from '@/utils/data-type.js';
+import { isArray, isObject, isString, getDataType } from '@/utils/data-type.js';
 
-  export default {
-    name: 'JsonViewer',
+export default {
+  name: 'JsonViewer',
 
-    props: {
-      data: {
-        type: [Object, Array],
-        required: true,
-      },
-
-      jsonKey: {
-        // JSON对象的 key 值，用于第二层及二层以上的组件
-        type: String,
-        default: '',
-      },
-
-      isLast: {
-        //是否是最后一行
-        type: Boolean,
-        default: true,
-      },
-
-      closed: {
-        type: Boolean,
-        default: false,
-      },
-
-      deep: {
-        // 默认展开深度
-        type: Number,
-        default: 3,
-      },
-
-      currentDeep: {
-        // 当前递归层数
-        type: Number,
-        default: 1,
-      },
+  props: {
+    data: {
+      type: [Object, Array],
+      required: true,
     },
 
-    data() {
-      return {
-        innerclosed: this.closed,
-        visible: false,
-      };
+    jsonKey: {
+      // JSON对象的 key 值，用于第二层及二层以上的组件
+      type: String,
+      default: '',
     },
 
-    computed: {
-      isArray() {
-        return isArray(this.data);
-      },
+    isLast: {
+      //是否是最后一行
+      type: Boolean,
+      default: true,
+    },
 
-      length() {
-        return this.isArray ? this.data.length : Object.keys(this.data).length;
-      },
+    closed: {
+      type: Boolean,
+      default: false,
+    },
 
-      // 前后包裹
-      prefix() {
-        return this.isArray ? '[' : '{';
-      },
-      subfix() {
-        const data = this.data;
-        if (this.isEmptyArrayOrObject(data)) {
-          return '';
-        } else {
-          return (this.isArray ? ']' : '}') + (this.isLast ? '' : ',');
-        }
-      },
+    deep: {
+      // 默认展开深度
+      type: Number,
+      default: 3,
+    },
 
-      items() {
-        const json = this.data;
-        if (this.isArray) {
-          return json.map(item => {
-            const isJSON = this.isObjectOrArray(item);
-            return {
-              value: item,
-              isJSON,
-              key: '',
-            };
-          });
-        }
-        return Object.keys(json).map(key => {
-          const item = json[key];
+    currentDeep: {
+      // 当前递归层数
+      type: Number,
+      default: 1,
+    },
+  },
+
+  data() {
+    return {
+      innerclosed: this.closed,
+      visible: false,
+    };
+  },
+
+  computed: {
+    isArray() {
+      return isArray(this.data);
+    },
+
+    length() {
+      return this.isArray ? this.data.length : Object.keys(this.data).length;
+    },
+
+    // 前后包裹
+    prefix() {
+      return this.isArray ? '[' : '{';
+    },
+
+    subfix() {
+      const data = this.data;
+      if (this.isEmptyArrayOrObject(data)) {
+        return '';
+      } else {
+        return (this.isArray ? ']' : '}') + (this.isLast ? '' : ',');
+      }
+    },
+
+    items() {
+      const json = this.data;
+      if (this.isArray) {
+        return json.map(item => {
           const isJSON = this.isObjectOrArray(item);
           return {
             value: item,
             isJSON,
-            key,
+            key: '',
           };
         });
-      },
+      }
+      return Object.keys(json).map(key => {
+        const item = json[key];
+        const isJSON = this.isObjectOrArray(item);
+        return {
+          value: item,
+          isJSON,
+          key,
+        };
+      });
+    },
+  },
+
+  methods: {
+    getDataType(data) {
+      return getDataType(data).toLowerCase();
     },
 
-    methods: {
-      getDataType(data) {
-        return getDataType(data).toLowerCase();
-      },
-
-      isString(data) {
-        return isString(data);
-      },
-
-      isObjectOrArray(data) {
-        return isObject(data) || isArray(data);
-      },
-
-      toggle() {
-        if (this.length === 0) {
-          return;
-        }
-        this.innerclosed = !this.innerclosed;
-      },
-
-      isClosed() {
-        return this.currentDeep + 1 > this.deep;
-      },
-
-      isEmptyArrayOrObject(data) {
-        return [{}, []]
-          .map(item => JSON.stringify(item))
-          .includes(JSON.stringify(data));
-      },
+    isString(data) {
+      return isString(data);
     },
 
-    mounted() {
-      setTimeout(() => {
-        this.visible = true;
-      }, 0);
+    isObjectOrArray(data) {
+      return isObject(data) || isArray(data);
     },
-  };
+
+    toggle() {
+      if (this.length === 0) {
+        return;
+      }
+      this.innerclosed = !this.innerclosed;
+    },
+
+    isClosed() {
+      return this.currentDeep + 1 > this.deep;
+    },
+
+    isEmptyArrayOrObject(data) {
+      return [{}, []]
+        .map(item => JSON.stringify(item))
+        .includes(JSON.stringify(data));
+    },
+  },
+
+  mounted() {
+    setTimeout(() => {
+      this.visible = true;
+    }, 0);
+  },
+};
 </script>
 
 <style scoped lang="scss">
-  .json-view-container {
-    font-size: 14px;
-    line-height: 24px;
-    background-color: #fff;
+.json-view-container {
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff;
 
-    .json-view {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: 100%;
-      white-space: nowrap;
-      padding-left: 2rem;
-      box-sizing: border-box;
-      font-family: Consolas !important;
-      cursor: default;
+  .json-view {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    padding-left: 2rem;
+    box-sizing: border-box;
+    font-family: Consolas !important;
+    cursor: default;
 
-      .json-note {
-        color: #909399;
-        font-size: 12px;
-        font-style: italic;
+    .json-note {
+      color: #909399;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .json-key {
+      color: #8c6325;
+    }
+
+    .json-value {
+      display: inline-block;
+      color: #57b73b;
+      word-break: break-all;
+      white-space: normal;
+      &.number {
+        color: #2d8cf0;
       }
 
-      .json-key {
-        color: #8c6325;
-      }
-
-      .json-value {
-        display: inline-block;
+      &.string {
         color: #57b73b;
-        word-break: break-all;
-        white-space: normal;
-        &.number {
-          color: #2d8cf0;
-        }
-
-        &.string {
-          color: #57b73b;
-        }
-
-        &.boolean {
-          color: #eb3324;
-        }
-
-        &.null {
-          color: #eb3324;
-        }
       }
 
-      .json-item {
-        margin: 0;
-        padding-left: 2rem;
-        display: flex;
+      &.boolean {
+        color: #eb3324;
       }
 
-      .first-line {
-        padding: 0;
-        margin: 0;
-
-        &.pointer {
-          cursor: pointer !important;
-        }
-      }
-
-      .json-body {
-        position: relative;
-        padding: 0;
-        margin: 0;
-
-        .bracket-line {
-          position: absolute;
-          height: 100%;
-          border-left: 1px dashed #bbb;
-          top: 0;
-          left: 3px;
-        }
-      }
-
-      .last-line {
-        padding: 0;
-        margin: 0;
-      }
-
-      .angle {
-        position: absolute;
-        display: block;
-        cursor: pointer;
-        float: left;
-        width: 20px;
-        text-align: center;
-        left: 12px;
+      &.null {
+        color: #eb3324;
       }
     }
+
+    .json-item {
+      margin: 0;
+      padding-left: 2rem;
+      display: flex;
+    }
+
+    .first-line {
+      padding: 0;
+      margin: 0;
+
+      &.pointer {
+        cursor: pointer !important;
+      }
+    }
+
+    .json-body {
+      position: relative;
+      padding: 0;
+      margin: 0;
+
+      .bracket-line {
+        position: absolute;
+        height: 100%;
+        border-left: 1px dashed #bbb;
+        top: 0;
+        left: 3px;
+      }
+    }
+
+    .last-line {
+      padding: 0;
+      margin: 0;
+    }
+
+    .angle {
+      position: absolute;
+      display: block;
+      cursor: pointer;
+      float: left;
+      width: 20px;
+      text-align: center;
+      left: 12px;
+    }
   }
+}
 </style>
 ```
 
