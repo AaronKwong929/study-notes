@@ -590,17 +590,13 @@ Promise.all = function (promises) {
     const result = [];
     const helper = (i, data) => {
       result[i] = data;
-      if (++i === promises.length) {
-        resolve(result);
-      }
+      if (++i === promises.length) resolve(result);
     };
 
     for (let i = 0; i < promises.length; i++) {
       Promise.resolve(promises[i])
-        .then(data => {
-          helper(i, data);
-        })
-        .catch(err => reject(err));
+        .then(data => helper(i, data))
+        .catch(reject);
     }
   });
 };
@@ -622,6 +618,8 @@ Promise.race = function (promises) {
 
 ### Promise.any
 
+写法接近于`race`，加入一个错误 count 和一个处理 count
+
 ```js
 Promise.any = function (promises) {
   return new Promise((resolve, reject) => {
@@ -629,21 +627,19 @@ Promise.any = function (promises) {
     let count = 0;
     for (let promise of promises) {
       count += 1;
-      Promise.resolve(promise).then(
-        resolve
-        (err) => {
-          errCount += 1;
-          if (errCount >= count) {
-            reject(new AggregateError("All promises were rejected"));
-          }
-        }
-      );
+      Promise.resolve(promise).then(resolve, err => {
+        errCount += 1;
+        if (errCount >= count)
+          reject(new AggregateError('All promises were rejected'));
+      });
     }
   });
 };
 ```
 
 ### Promise.allSettled
+
+注意 封装错误 函数，出口也要`resolve`
 
 ```js
 Promise.allSettled = function (promises) {
@@ -652,33 +648,25 @@ Promise.allSettled = function (promises) {
     let finishedCount = 0;
     const result = [];
 
-    const wrapFulfilled = i => {
-      return val => {
-        finishedCount++;
-        result[i] = {
-          status: `fulfilled`,
-          value: val,
-        };
-        if (finishedCount >= index) {
-          resolve(result);
-        }
+    const wrapFulfilled = i => val => {
+      finishedCount++;
+      result[i] = {
+        status: `fulfilled`,
+        value: val,
       };
+      if (finishedCount >= index) resolve(result);
     };
 
-    const wrapRejected = i => {
-      return err => {
-        finishedCount++;
-        result[i] = {
-          status: `rejected`,
-          reason: err,
-        };
-        if (finishedCount >= index) {
-          resolve(result);
-        }
+    const wrapRejected = i => err => {
+      finishedCount++;
+      result[i] = {
+        status: `rejected`,
+        reason: err,
       };
+      if (finishedCount >= index) resolve(result); // 注意这里
     };
 
-    for (let promise of promises) {
+    for (const promise of promises) {
       Promise.resolve(promise).then(wrapFulfilled(index), wrapRejected(index));
       index += 1;
     }

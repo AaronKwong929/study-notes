@@ -134,6 +134,8 @@
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
+  - [实现 groupBy](hand-write/group-by.md)
+
   - [概率相同的随机数](hand-write/概率相同的随机数.md)
 
   - [实现 instanceof](hand-write/instanceof.md)
@@ -146,9 +148,13 @@
 
   - [大数相加](hand-write/big-sum.md)
 
-  - [控制超时(Promise)](hand-write/timeout-control.md)
+  - [Promise - 控制超时](hand-write/timeout-control.md)
 
-  - [转盘问题(Promise)](hand-write/turn-table.md)
+  - [Promise - 转盘问题](hand-write/turn-table.md)
+
+  - [Promise - 隔秒输出 123](hand-write/promise-1-2-3.md)
+
+  - [Promise - 红绿灯](hand-write/promise-traffic-light.md)
 
   - [Promise 以及全家桶](hand-write/Promise.md)
 
