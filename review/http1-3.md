@@ -71,3 +71,35 @@ http/1 请求串行发送/响应导致的`http队头阻塞`
 http/2 的分帧是给每个帧打上`流ID`避免依次响应，对方接收到帧后根据流 ID 拼凑出流，就可以多路复用/乱序发送，解决`http队头阻塞`
 
 http 协议在应用层，tcp 协议在传输层，tcp 传输过程可能会丢包，就要等待重传，所以会发生`tcp队头阻塞` -- 滑动窗口没有彻底解决这个问题
+
+## http 常见 header 字段
+
+- cookie
+
+- allow
+
+- e-tag
+
+- last-modified
+
+- keep-alive
+
+- location
+
+- content-type
+
+- content-encoding
+
+## get post 区别
+
+get - 获取，post - 创建
+
+get 参数被拼接到 url，post 放在请求体
+
+get 请求 url 长度可能受浏览器控制
+
+## session 和 cookie
+
+session 在服务端，cookie 在客户端
+
+session 默认存放文件而非内存

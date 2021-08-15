@@ -44,9 +44,7 @@ const turnTablePromise = (requestFn, animationTime) => {
     const result = [];
     const helper = (i, data) => {
       result[i++] = data;
-      if (i === promises.length) {
-        resolve(result);
-      }
+      if (i === promises.length) resolve(result);
     };
 
     for (let i = 0; i < promises.length; i++) {

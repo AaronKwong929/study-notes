@@ -90,6 +90,8 @@
 
   - [DNS 解析](review/dns解析.md)
 
+  - [垃圾回收](review/garbage-collect.md)
+
   - [常见的 HTTP 状态码](review/http状态码.md)
 
   - [TCP](review/tcp.md)
