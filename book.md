@@ -1,4 +1,4 @@
-# 复习书
+# 复习
 
 [复习总表](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?table=tblEnSV2PNAajtWE&view=vewJHSwJVd)
 

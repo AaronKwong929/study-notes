@@ -10,11 +10,11 @@
 
 ## P.S.
 
-Github 的 commit message 我是图方便`故意乱写`的，笔记提交不需要规范化的 commit message
+这个仓库下 commit message 我是图快`乱写`的
 
-重点是`笔记本身`是否能复习到/学习到东西
+重点是`笔记本身`的 学习 / 复习 / 记录 功能
 
-平时的开发工作的 commit message 会使用`commitizen`**规范化**
+平时的开发工作的 commit message 会使用`commitizen`规范化
 
 ## 近期复习中...
 
