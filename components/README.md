@@ -16,11 +16,12 @@
 
 ## 使用方法
 
+单文件注册
+
 ```js
 import `componentName` from `${path}/${useComponent}/`;
 Vue.use(componentName);
 
-// use example:
 this.$toast("message");
 
 this.$MessageBox({
@@ -31,7 +32,7 @@ this.$MessageBox({
   .catch(() => {});
 ```
 
-### 全局注册
+全局注册
 
 ```js
 // main.js
