@@ -146,6 +146,8 @@
 
   - [大数相加](hand-write/big-sum.md)
 
+  - [实现翻转字符串](hand-write/reverse-string.md)
+
   - [Promise - 控制超时](hand-write/timeout-control.md)
 
   - [Promise - 转盘问题](hand-write/turn-table.md)
