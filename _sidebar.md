@@ -148,6 +148,8 @@
 
   - [实现翻转字符串](hand-write/reverse-string.md)
 
+  - [实现千分位隔符](hand-write/num-format.md)
+
   - [Promise - 控制超时](hand-write/timeout-control.md)
 
   - [Promise - 转盘问题](hand-write/turn-table.md)
