@@ -108,6 +108,8 @@
 
   - [AMD / CMD / CJS / UMD / ESM](review/amd-cjs-umd-esm.md)
 
+  - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
+
 - 算法
 
   - [二叉树](algorithm/tree.md)
@@ -143,6 +145,10 @@
   - [实现 Call 和 Apply](hand-write/call,apply.md)
 
   - [实现 Bind](hand-write/bind.md)
+
+  - [实现 new](hand-write/new.md)
+
+  - [实现 Object.create](hand-write/object-create.md)
 
   - [实现 trim](hand-write/trim.md)
 
