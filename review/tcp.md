@@ -79,7 +79,7 @@ TCP 工作在传输层，没有 IP（IP 在网络层）但有目标端口和源�
 
 ### 三次握手
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210815110553.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210815110553.png)
 
 三次握手，主要是要初始化 Sequence Number 的初始值。通信的双方要互相通知对方自己的初始化的 Sequence Number SYN 作为以后的数据通信的序号，以保证应用层接收到的数据不会因为网络上的传输的问题而乱序（TCP 会用这个序号来拼接数据）。
 
@@ -91,10 +91,10 @@ TCP 工作在传输层，没有 IP（IP 在网络层）但有目标端口和源�
 
 ### 四次挥手
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210815110621.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210815110621.png)
 
 对于 4 次挥手，其实`仔细看是 2 次`，因为 TCP 是`全双工`的，所以，发送方和接收方都需要 Fin 和 Ack。
 
 只不过，有一方是被动的，所以看上去就成了所谓的 4 次挥手。
 
-![pic](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210815105853.png)
+![pic](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210815105853.png)
