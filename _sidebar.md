@@ -140,6 +140,8 @@
 
   - [实现 instanceof](hand-write/instanceof.md)
 
+  - [实现 Call 和 Apply](hand-write/call,apply.md)
+
   - [实现 trim](hand-write/trim.md)
 
   - [实现深克隆](hand-write/deep-clone.md)
