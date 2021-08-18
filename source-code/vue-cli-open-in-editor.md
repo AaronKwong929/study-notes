@@ -2,13 +2,13 @@
 
 launch-editor-middleware 是基于 launch-editor 封装的一个中间件：判断参数类型, 判断文件是否存在以及读出路径，再传入 launch-editor 完成打开工作
 
-## 记一些东西
+## 部分记录
 
 ### 启动调试
 
 打开项目的`package.json`，`scripts`上方（新版 VSC）有一个调试按钮，按照自己需求配置 launch.json
 
-然后 vsc 底部变色，自己去浏览器打开项目地址，进行操作即可触发断点。在 vsc 调试栏打开的 chrome 用不了插件，这里要注意
+然后 vsc 底部变色，自己去浏览器打开项目地址，进行操作即可触发断点。在 vsc 调试栏打开的 chrome `用不了`插件，这里要注意
 
 ### launch-editor-middleware.js 的参数传递
 
