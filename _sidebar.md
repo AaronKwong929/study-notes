@@ -110,6 +110,8 @@
 
   - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
 
+  - [性能优化](review/性能优化实践.md)
+
 - 算法
 
   - [二叉树](algorithm/tree.md)
