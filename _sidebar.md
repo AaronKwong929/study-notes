@@ -154,6 +154,16 @@
 
 - 手写题
 
+  - [实现 instanceof](hand-write/instanceof.md)
+
+  - [实现 Call 和 Apply](hand-write/call,apply.md)
+
+  - [实现 Bind](hand-write/bind.md)
+
+  - [实现 Object.create](hand-write/object-create.md)
+
+  - [实现 new](hand-write/new.md)
+
   - [模拟实现远程加法](hand-write/remote-add.md)
 
   - [没有延迟的 setTimeout](hand-write/zero-timeout-fn.md)
@@ -165,16 +175,6 @@
   - [实现 groupBy](hand-write/group-by.md)
 
   - [概率相同的随机数](hand-write/概率相同的随机数.md)
-
-  - [实现 instanceof](hand-write/instanceof.md)
-
-  - [实现 Call 和 Apply](hand-write/call,apply.md)
-
-  - [实现 Bind](hand-write/bind.md)
-
-  - [实现 Object.create](hand-write/object-create.md)
-
-  - [实现 new](hand-write/new.md)
 
   - [实现 trim](hand-write/trim.md)
 
