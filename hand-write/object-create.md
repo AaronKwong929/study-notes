@@ -1,6 +1,6 @@
 # 实现 Object.create
 
-`Object.create`是以参数为原型去创建一个对象
+`Object.create`是以参数为原型去创建一个空对象
 
 ```js
 const create = function (ctx) {

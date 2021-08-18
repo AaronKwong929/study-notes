@@ -136,6 +136,8 @@
 
   - [性能优化](review/性能优化实践.md)
 
+  - [寄生组合继承](review/寄生组合继承.md)
+
 - 算法
 
   - [二叉树](algorithm/tree.md)
