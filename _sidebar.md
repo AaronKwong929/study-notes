@@ -54,13 +54,37 @@
 
   - [Docsify + Github 搭建一个 个人博客](build/docsify-github-blog.md)
 
+  - [将 GitHub Page 绑到个人域名](build/github-io-cname.md)
+
 - 组件
 
-  - [组件 Readme](components/README.md)
+  - [README](components/README.md)
 
   - [虚拟滚动 Virtual Scroll](components/VirtualScroll.md)
 
   - [JSON 预览 JSON Viewer](components/JSONViewer.md)
+
+- 一些有趣的东西
+
+  - [[1,2,3].map(parseInt)](<interview/[1,2,3].map(parseInt).md>)
+
+  - [a==1 && a==2 && a==3](interview/a==1&&a==2&&a==3=true.md)
+
+- 源码学习
+
+  - [从 Vue-DevTool 打开组件页面的学习](source-code/vue-cli-open-in-editor.md)
+
+  - [学习 Vue 发布方法，增强发布构建自动化](source-code/vue-release.md)
+
+  - [学习 Vue3 工具函数，提升开发效率](source-code/vue3-tool-fns.md)
+
+  - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
+
+  <!-- - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md) -->
+
+  - [Vue 响应式原理小记](source-code/vue-reactive.md)
+
+  <!-- - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md) -->
 
   - 题目录入
 
@@ -148,9 +172,9 @@
 
   - [实现 Bind](hand-write/bind.md)
 
-  - [实现 new](hand-write/new.md)
-
   - [实现 Object.create](hand-write/object-create.md)
+
+  - [实现 new](hand-write/new.md)
 
   - [实现 trim](hand-write/trim.md)
 
@@ -173,25 +197,3 @@
   - [Promise - 红绿灯](hand-write/promise-traffic-light.md)
 
   - [Promise 以及全家桶](hand-write/Promise.md)
-
-- 面试遇到过的
-
-  - [[1,2,3].map(parseInt)](<interview/[1,2,3].map(parseInt).md>)
-
-  - [a==1 && a==2 && a==3 = true](interview/a==1&&a==2&&a==3=true.md)
-
-- 源码学习
-
-  - [从 Vue-DevTool 打开组件页面的学习](source-code/vue-cli-open-in-editor.md)
-
-  - [学习 Vue 发布方法，增强发布构建自动化](source-code/vue-release.md)
-
-  - [学习 Vue3 工具函数，提升开发效率](source-code/vue3-tool-fns.md)
-
-  - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
-
-  - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md)
-
-  - [Vue 响应式原理小记](source-code/vue-reactive.md)
-
-  - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md)
