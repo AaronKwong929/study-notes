@@ -190,6 +190,8 @@
 
   - [实现防抖和节流](hand-write/debounce&throttle.md)
 
+  - [实现数组乱序](hand-write/random-array.md)
+
   - [Promise - 控制超时](hand-write/timeout-control.md)
 
   - [Promise - 转盘问题](hand-write/turn-table.md)
