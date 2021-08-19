@@ -82,6 +82,22 @@
 
   - [JSON 预览 JSON Viewer](components/JSONViewer.md)
 
+  - 题目录入
+
+    - [v1.0](components/QuestionBank/v1.md)
+
+    - [v2.0](components/QuestionBank/v2.md)
+
+    - [v3.0](components/QuestionBank/v3.md)
+
+  - [地址选择器 Area Picker](components/AreaPicker.md)
+
+  - [轻提示 Toast](components/Toast.md)
+
+  - [消息 Message](components/Message.md)
+
+  - [消息弹窗 Message Box](components/MessageBox.md)
+
 - 一些有趣的东西
 
   - [[1,2,3].map(parseInt)](<interview/[1,2,3].map(parseInt).md>)
@@ -98,27 +114,7 @@
 
   - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
 
-  <!-- - [new Vue 做了什么?Vue 源码学习(1)](source-code/what-does-new-Vue-do.md) -->
-
   - [Vue 响应式原理小记](source-code/vue-reactive.md)
-
-  <!-- - [用 TypeScript 重构 Axios 学到的](source-code/typescript-axios.md) -->
-
-  - 题目录入
-
-    - [v1.0](components/QuestionBank/v1.md)
-
-    - [v2.0](components/QuestionBank/v2.md)
-
-    - [v3.0](components/QuestionBank/v3.md)
-
-  - [地址选择器 Area Picker](components/AreaPicker.md)
-
-  - [轻提示 Toast](components/Toast.md)
-
-  - [消息 Message](components/Message.md)
-
-  - [消息弹窗 Message Box](components/MessageBox.md)
 
 - 复习
 
@@ -191,6 +187,8 @@
   - [实现翻转字符串](hand-write/reverse-string.md)
 
   - [实现千分位隔符](hand-write/num-format.md)
+
+  - [实现防抖和节流](hand-write/debounce&throttle.md)
 
   - [Promise - 控制超时](hand-write/timeout-control.md)
 
