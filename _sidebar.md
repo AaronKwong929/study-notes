@@ -42,6 +42,24 @@
 
   - [JS 常用函数](work/js-common-utils.md)
 
+- 算法
+
+  - [二叉树](algorithm/tree.md)
+
+  - [买卖股票系列](algorithm/sell-stock.md)
+
+  - [关于反转链表](algorithm/反转链表.md)
+
+  - [N 数之和](algorithm/N数之和.md)
+
+  - [一些小窍门](algorithm/tips.md)
+
+  - [链表](algorithm/link-node.md)
+
+  - [剑指 Offer 的部分题目理解](algorithm/剑指Offer.md)
+
+  - [一些做过的题目记录](algorithm/leetcode.md)
+
 - 搭建
 
   - [MacBook 开发环境搭建](build/macbook-env.md)
@@ -137,22 +155,6 @@
   - [性能优化](review/性能优化实践.md)
 
   - [寄生组合继承](review/寄生组合继承.md)
-
-- 算法
-
-  - [二叉树](algorithm/tree.md)
-
-  - [买卖股票系列](algorithm/sell-stock.md)
-
-  - [N 数之和](algorithm/N数之和.md)
-
-  - [一些小窍门](algorithm/tips.md)
-
-  - [链表](algorithm/link-node.md)
-
-  - [剑指 Offer 的部分题目理解](algorithm/剑指Offer.md)
-
-  - [一些做过的题目记录](algorithm/leetcode.md)
 
 - 手写题
 
