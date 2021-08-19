@@ -97,6 +97,8 @@ let newVDOM = {
 
 [详细解释看这里](https://juejin.cn/post/6994959998283907102?utm_source=gold_browser_extension#heading-9)
 
+https://blog.shenfq.com/posts/2019/%E8%99%9A%E6%8B%9FDOM%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F.html
+
 ## 其他问题
 
 ### 为何 v-for 不要用 index 直接做 key
