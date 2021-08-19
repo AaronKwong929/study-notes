@@ -8,9 +8,11 @@ Function.prototype.myBind = function (ctx) {
   fn.prototype = this.prototype; // 空函数中转prototype
   const args = Array.prototype.slice.call(arguments, 1);
   const bind = function () {
-    return self.apply(this instanceof fn ? this : ctx, [...args, ...arguments]); // new?
+    return self.apply(this instanceof fn ? this : ctx, [...args, ...arguments]);
   };
   bind.prototype = new fn(); // 改变原型
   return bind;
 };
 ```
+
+this 是 fn 实例的话证明使用了 new 操作符
