@@ -1,10 +1,4 @@
-# 生成概率相同的随机数
-
-> https://github.com/shfshanyue/Daily-Question/issues/711
-
-已知有一个函数 叫做 random5，执行这个函数会随机返回 0-5 之间任意一个数，概率相同。
-
-根据这个 random5，实现一个 random7，要求执行这个函数后随机返回 0-7 之间任意一个数，概率相同。
+# Math.random 的一些实现
 
 ## Math.random()
 

@@ -8,7 +8,7 @@
 
 1. instance 必须是对象 / 函数，传个字符串之类的直接给 false
 
-2. 循环就行了
+2. 循环判断左边的原型链上是否有右边的 prototype
 
 ```js
 function myInstanceof(instance, parent) {

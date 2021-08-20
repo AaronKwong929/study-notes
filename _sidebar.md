@@ -144,6 +144,8 @@
 
   - [CSRF](review/CSRF.md)
 
+  - [关于 this](review/this.md)
+
   - [AMD / CMD / CJS / UMD / ESM](review/amd-cjs-umd-esm.md)
 
   - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
@@ -174,7 +176,7 @@
 
   - [实现 groupBy](hand-write/group-by.md)
 
-  - [概率相同的随机数](hand-write/概率相同的随机数.md)
+  - [实现 Math.random 取不同范围数](hand-write/Math.random.md)
 
   - [实现 trim](hand-write/trim.md)
 
@@ -192,6 +194,8 @@
 
   - [实现数组乱序](hand-write/random-array.md)
 
+  - [Promise - 手写和 Api](hand-write/Promise.md)
+
   - [Promise - 控制超时](hand-write/timeout-control.md)
 
   - [Promise - 转盘问题](hand-write/turn-table.md)
@@ -200,4 +204,4 @@
 
   - [Promise - 红绿灯](hand-write/promise-traffic-light.md)
 
-  - [Promise 以及全家桶](hand-write/Promise.md)
+  - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
