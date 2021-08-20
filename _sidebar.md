@@ -107,6 +107,16 @@
 - 学习笔记
 
   - [Mutation Observer](study/mutation-observer.md)
+<!-- 
+  - 设计模式
+
+    - 发布订阅模式
+
+    - 观察者模式
+
+    - 责任链模式
+
+    - 单例模式 -->
 
 - 源码学习
 
