@@ -54,7 +54,7 @@
 
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210424205958.png)
 
-https://raw.githubusercontent.com/AaronKwong929/pictures/master/
+https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/
 
 https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/
 

@@ -90,8 +90,6 @@
 
     - [v3.0](components/QuestionBank/v3.md)
 
-  - [地址选择器 Area Picker](components/AreaPicker.md)
-
   - [轻提示 Toast](components/Toast.md)
 
   - [消息 Message](components/Message.md)
@@ -119,6 +117,8 @@
   - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
 
   - [Vue 响应式原理小记](source-code/vue-reactive.md)
+
+  - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
 - 复习
 
@@ -209,3 +209,15 @@
   - [Promise - 红绿灯](hand-write/promise-traffic-light.md)
 
   - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
+
+- (未填坑)一些设计模式的学习
+
+  - 观察者模式
+
+  - 发布/订阅模式
+
+  - 责任链模式
+
+  - 单例模式
+
+  - 策略模式

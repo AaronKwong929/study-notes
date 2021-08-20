@@ -26,7 +26,7 @@
 
 ## 完整代码
 
-```html
+```vue
 <template>
   <div
     class="area-picker"

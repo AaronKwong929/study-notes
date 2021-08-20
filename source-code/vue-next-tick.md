@@ -5,22 +5,10 @@
 nextTick 源码
 
 ```js
-// The nextTick behavior leverages the microtask queue, which can be accessed
-// via either native Promise.then or MutationObserver.
-// MutationObserver has wider support, however it is seriously bugged in
-// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
-// completely stops working after triggering a few times... so, if native
-// Promise is available, we will use it:
-/* istanbul ignore next, $flow-disable-line */
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
     p.then(flushCallbacks);
-    // In problematic UIWebViews, Promise.then doesn't completely break, but
-    // it can get stuck in a weird state where callbacks are pushed into the
-    // microtask queue but the queue isn't being flushed, until the browser
-    // needs to do some other work, e.g. handle a timer. Therefore we can
-    // "force" the microtask queue to be flushed by adding an empty timer.
     if (isIOS) setTimeout(noop);
   };
   isUsingMicroTask = true;
@@ -28,12 +16,8 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   !isIE &&
   typeof MutationObserver !== 'undefined' &&
   (isNative(MutationObserver) ||
-    // PhantomJS and iOS 7.x
     MutationObserver.toString() === '[object MutationObserverConstructor]')
 ) {
-  // Use MutationObserver where native Promise is not available,
-  // e.g. PhantomJS, iOS7, Android 4.4
-  // (#6466 MutationObserver is unreliable in IE11)
   let counter = 1;
   const observer = new MutationObserver(flushCallbacks);
   const textNode = document.createTextNode(String(counter));
@@ -46,9 +30,6 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   };
   isUsingMicroTask = true;
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
-  // Fallback to setImmediate.
-  // Technically it leverages the (macro) task queue,
-  // but it is still a better choice than setTimeout.
   timerFunc = () => {
     setImmediate(flushCallbacks);
   };
@@ -60,13 +41,15 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 }
 ```
 
-条件判断 ==> 支持`Promise`就使用 Promise.resolve().then()，针对某些 iOS 版本还需要增加一个 setTimeout noOP
+一句话：Promise **一路降级**
 
-不支持 Promise 的话检查`MutationObserver`
+1. `Promise` => Promise.resolve().then()，针对 iOS 还需要增加一个 setTimeout noop（noop vue 工具函数 - 空函数）
 
-再不支持的话使用`setImmediate`（但是这个东西只有最新的 ie 和 node 支持）(这里为什么不用 MutationEvent？)
+2. `MutationObserver`
 
-如果都不支持就使用 setTimeout
+3. `setImmediate`(这里为什么不用 MutationEvent?)
+
+4. `setTimeout`
 
 ## 异步更新原理
 
@@ -105,8 +88,6 @@ export function queueWatcher(watcher: Watcher) {
     } else {
       // 通过对 id 的判断，这里的 id 是自加1，可查看 watcher.js 源码，
       // 如果已经刷新了，则赋值当前的id , 如果id超过了，将运行如下代码
-      // if already flushing, splice the watcher based on its id
-      // if already past its id, it will be run next immediately.
       let i = queue.length - 1;
       while (i > index && queue[i].id > watcher.id) {
         i--;
@@ -119,7 +100,7 @@ export function queueWatcher(watcher: Watcher) {
       waiting = true;
 
       if (process.env.NODE_ENV !== 'production' && !config.async) {
-        flushSchedulerQueue(); // 该方法做了刷新前的 beforUpdate 方法调用，然后 watcher.run()
+        flushSchedulerQueue(); // 该方法做了刷新前的 beforeUpdate 方法调用，然后 watcher.run()
         return;
       }
       nextTick(flushSchedulerQueue); // 在下一次tick中刷新 watcher 队列 （借用nextTick）
@@ -130,22 +111,16 @@ export function queueWatcher(watcher: Watcher) {
 }
 ```
 
-这是关于 EventLoop
-
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210820211323.png)
-
 ## 为什么一定能拿到最新的 DOM?
+
+nextTick 放在赋值后面异步更新视图后才会将 nextTick 入队，能拿到最新的 DOM
 
 ## 为什么要异步更新视图？
 
 Vue2 组件级更新，如果每赋值一次都触发一次同步更新，性能会爆炸。
 
-异步更新的意思是：等本轮数据更新
+异步更新的意思是：等本轮数据更新完成后再异步进行视图更新
 
 来看文档
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210820223700.png)
-
-## 怎么理解 nextTick 队列 watcher 的顺序
-
-## 调用 nextTick 的队列？
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210820223700.png)
