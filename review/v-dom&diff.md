@@ -89,15 +89,212 @@ let newVDOM = {
 
 ## Diff
 
-`同层`对比新旧 VDOM，不能更新未发生改变的节点，减少重绘重排
+`同层`对比新旧 虚拟 DOM，不能更新未发生改变的节点，减少重绘重排
 
 当数据改变时，会触发 setter，并且通过 Dep.notify 去通知所有订阅者 Watcher，订阅者们就会调用 patch 方法，给真实 DOM 打补丁，更新相应的视图。
 
 `patch`,`sameVNode`,`patchVnode`,`updateChildren`
 
-[详细解释看这里](https://juejin.cn/post/6994959998283907102?utm_source=gold_browser_extension#heading-9)
+### patch 方法
 
-https://blog.shenfq.com/posts/2019/%E8%99%9A%E6%8B%9FDOM%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F.html
+- 对比当前层的节点是否同类型标签
+
+  - 是 - 继续进行 patchNode
+
+  - 否 - 节点替换成新节点
+
+```js
+function patch(oldVnode, newVnode) {
+  // 比较是否为一个类型的节点
+  if (sameVnode(oldVnode, newVnode)) {
+    // 是：继续进行深层比较
+    patchVnode(oldVnode, newVnode);
+  } else {
+    // 否
+    const oldEl = oldVnode.el; // 旧虚拟节点的真实DOM节点
+    const parentEle = api.parentNode(oldEl); // 获取父节点
+    createEle(newVnode); // 创建新虚拟节点对应的真实DOM节点
+    if (parentEle !== null) {
+      api.insertBefore(parentEle, vnode.el, api.nextSibling(oEl)); // 将新元素添加进父元素
+      api.removeChild(parentEle, oldVnode.el); // 移除以前的旧元素节点
+      // 设置null，释放内存
+      oldVnode = null;
+    }
+  }
+  return newVnode;
+}
+```
+
+### sameNode 方法
+
+一目了然 判断节点类型是否相同
+
+```js
+function sameVnode(oldVnode, newVnode) {
+  return (
+    oldVnode.key === newVnode.key && // key值是否一样
+    oldVnode.tagName === newVnode.tagName && // 标签名是否一样
+    oldVnode.isComment === newVnode.isComment && // 是否都为注释节点
+    isDef(oldVnode.data) === isDef(newVnode.data) && // 是否都定义了data
+    sameInputType(oldVnode, newVnode) // 当标签为input时，type必须是否相同
+  );
+}
+```
+
+### patchNode 方法
+
+1. 找到真实 DOM ==> el
+
+2. 判断 `newValue` 和 `oldValue` 是否同一对象，是 ==> return, 结束
+
+3. 如果都有文本节点但不相同 - 将 el 的文本节点设置为 newVnode 的文本节点。
+
+4. 如果 oldVnode 有子节点而 newVnode 没有，则删除 el 的子节点
+
+5. 如果 oldVnode 没有子节点而 newVnode 有，则将 newVnode 的子节点真实化之后添加到 el
+
+6. 如果两者都有子节点，则执行 updateChildren 函数比较子节点，这一步很重要
+
+```js
+function patchVnode(oldVnode, newVnode) {
+  const el = (newVnode.el = oldVnode.el); // 获取真实DOM对象
+  // 获取新旧虚拟节点的子节点数组
+  const oldCh = oldVnode.children,
+    newCh = newVnode.children;
+  // 如果新旧虚拟节点是同一个对象，则终止
+  if (oldVnode === newVnode) return;
+  // 如果新旧虚拟节点是文本节点，且文本不一样
+  if (
+    oldVnode.text !== null &&
+    newVnode.text !== null &&
+    oldVnode.text !== newVnode.text
+  ) {
+    // 则直接将真实DOM中文本更新为新虚拟节点的文本
+    api.setTextContent(el, newVnode.text);
+  } else {
+    // 否则
+
+    if (oldCh && newCh && oldCh !== newCh) {
+      // 新旧虚拟节点都有子节点，且子节点不一样
+
+      // 对比子节点，并更新
+      updateChildren(el, oldCh, newCh);
+    } else if (newCh) {
+      // 新虚拟节点有子节点，旧虚拟节点没有
+
+      // 创建新虚拟节点的子节点，并更新到真实DOM上去
+      createEle(newVnode);
+    } else if (oldCh) {
+      // 旧虚拟节点有子节点，新虚拟节点没有
+
+      //直接删除真实DOM里对应的子节点
+      api.removeChild(el);
+    }
+  }
+}
+```
+
+### updateChildren 方法
+
+> 最难理解的部分
+
+双指针 - 新旧 children 都有头尾两个指针
+
+相互进行比较，共`5种情况`，s 为 start，e 为 end
+
+1. `sameNode(oldS, newS)`
+
+2. `sameNode(oldS, newE)`
+
+3. `sameNode(oldE, newS)`
+
+4. `sameNode(oldE, newE)`
+
+5. 如果都不满足的话，把所有 oldCh 的 key 映射到 `key -> index`，再用 newCh 的 key 去寻找可复用的
+
+```js
+function updateChildren(parentElm, oldCh, newCh) {
+  let oldStartIdx = 0,
+    newStartIdx = 0;
+  let oldEndIdx = oldCh.length - 1;
+  let oldStartVnode = oldCh[0];
+  let oldEndVnode = oldCh[oldEndIdx];
+  let newEndIdx = newCh.length - 1;
+  let newStartVnode = newCh[0];
+  let newEndVnode = newCh[newEndIdx];
+  let oldKeyToIdx;
+  let idxInOld;
+  let elmToMove;
+  let before;
+  while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+    if (oldStartVnode == null) {
+      oldStartVnode = oldCh[++oldStartIdx];
+    } else if (oldEndVnode == null) {
+      oldEndVnode = oldCh[--oldEndIdx];
+    } else if (newStartVnode == null) {
+      newStartVnode = newCh[++newStartIdx];
+    } else if (newEndVnode == null) {
+      newEndVnode = newCh[--newEndIdx];
+    } else if (sameVnode(oldStartVnode, newStartVnode)) {
+      patchVnode(oldStartVnode, newStartVnode);
+      oldStartVnode = oldCh[++oldStartIdx];
+      newStartVnode = newCh[++newStartIdx];
+    } else if (sameVnode(oldEndVnode, newEndVnode)) {
+      patchVnode(oldEndVnode, newEndVnode);
+      oldEndVnode = oldCh[--oldEndIdx];
+      newEndVnode = newCh[--newEndIdx];
+    } else if (sameVnode(oldStartVnode, newEndVnode)) {
+      patchVnode(oldStartVnode, newEndVnode);
+      api.insertBefore(
+        parentElm,
+        oldStartVnode.el,
+        api.nextSibling(oldEndVnode.el)
+      );
+      oldStartVnode = oldCh[++oldStartIdx];
+      newEndVnode = newCh[--newEndIdx];
+    } else if (sameVnode(oldEndVnode, newStartVnode)) {
+      patchVnode(oldEndVnode, newStartVnode);
+      api.insertBefore(parentElm, oldEndVnode.el, oldStartVnode.el);
+      oldEndVnode = oldCh[--oldEndIdx];
+      newStartVnode = newCh[++newStartIdx];
+    } else {
+      // 使用key时的比较
+      if (oldKeyToIdx === undefined) {
+        oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx); // 有key生成index表
+      }
+      idxInOld = oldKeyToIdx[newStartVnode.key];
+      if (!idxInOld) {
+        api.insertBefore(
+          parentElm,
+          createEle(newStartVnode).el,
+          oldStartVnode.el
+        );
+        newStartVnode = newCh[++newStartIdx];
+      } else {
+        elmToMove = oldCh[idxInOld];
+        if (elmToMove.sel !== newStartVnode.sel) {
+          api.insertBefore(
+            parentElm,
+            createEle(newStartVnode).el,
+            oldStartVnode.el
+          );
+        } else {
+          patchVnode(elmToMove, newStartVnode);
+          oldCh[idxInOld] = null;
+          api.insertBefore(parentElm, elmToMove.el, oldStartVnode.el);
+        }
+        newStartVnode = newCh[++newStartIdx];
+      }
+    }
+  }
+  if (oldStartIdx > oldEndIdx) {
+    before = newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].el;
+    addVnodes(parentElm, before, newCh, newStartIdx, newEndIdx);
+  } else if (newStartIdx > newEndIdx) {
+    removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+  }
+}
+```
 
 ## 其他问题
 
@@ -109,3 +306,9 @@ https://blog.shenfq.com/posts/2019/%E8%99%9A%E6%8B%9FDOM%E5%88%B0%E5%BA%95%E6%98
 因为原来没有 key=4 的 c 节点，走新增流程，**所以全部节点都被更新了**
 
 所以，如果用 unique 值去作 key，sameNode 命中，patchNode 也不会去做更新操作，直接复用，所以只有新的 aa 标签会变动被挂载上去，其他标签不会更新
+
+## 参考
+
+https://juejin.cn/post/6994959998283907102?utm_source=gold_browser_extension#heading-9
+
+https://blog.shenfq.com/posts/2019/%E8%99%9A%E6%8B%9FDOM%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F.html
