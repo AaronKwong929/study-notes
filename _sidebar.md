@@ -116,7 +116,9 @@
 
   - [如何启用调试阅读 Vue 源码](source-code/how-to-debug-vue.md)
 
-  - [Vue 响应式原理小记](source-code/vue-reactive.md)
+  - [Vue 响应式原理小记 1](source-code/vue-reactive.md)
+
+  - [Vue 响应式原理小记 2](source-code/vue-reactive2.md)
 
   - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
