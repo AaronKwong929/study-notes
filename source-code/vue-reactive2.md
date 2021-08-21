@@ -299,6 +299,33 @@ function dependArray(array) {
 ## 完整的
 
 ```js
+reactiveMethods.forEach(method => {
+  const originalMethod = arrayPrototype[method];
+  // 在代理原型上定义变异的响应式方法
+  Object.defineProperty(proxyPrototype, method, {
+    value: function reactiveMethod(...args) {
+      const result = originalMethod.apply(this, args);
+
+      const ob = this.__ob__;
+
+      let inserted = null;
+      switch (method) {
+        case 'push':
+        case 'unshift':
+          inserted = args;
+          break;
+        case 'splice':
+          inserted = args.slice(2);
+      }
+      if (inserted) ob.observeArray(inserted);
+      ob.dep.notify();
+      return result;
+    },
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  });
+});
 // observe.js
 function observe(value) {
   if (typeof value !== `object`) return;
@@ -360,8 +387,8 @@ function defineReactive(data, key, value = data[key]) {
       if (childOb) {
         childOb.dep.depend();
 
-        if (Array.isArray(val)) {
-          dependArray(val);
+        if (Array.isArray(value)) {
+          dependArray(value);
         }
       }
 
