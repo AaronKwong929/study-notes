@@ -5,6 +5,16 @@
 nextTick 源码
 
 ```js
+let callbacks = []; // 回调函数
+let pending = false;
+function flushCallbacks() {
+  pending = false; // 把标志还原为false
+  // 依次执行回调
+  for (let i = 0; i < callbacks.length; i++) {
+    callbacks[i]();
+  }
+}
+
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
@@ -38,6 +48,14 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   timerFunc = () => {
     setTimeout(flushCallbacks, 0);
   };
+}
+
+export function nextTick(cb) {
+  callbacks.push(cb);
+  if (!pending) {
+    pending = true;
+    timerFunc();
+  }
 }
 ```
 

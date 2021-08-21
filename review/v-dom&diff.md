@@ -147,13 +147,13 @@ function sameVnode(oldVnode, newVnode) {
 
 2. 判断 `newValue` 和 `oldValue` 是否同一对象，是 ==> return, 结束
 
-3. 如果都有文本节点但不相同 - 将 el 的文本节点设置为 newVnode 的文本节点。
+3. 如果都有文本节点但不相同 - 将 el 的文本节点设置为 `newVnode` 的文本节点。
 
-4. 如果 oldVnode 有子节点而 newVnode 没有，则删除 el 的子节点
+4. 如果 `oldVnode` 有子节点而 `newVnode` 没有，则删除 el 的子节点
 
-5. 如果 oldVnode 没有子节点而 newVnode 有，则将 newVnode 的子节点真实化之后添加到 el
+5. 如果 `oldVnode` 没有子节点而 `newVnode` 有，则将 `newVnode` 的子节点真实化之后添加到 el
 
-6. 如果两者都有子节点，则执行 updateChildren 函数比较子节点，这一步很重要
+6. 如果两者都有子节点，则执行 `updateChildren` 函数比较子节点
 
 ```js
 function patchVnode(oldVnode, newVnode) {
@@ -176,18 +176,15 @@ function patchVnode(oldVnode, newVnode) {
 
     if (oldCh && newCh && oldCh !== newCh) {
       // 新旧虚拟节点都有子节点，且子节点不一样
-
       // 对比子节点，并更新
       updateChildren(el, oldCh, newCh);
     } else if (newCh) {
       // 新虚拟节点有子节点，旧虚拟节点没有
-
       // 创建新虚拟节点的子节点，并更新到真实DOM上去
       createEle(newVnode);
     } else if (oldCh) {
       // 旧虚拟节点有子节点，新虚拟节点没有
-
-      //直接删除真实DOM里对应的子节点
+      // 直接删除 真实DOM 里对应的子节点
       api.removeChild(el);
     }
   }
@@ -212,38 +209,60 @@ function patchVnode(oldVnode, newVnode) {
 
 5. 如果都不满足的话，把所有 oldCh 的 key 映射到 `key -> index`，再用 newCh 的 key 去寻找可复用的
 
+如果 sameNode 命中的话 左指针要++，右指针--
+
+如果旧的率先走完，说明新比旧的多，要将多出来的节点插入到真实 DOM 对应的位置 -- 遍历？
+
+如果新的率先走完 - 旧的比新的多
+
 ```js
+// 稍微改动了点 增强可读性
+// oS => oldStart, oE => oldEnd
+// nS => newStart, nE => newEnd
 function updateChildren(parentElm, oldCh, newCh) {
+  // 数值初始化
   let oldStartIdx = 0,
     newStartIdx = 0;
-  let oldEndIdx = oldCh.length - 1;
-  let oldStartVnode = oldCh[0];
-  let oldEndVnode = oldCh[oldEndIdx];
-  let newEndIdx = newCh.length - 1;
-  let newStartVnode = newCh[0];
-  let newEndVnode = newCh[newEndIdx];
+  let oldEndIdx = oldCh.length - 1,
+    newEndIdx = newCh.length - 1;
+
+  let oldStartVnode = oldCh[0],
+    oldEndVnode = oldCh[oldEndIdx];
+
+  let newStartVnode = newCh[0],
+    newEndVnode = newCh[newEndIdx];
+
   let oldKeyToIdx;
   let idxInOld;
   let elmToMove;
   let before;
+
   while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
     if (oldStartVnode == null) {
+      // 如果 oldStart 位是 null，oS++
       oldStartVnode = oldCh[++oldStartIdx];
     } else if (oldEndVnode == null) {
+      // oldEnd 位 null，oE--
       oldEndVnode = oldCh[--oldEndIdx];
     } else if (newStartVnode == null) {
+      // newStart 位 null，nS++
       newStartVnode = newCh[++newStartIdx];
     } else if (newEndVnode == null) {
+      // newEnd 位 null，nE--
       newEndVnode = newCh[--newEndIdx];
     } else if (sameVnode(oldStartVnode, newStartVnode)) {
+      // oS === nS ==> patchNode，oS++，nS++
       patchVnode(oldStartVnode, newStartVnode);
       oldStartVnode = oldCh[++oldStartIdx];
       newStartVnode = newCh[++newStartIdx];
     } else if (sameVnode(oldEndVnode, newEndVnode)) {
+      // oE == nE  ==> patchNode，oE--，nE--
       patchVnode(oldEndVnode, newEndVnode);
       oldEndVnode = oldCh[--oldEndIdx];
       newEndVnode = newCh[--newEndIdx];
     } else if (sameVnode(oldStartVnode, newEndVnode)) {
+      // oS == nE ==> patchNode, oS++，nE--
+      // 在oldEndVnode的下一个兄弟节点前面插入olStartVnode
       patchVnode(oldStartVnode, newEndVnode);
       api.insertBefore(
         parentElm,
@@ -253,12 +272,14 @@ function updateChildren(parentElm, oldCh, newCh) {
       oldStartVnode = oldCh[++oldStartIdx];
       newEndVnode = newCh[--newEndIdx];
     } else if (sameVnode(oldEndVnode, newStartVnode)) {
+      // oE == nS ==> patchNode, oE--, nS++
+      // 在oldStartVnode的前面插入oldEndVnode
       patchVnode(oldEndVnode, newStartVnode);
       api.insertBefore(parentElm, oldEndVnode.el, oldStartVnode.el);
       oldEndVnode = oldCh[--oldEndIdx];
       newStartVnode = newCh[++newStartIdx];
     } else {
-      // 使用key时的比较
+      // 使用 key 时的比较
       if (oldKeyToIdx === undefined) {
         oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx); // 有key生成index表
       }
@@ -288,9 +309,11 @@ function updateChildren(parentElm, oldCh, newCh) {
     }
   }
   if (oldStartIdx > oldEndIdx) {
+    // 如果oldCh已经遍历完，newCh还有剩 ==> 将剩余newVnode插入
     before = newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].el;
     addVnodes(parentElm, before, newCh, newStartIdx, newEndIdx);
   } else if (newStartIdx > newEndIdx) {
+    // newCh遍历完 oldCh还有剩，从oldStart到oldEnd删除节点
     removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
   }
 }
