@@ -41,13 +41,13 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 }
 ```
 
-一句话：Promise **一路降级**
+一句话：Promise **一路降级**，两个微任务，两个宏任务
 
 1. `Promise` => Promise.resolve().then()，针对 iOS 还需要增加一个 setTimeout noop（noop vue 工具函数 - 空函数）
 
 2. `MutationObserver`
 
-3. `setImmediate`(这里为什么不用 MutationEvent?)
+3. `setImmediate`
 
 4. `setTimeout`
 

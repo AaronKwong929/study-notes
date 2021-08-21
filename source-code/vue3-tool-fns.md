@@ -1,5 +1,15 @@
 # 学习 vue3 的一些工具函数
 
+## NOOP 不执行任何内容的方法
+
+简化代码，增强可读性
+
+```js
+function NOOP() {}
+```
+
+例如在 nextTick 的 promise 流程里针对 iOS 系统需要执行一个`setTimeout(NOOP)`
+
 ## extend 合并
 
 ```js

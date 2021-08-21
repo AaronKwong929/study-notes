@@ -54,4 +54,10 @@ console.log('records ', mutationObserver.takeRecords());
 mutationObserver.disconnect();
 ```
 
-具体的实践需要业务支撑，之后运用到了会补上
+在 [nextTick](/source-code/vue-next-tick.md) 里用到了`MutationObserver`，作为 Promise 不可用时候的降级处理
+
+## 其他
+
+`MutationEvent`作为`MutationObserver`前身已不再使用
+
+`MutationObserver`有较好的兼容性
