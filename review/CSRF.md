@@ -34,4 +34,4 @@ origin 不包含路径信息
 
 没有 origin 再判断 refer
 
-3. csrf token 服务器返回，敏感操作时要发送服务器验证，第三方发出无法获得到 token
+3. CSRF token 服务器返回，敏感操作时要发送服务器验证，第三方发出无法获得到 token
