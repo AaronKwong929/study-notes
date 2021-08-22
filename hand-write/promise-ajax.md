@@ -2,7 +2,7 @@
 
 ```js
 function myAjax(url) {
-  let promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
     xhr.open(`GET`, url);
     xhr.send();
@@ -12,7 +12,6 @@ function myAjax(url) {
       else reject(new Error(this.statusText));
     };
   });
-  return promise;
 }
 
 // 要在浏览器测试，node 没有 XMLHttpRequest
@@ -21,7 +20,7 @@ myAjax(`https://www.baidu.com`).then(
     console.log(res);
   },
   err => {
-    console.log(err);
+    console.error(err);
   }
 );
 ```

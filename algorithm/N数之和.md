@@ -32,11 +32,8 @@ var twoSum = function (nums, start, target) {
       res.push([low, high]);
       while (low < high && nums[low] == left) low++;
       while (low < high && nums[high] == right) high--;
-    } else if (num < target) {
-      while (low < high && nums[low] == left) low++;
-    } else {
-      while (low < high && nums[high] == right) high--;
-    }
+    } else if (num < target) while (low < high && nums[low] == left) low++;
+    else while (low < high && nums[high] == right) high--;
   }
   return res;
 };

@@ -23,14 +23,11 @@ export default class EventBus {
     }
     // 只被触发一次的事件
     $once(name, fn) {
-        //在这里同时完成了对该事件的注册、对该事件的触发，并在最后取消该事件。
+        // 包装一层回调
         const cb = (...args) => {
-            //触发
             fn(...args);
-            //取消
             this.off(name, fn);
         };
-        //监听
         this.$on(name, cb);
     }
     // 取消事件

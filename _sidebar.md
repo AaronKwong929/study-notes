@@ -48,7 +48,7 @@
 
   - [买卖股票系列](algorithm/sell-stock.md)
 
-  - [关于反转链表](algorithm/反转链表.md)
+  - [关于反转链表](algorithm/关于反转链表.md)
 
   - [N 数之和](algorithm/N数之和.md)
 

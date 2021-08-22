@@ -41,7 +41,7 @@ const deepClone = (source, map = new Map()) => {
     // 如果是对象则进行递归调用
     const res = Array.isArray(source) ? [] : {};
     // 命中缓存直接返回
-    if (map.get(source)) return map.get(source);
+    if (map.has(source)) return map.get(source);
     // 设置缓存
     map.set(source, res);
     for (const key in source) {

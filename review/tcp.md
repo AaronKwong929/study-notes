@@ -81,6 +81,20 @@ TCP 工作在传输层，没有 IP（IP 在网络层）但有目标端口和源�
 
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210815110553.png)
 
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210822092303.png)
+
+> 其实就是相互试探暗号
+
+C --> S
+
+1. c 生成随机 SEQ-1，发给 S
+
+2. S 接收到 SEQ-1 发送 ACK = SEQ-1 + 1，还有一个随机 SEQ-2 发给 C
+
+3. C 接收到 ACK 和 SEQ-2，返回 SEQ = ACK + 1，ACK = SEQ-2 + 1
+
+握手完成建立连接
+
 三次握手，主要是要初始化 Sequence Number 的初始值。通信的双方要互相通知对方自己的初始化的 Sequence Number SYN 作为以后的数据通信的序号，以保证应用层接收到的数据不会因为网络上的传输的问题而乱序（TCP 会用这个序号来拼接数据）。
 
 接收方接收到请求时会将 SEQ+1 返回给发送方，由发送方判断接收方接收到的是否是历史连接，

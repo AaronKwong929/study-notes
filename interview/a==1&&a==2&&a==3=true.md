@@ -7,7 +7,7 @@ a 是个对象，改下 getter
 ```js
 var value = 0;
 Object.defineProperty(window, 'a', {
-  get: function () {
+  get() {
     return ++this.value;
   },
 });
