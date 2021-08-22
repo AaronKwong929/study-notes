@@ -74,6 +74,8 @@
 
   - [将 GitHub Page 绑到个人域名](build/github-io-cname.md)
 
+  - [新服务器安装 Docker 和 Docker-compose](build/docker-install.md)
+
 - 组件
 
   - [README](components/README.md)

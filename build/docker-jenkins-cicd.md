@@ -1,6 +1,6 @@
 # Docker + Jenkins 搭建持续构建系统
 
-> 这个搭建建立在云服务器已有 docker 和 docker-compose 的条件下，没有的话需要先安装
+> 这个搭建建立在云服务器已有 docker 和 docker-compose 的条件下，没有的话需要先安装，看[这里](/build/docker-install.md)
 
 ## 搭建 Jenkins 步骤
 
@@ -21,7 +21,7 @@ vim docker-compose.yml
 3. 写入 docker-compose.yml
 
 ```yml
-version: "3" # 指定 docker-compose.yml 文件的写法格式
+version: '3' # 指定 docker-compose.yml 文件的写法格式
 services:
   docker_jenkins:
     user: root # 为了避免一些权限问题 在这我使用了root
@@ -29,8 +29,8 @@ services:
     image: jenkins/jenkins:lts # 指定服务所使用的镜像
     container_name: jenkins # 容器名称
     ports: # 对外暴露的端口定义
-      - "8080:8080"
-      - "50000:50000"
+      - '8080:8080'
+      - '50000:50000'
     volumes: # 卷挂载路径
       - /project/jenkins/jenkins_home/:/var/jenkins_home # 这是一开始创建的目录挂载到容器内的 jenkins_home 目录
       - /var/run/docker.sock:/var/run/docker.sock
