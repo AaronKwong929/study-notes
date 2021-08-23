@@ -166,6 +166,10 @@
 
   - [寄生组合继承](review/寄生组合继承.md)
 
+  - [简述 Uglify 原理](review/uglify.md)
+
+  - [简单了解 Webpack](review/webpack.md)
+
 - 手写题
 
   - [实现 instanceof](hand-write/instanceof.md)
