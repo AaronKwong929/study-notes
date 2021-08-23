@@ -70,13 +70,12 @@ const reactiveMethods = [
   `unshift`,
   `sort`,
   `splice`,
-  `splice`,
+  `reverse`,
 ];
 
 // 增加代理原型 proxyPrototype.__proto__ = arrayPrototype
 // P.S. 组合寄生继承 可以去看对应笔记
 const proxyPrototype = Object.create(arrayPrototype);
-
 // 定义响应式方法
 reactiveMethods.forEach(method => {
   const originalMethod = arrayPrototype[method];
@@ -117,16 +116,13 @@ reactiveMethods.forEach(method => {
 function observe(value) {
   if (typeof value !== `object`) return;
   let ob;
-  if (value.__ob__ && value.__ob__ instanceof Observer) {
-    ob = value.__ob__;
-  } else {
-    ob = new Observer(value);
-  }
+  if (value.__ob__ && value.__ob__ instanceof Observer) ob = value.__ob__;
+  else ob = new Observer(value);
   return ob;
 }
 ```
 
-`Observer` 也要进行修改 ==> 这里是有个返回值的
+`Observer` 也要进行修改
 
 1. 在 Observer 这里创建一个 Dep
 
@@ -137,11 +133,8 @@ function observe(value) {
 class Observer {
   constructor(data) {
     this.data = data;
-
     this.dep = new Dep();
-
     def(value, `__ob__`, this);
-
     // 对数组进行处理
     if (Array.isArray(data)) {
       // NOTE: 这里改变原型
@@ -188,9 +181,7 @@ reactiveMethods.forEach(method => {
   Object.defineProperty(proxyPrototype, method, {
     value: function reactiveMethod(...args) {
       const result = originalMethod.apply(this, args);
-
       const ob = this.__ob__;
-
       let inserted = null;
       switch (method) {
         case 'push':
@@ -199,11 +190,10 @@ reactiveMethods.forEach(method => {
           break;
         case 'splice':
           inserted = args.slice(2);
+          break;
       }
       if (inserted) ob.observeArray(inserted);
-
       ob.dep.notify();
-
       return result;
     },
     enumerable: false,
@@ -231,10 +221,7 @@ function defineReactive(data, key, value = data[key]) {
 
       // 如果有childOb 那么就要将它加入到依赖环境中
       // 基本类型值没有 childOb ，observe函数直接return了
-      if (childOb) {
-        childOb.dep.depend();
-      }
-
+      if (childOb) childOb.dep.depend();
       return value;
     },
     set: function reactiveSetter(newValue) {
@@ -253,9 +240,7 @@ function defineReactive(data, key, value = data[key]) {
 // defineReactive.js
 function defineReactive(data, key, value = data[key]) {
   const dep = new Dep(); // 创建依赖管理
-
   let childOb = observe(value); // NOTE: observe现在会返回__ob__
-
   Object.defineProperty(data, key, {
     get: function reactiveGetter() {
       dep.depend(); // 将当前正在读取这个数据的依赖加入dep
@@ -332,9 +317,8 @@ function observe(value) {
   let ob;
   if (value.__ob__ && value.__ob__ instanceof Observer) {
     ob = value.__ob__;
-  } else {
-    ob = new Observer(value);
-  }
+  } else ob = new Observer(value);
+
   return ob;
 }
 
@@ -386,12 +370,8 @@ function defineReactive(data, key, value = data[key]) {
       // 基本类型值没有 childOb ，observe函数直接return了
       if (childOb) {
         childOb.dep.depend();
-
-        if (Array.isArray(value)) {
-          dependArray(value);
-        }
+        if (Array.isArray(value)) dependArray(value);
       }
-
       return value;
     },
     set: function reactiveSetter(newValue) {
@@ -403,10 +383,10 @@ function defineReactive(data, key, value = data[key]) {
   });
 }
 
+// 数组递归加入依赖
 function dependArray(array) {
   for (let e of array) {
     e && e.__ob__ && e.__ob__.dep.depend();
-
     if (Array.isArray(e)) {
       dependArray(e);
     }
