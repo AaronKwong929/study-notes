@@ -194,7 +194,7 @@
 
   - [实现 Math.random 取不同范围数](hand-write/Math.random.md)
 
-  - [获取URL指定参数](hand-write/get-url-params.md)
+  - [获取 URL 指定参数](hand-write/get-url-params.md)
 
   - [实现 trim](hand-write/trim.md)
 
@@ -224,14 +224,16 @@
 
   - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
 
+  - [Promise - 并发控制](hand-write/promise-limit.md)
+
 - (未填坑)一些设计模式的学习
 
   - 观察者模式
 
   - 发布/订阅模式
 
+  - 策略模式
+
   - 责任链模式
 
   - 单例模式
-
-  - 策略模式

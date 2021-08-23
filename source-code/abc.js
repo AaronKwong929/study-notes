@@ -69,7 +69,7 @@ const reactiveMethods = [
   `unshift`,
   `sort`,
   `splice`,
-  `splice`,
+  `reverse`,
 ];
 const proxyPrototype = Object.create(arrayPrototype);
 reactiveMethods.forEach(method => {
