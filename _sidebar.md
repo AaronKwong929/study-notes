@@ -26,9 +26,11 @@
 
   - [Vue 项目 换色实现方案](work/change-theme.md)
 
+  - [Element-UI 踩坑](work/vue-element-ui.md)
+
   - [Vant 踩坑](work/vant-bugs.md)
 
-  - [Element-UI 踩坑](work/vue-element-ui.md)
+  - [IView 踩坑](work/iview-bugs.md)
 
   - [Electron 踩坑](work/electron.md)
 
