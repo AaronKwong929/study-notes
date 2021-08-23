@@ -194,6 +194,8 @@
 
   - [实现 Math.random 取不同范围数](hand-write/Math.random.md)
 
+  - [获取URL指定参数](hand-write/get-url-params.md)
+
   - [实现 trim](hand-write/trim.md)
 
   - [实现深克隆](hand-write/deep-clone.md)
