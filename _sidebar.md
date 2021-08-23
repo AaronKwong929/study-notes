@@ -162,6 +162,8 @@
 
   - [性能优化](review/性能优化实践.md)
 
+  - [Tree-Shaking](review/tree-shaking.md)
+
   - [寄生组合继承](review/寄生组合继承.md)
 
 - 手写题
