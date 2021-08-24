@@ -144,6 +144,8 @@
 
   - [DNS 解析](review/dns解析.md)
 
+  - [CDN](review/CDN.md)
+
   - [垃圾回收](review/garbage-collect.md)
 
   - [常见的 HTTP 状态码](review/http状态码.md)
@@ -153,8 +155,6 @@
   - [HTTP/123](review/http1-3.md)
 
   - [https](review/https.md)
-
-  - [CDN](review/CDN.md)
 
   - [BFC](review/BFC.md)
 
