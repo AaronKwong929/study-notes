@@ -8,6 +8,14 @@
 
   - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
 
+- 一些总结
+
+  - [关于后台重构](summary/refactor.md)
+
+  - [关于 CI/CD](summary/cicd.md)
+
+  - [关于题库迭代](summary/question-bank.md)
+
 - 工作遇到问题的小记录
 
   - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
@@ -225,6 +233,8 @@
   - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
 
   - [Promise - 并发控制](hand-write/promise-limit.md)
+
+- 每年一记
 
 - (未填坑)一些设计模式的学习
 
