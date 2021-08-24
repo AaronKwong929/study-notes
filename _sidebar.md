@@ -134,6 +134,8 @@
 
   - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
+  - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
+
 - 复习
 
   - [浏览器导航过程](review/网页导航过程.md)
@@ -165,8 +167,6 @@
   - [关于 this](review/this.md)
 
   - [AMD / CMD / CJS / UMD / ESM](review/amd-cjs-umd-esm.md)
-
-  - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
 
   - [性能优化](review/性能优化实践.md)
 
