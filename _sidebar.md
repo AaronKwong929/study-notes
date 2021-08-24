@@ -196,6 +196,8 @@
 
   - [睡眠函数](hand-write/sleep.md)
 
+  - [拍平数组及变体](hand-write/arr-flat.md)
+
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
   - [实现 groupBy](hand-write/group-by.md)
