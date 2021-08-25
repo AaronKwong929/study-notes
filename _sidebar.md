@@ -8,6 +8,14 @@
 
   - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
 
+- 一些总结
+
+  - [关于后台重构](summary/refactor.md)
+
+  - [关于 CI/CD](summary/cicd.md)
+
+  - [关于题库迭代](summary/question-bank.md)
+
 - 工作遇到问题的小记录
 
   - [分支合并到 dev 的集成](work/auto-merge-to-dev.md)
@@ -126,6 +134,8 @@
 
   - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
+  - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
+
 - 复习
 
   - [浏览器导航过程](review/网页导航过程.md)
@@ -135,6 +145,8 @@
   - [缓存](review/网页缓存.md)
 
   - [DNS 解析](review/dns解析.md)
+
+  - [CDN](review/CDN.md)
 
   - [垃圾回收](review/garbage-collect.md)
 
@@ -146,8 +158,6 @@
 
   - [https](review/https.md)
 
-  - [CDN](review/CDN.md)
-
   - [BFC](review/BFC.md)
 
   - [XSS](review/XSS.md)
@@ -157,8 +167,6 @@
   - [关于 this](review/this.md)
 
   - [AMD / CMD / CJS / UMD / ESM](review/amd-cjs-umd-esm.md)
-
-  - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
 
   - [性能优化](review/性能优化实践.md)
 
@@ -187,6 +195,8 @@
   - [没有延迟的 setTimeout](hand-write/zero-timeout-fn.md)
 
   - [睡眠函数](hand-write/sleep.md)
+
+  - [拍平数组及变体](hand-write/arr-flat.md)
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
@@ -225,6 +235,8 @@
   - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
 
   - [Promise - 并发控制](hand-write/promise-limit.md)
+
+- 每年一记
 
 - (未填坑)一些设计模式的学习
 
