@@ -95,6 +95,10 @@ let newVDOM = {
 
 `patch`,`sameVNode`,`patchVnode`,`updateChildren`
 
+> 掘金上偷一张图[1]
+
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210825085334.png)
+
 ### patch 方法
 
 - 对比当前层的节点是否同类型标签
@@ -331,6 +335,8 @@ function updateChildren(parentElm, oldCh, newCh) {
 所以，如果用 unique 值去作 key，sameNode 命中，patchNode 也不会去做更新操作，直接复用，所以只有新的 aa 标签会变动被挂载上去，其他标签不会更新
 
 ## 参考
+
+[1 - index 作 key](https://juejin.cn/post/6999932053466644517?utm_source=gold_browser_extension)
 
 https://juejin.cn/post/6994959998283907102?utm_source=gold_browser_extension#heading-9
 
