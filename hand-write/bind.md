@@ -10,6 +10,7 @@ function myBind(ctx, ...args) {
     return self.apply(this instanceof fn ? this : ctx, [...args, ..._args]);
   }
   bind.prototype = new fn();
+  return bind;
 }
 ```
 
