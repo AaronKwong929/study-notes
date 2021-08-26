@@ -46,9 +46,11 @@
 
   - 第一次执行的代码，解释器 Ignition 逐条解释执行
 
-  - 如果发现热区代码 编译器 TurboFan 讲其编译为机器码，再次使用直接运行
+  - 如果发现`热区代码` 编译器 TurboFan 讲其编译为机器码，再次使用直接运行
 
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210826165958.png)
+
+字节码配合解释器和编译器成为`即时编译(JIT)`
 
 ## 一句话
 
