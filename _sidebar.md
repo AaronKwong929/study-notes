@@ -252,9 +252,9 @@
 
   - [欢聚一面](interview/21-08-26-huan-ju.md)
 
-  - [欢聚二面/HR 面](interview/21-08-30-huan-ju.md)
+  <!-- - [欢聚二面/HR 面](interview/21-08-30-huan-ju.md) -->
 
-  - [YY 直播一面](interview/21-08-30-yy.md)
+  <!-- - [YY 直播一面](interview/21-08-30-yy.md) -->
 
 - 每年一记
 
