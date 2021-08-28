@@ -118,6 +118,8 @@
 
   - [Mutation Observer](study/mutation-observer.md)
 
+  - [服务端渲染基本原理](study/ssr.md)
+
 - 源码学习
 
   - [从 Vue-DevTool 打开组件页面的学习](source-code/vue-cli-open-in-editor.md)
@@ -239,6 +241,20 @@
   - [Promise - 实现 AJAX](hand-write/promise-ajax.md)
 
   - [Promise - 并发控制](hand-write/promise-limit.md)
+
+- 一些面试记录
+
+  - [拼多多商家端一面](interview/21-08-22-pdd.md)
+
+  - [拼多多商家端二面](interview/21-08-23-pdd.md)
+
+  - [拼多多商家端三面](interview/21-08-25-pdd.md)
+
+  - [欢聚一面](interview/21-08-26-huan-ju.md)
+
+  - [欢聚二面/HR 面](interview/21-08-30-huan-ju.md)
+
+  - [YY 直播一面](interview/21-08-30-yy.md)
 
 - 每年一记
 

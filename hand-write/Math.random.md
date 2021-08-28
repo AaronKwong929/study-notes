@@ -6,7 +6,7 @@
 
 伪随机数在范围从 0 到小于 1，即包括 0，不包括 1 `[0, 1)`
 
-## 完整代码
+## 实现 min, max 整数
 
 ### [min, max)
 
@@ -48,7 +48,7 @@ parseInt(Math.random() * (max - (min + 1)) + min + 1);
 parseInt(Math.random() * (max - min - 1) + min + 1);
 ```
 
-## 测试
+### 测试
 
 取 `[min, max)` 进行测试
 
@@ -67,3 +67,10 @@ console.log(count);
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210809141908.png)
 
 基本是相同概率的
+
+### 实现 min, max 小数
+
+```js
+const getRandom = (min, max, count) =>
+  (Math.random() * (max - min) + min).toFixed(count);
+```
