@@ -8,6 +8,8 @@
 
   - [封装 获取数据类型](practices/encapsulating-get-data-type.md)
 
+  - [require.context](practices/require-context.md)
+
 - 一些总结
 
   - [关于后台重构](summary/refactor.md)
@@ -137,6 +139,8 @@
   - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
   - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
+
+  - [CO](source-code/co.md)
 
 - 复习
 
