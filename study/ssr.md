@@ -22,7 +22,7 @@
 
   - 需要 Node.JS 运行环境
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210828115813.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210828115813.png)
 
 这是 Vue 官方的 ssr 基本流程，通过 webpack 打出给服务端用的 bundle 和客户端的 bundle
 

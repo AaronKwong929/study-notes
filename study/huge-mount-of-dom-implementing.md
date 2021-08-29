@@ -28,7 +28,7 @@ setTimeout(() => {
 }, 0);
 ```
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210828174256.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210828174256.png)
 
 当前宏任务和微任务执行完成之后才会触发页面渲染
 

@@ -8,7 +8,7 @@
 
 大小无法被修改，想要访问单块内容需要使用`视图 Typed Array`
 
-![](https://raw.githubusercontent.com/AaronKwong929/pictures/master/20210827144536.png)
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210827144536.png)
 
 ```js
 // 分配一个长度为 8字节 的连续空间
