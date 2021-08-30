@@ -123,7 +123,7 @@
   - [服务端渲染基本原理](study/ssr.md)
 
   - 一些设计模式
-  
+
     - [策略模式](study/design-patterns/strategy.md)
 
     - [发布/订阅模式](study/design-patterns/pub-sub.md)
@@ -212,7 +212,17 @@
 
   - [睡眠函数](hand-write/sleep.md)
 
-  - [拍平数组及变体](hand-write/arr-flat.md)
+  - [Array.flat 及变体](hand-write/array-flat.md)
+
+  - [Array.find](hand-write/array-find.md)
+
+  - [Array.findIndex](hand-write/array-find-index.md)
+
+  - [Array.map](hand-write/array-map.md)
+
+  - [Array.filter](hand-write/array-filter.md)
+
+  - [Array.reduce](hand-write/array-reduce.md)
 
   - [实现类似 ORM 链式调用](hand-write/find-chain.md)
 
