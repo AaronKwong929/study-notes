@@ -8,6 +8,16 @@ computed 的值在 getter 执行后会被缓存，只有依赖变化才会重新
 
 缓存优化性能，避免每次调用都计算一次，造成性能开销
 
+### 原理
+
+每个 computed 属性都会生成对应的 Watcher 实例，Watcher 实例有 values 属性和 get 方法，（这里参考响应式原理的部分），初始设置 `dirty` 和 `lazy` 为 `true`，lazy 为 true 的话不会立即执行 get，在读取 computed 的时候才会执行。
+
+![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210901150357.png)
+
+https://segmentfault.com/a/1190000022169550
+
+具体要看 initComputed 部分
+
 ## watch
 
 immediate 属性：**不是**将回调改成同步执行，是第一次加载的时候会执行这个方法

@@ -1,12 +1,55 @@
 # Vue nextTick
 
-在下次 DOM 更新结束后执行回调 ==> 可以 access 到最新的 DOM
+`queueWatcher`
 
-nextTick 源码
+回调函数都被存到 callbacks 数组里
+
+flushCallbacks 是将回调队列里的所有回调都执行掉
 
 ```js
 let callbacks = []; // 回调函数
 let pending = false;
+/*存放异步执行的回调*/
+const callbacks = [];
+/*一个标记位，如果已经有timerFunc被推送到任务队列中去则不需要重复推送*/
+let pending = false;
+/*一个函数指针，指向函数将被推送到任务队列中，等到主线程任务执行完时，任务队列中的timerFunc被调用*/
+let timerFunc;
+
+/*
+  推送到队列中下一个tick时执行
+  cb 回调函数
+  ctx 上下文
+*/
+export function nextTick(cb?: Function, ctx?: Object) {
+  let _resolve;
+  // 第一步 传入的cb会被push进callbacks中存放起来
+  callbacks.push(() => {
+    if (cb) {
+      try {
+        cb.call(ctx);
+      } catch (e) {
+        handleError(e, ctx, 'nextTick');
+      }
+    } else if (_resolve) {
+      _resolve(ctx);
+    }
+  });
+  // 检查上一个异步任务队列（即名为callbacks的任务数组）是否派发和执行完毕了。pending此处相当于一个锁
+  if (!pending) {
+    // 若上一个异步任务队列已经执行完毕，则将pending设定为true（把锁锁上）
+    pending = true;
+    // 调用判断Promise，MutationObserver，setTimeout的优先级
+    timerFunc();
+  }
+  // 第三步执行返回的状态
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(resolve => {
+      _resolve = resolve;
+    });
+  }
+}
+
 function flushCallbacks() {
   pending = false; // 把标志还原为false
   // 依次执行回调
@@ -14,7 +57,11 @@ function flushCallbacks() {
     callbacks[i]();
   }
 }
+```
 
+这是 timerFunc 内部实现，不断降级判断
+
+```js
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
@@ -49,17 +96,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
     setTimeout(flushCallbacks, 0);
   };
 }
-
-export function nextTick(cb) {
-  callbacks.push(cb);
-  if (!pending) {
-    pending = true;
-    timerFunc();
-  }
-}
 ```
-
-一句话：Promise **一路降级**，两个微任务，两个宏任务
 
 1. `Promise` => Promise.resolve().then()，针对 iOS 还需要增加一个 setTimeout noop（noop vue 工具函数 - 空函数）
 
