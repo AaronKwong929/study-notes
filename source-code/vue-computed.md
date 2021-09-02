@@ -4,6 +4,8 @@
 
 `initComputed`方法里创建 computed watcher，对目标 data 进行依赖，会设置`{ lazy: true }`，这是 computed watcher 的标记
 
+Watcher 类实例化时，dirty 的初始值是和 lazy 相同的，即 computed watcher 的 dirty 初始值是 true
+
 这个方法里最终使用`defineComputed`，里面使用`Object.defineProperty`进行响应式处理，这个过程可参考`响应式原理`
 
 当访问到`computed`属性的时候，触发 getter 进行依赖收集，
@@ -53,3 +55,7 @@ Watcher.prototype.update = function update() {
 在响应式数据变更派发更新的时候`dep.notify()`，判断这个 watcher 是不是 computed watcher 如果是就只把 dirty 改成 true
 
 由于 data 数据拥有渲染 watcher 这个依赖，所以同时会执行 updateComponent 进行视图重新渲染，而 render 过程中会访问到计算属性，此时如果 `this.dirty` 值为 `true`，又会对计算属性重新求值；如果是 `false` 就不会更新，实现懒更新
+
+## 另一个小细节
+
+举个例子

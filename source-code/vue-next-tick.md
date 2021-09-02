@@ -1,4 +1,4 @@
-# Vue nextTick
+# Vue nextTick 原理小记
 
 `queueWatcher`
 
@@ -6,21 +6,15 @@
 
 flushCallbacks 是将回调队列里的所有回调都执行掉
 
-```js
+```ts
 let callbacks = []; // 回调函数
 let pending = false;
-/*存放异步执行的回调*/
-const callbacks = [];
+const callbacks = [];/*存放异步执行的回调*/
 /*一个标记位，如果已经有timerFunc被推送到任务队列中去则不需要重复推送*/
 let pending = false;
 /*一个函数指针，指向函数将被推送到任务队列中，等到主线程任务执行完时，任务队列中的timerFunc被调用*/
 let timerFunc;
 
-/*
-  推送到队列中下一个tick时执行
-  cb 回调函数
-  ctx 上下文
-*/
 export function nextTick(cb?: Function, ctx?: Object) {
   let _resolve;
   // 第一步 传入的cb会被push进callbacks中存放起来
@@ -52,21 +46,21 @@ export function nextTick(cb?: Function, ctx?: Object) {
 
 function flushCallbacks() {
   pending = false; // 把标志还原为false
-  // 依次执行回调
   for (let i = 0; i < callbacks.length; i++) {
     callbacks[i]();
   }
 }
 ```
 
-这是 timerFunc 内部实现，不断降级判断
+`timerFunc` 内部实现，不断降级判断
 
 ```js
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
     p.then(flushCallbacks);
-    if (isIOS) setTimeout(noop);
+    if (isIOS) setTimeout(noop); // 针对iOS系统需要加一个setTimeout 空函数
+    // iOS 不能正确中断Promise.resolve()
   };
   isUsingMicroTask = true;
 } else if (
@@ -98,14 +92,6 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 }
 ```
 
-1. `Promise` => Promise.resolve().then()，针对 iOS 还需要增加一个 setTimeout noop（noop vue 工具函数 - 空函数）
-
-2. `MutationObserver`
-
-3. `setImmediate`
-
-4. `setTimeout`
-
 ## 异步更新原理
 
 dep.notify()通知 watcher 进行更新操作
@@ -123,7 +109,7 @@ update () {
     /* istanbul ignore else */
     if (this.lazy) { // 计算属性  依赖的数据发生变化了 会让计算属性的watcher的dirty变成true
       this.dirty = true
-    } else if (this.sync) { // 同步watcher
+    } else if (this.sync) { // 同步 watcher，立刻更新视图
       this.run()
     } else {
       queueWatcher(this) // 将要更新的 watcher 放入队列
@@ -131,7 +117,7 @@ update () {
 }
 ```
 
-queueWatcher 方法
+`queueWatcher` 方法
 
 ```js
 export function queueWatcher(watcher: Watcher) {
@@ -175,7 +161,5 @@ nextTick 放在赋值后面异步更新视图后才会将 nextTick 入队，能�
 Vue2 组件级更新，如果每赋值一次都触发一次同步更新，性能会爆炸。
 
 异步更新的意思是：等本轮数据更新完成后再异步进行视图更新
-
-来看文档
 
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210820223700.png)
