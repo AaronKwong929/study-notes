@@ -52,4 +52,4 @@ Watcher.prototype.update = function update() {
 
 在响应式数据变更派发更新的时候`dep.notify()`，判断这个 watcher 是不是 computed watcher 如果是就只把 dirty 改成 true
 
-由于 data 数据拥有渲染 watcher 这个依赖，所以同时会执行 updateComponent 进行视图重新渲染，而 render 过程中会访问到计算属性，此时由于 this.dirty 值为 true，又会对计算属性重新求值。
+由于 data 数据拥有渲染 watcher 这个依赖，所以同时会执行 updateComponent 进行视图重新渲染，而 render 过程中会访问到计算属性，此时如果 `this.dirty` 值为 `true`，又会对计算属性重新求值；如果是 `false` 就不会更新，实现懒更新
