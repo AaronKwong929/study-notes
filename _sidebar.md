@@ -142,6 +142,8 @@
 
   - [Vue 响应式原理小记 2](source-code/vue-reactive2.md)
 
+  - [Vue Computed 怎么缓存数据](source-code/vue-computed.md)
+
   - [Vue nextTick 小记](source-code/vue-next-tick.md)
 
   - [虚拟 DOM 和 diff 算法](review/v-dom&diff.md)
