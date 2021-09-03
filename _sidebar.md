@@ -274,7 +274,9 @@
 
   - [YY 直播一面](interview/21-08-30-yy.md)
 
-  <!-- - [字节飞书一面](interview/21-08-31-feishu.md) -->
+  - [字节飞书一面](interview/21-08-31-feishu.md)
+
+  - [字节飞书二面](interview/21-09-03-feishu.md)
 
 - 每年一记
 
