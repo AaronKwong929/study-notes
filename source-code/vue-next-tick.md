@@ -1,25 +1,66 @@
-# Vue nextTick
+# Vue nextTick 原理小记
 
-在下次 DOM 更新结束后执行回调 ==> 可以 access 到最新的 DOM
+`queueWatcher`
 
-nextTick 源码
+回调函数都被存到 callbacks 数组里
 
-```js
+flushCallbacks 是将回调队列里的所有回调都执行掉
+
+```ts
 let callbacks = []; // 回调函数
 let pending = false;
+const callbacks = [];/*存放异步执行的回调*/
+/*一个标记位，如果已经有timerFunc被推送到任务队列中去则不需要重复推送*/
+let pending = false;
+/*一个函数指针，指向函数将被推送到任务队列中，等到主线程任务执行完时，任务队列中的timerFunc被调用*/
+let timerFunc;
+
+export function nextTick(cb?: Function, ctx?: Object) {
+  let _resolve;
+  // 第一步 传入的cb会被push进callbacks中存放起来
+  callbacks.push(() => {
+    if (cb) {
+      try {
+        cb.call(ctx);
+      } catch (e) {
+        handleError(e, ctx, 'nextTick');
+      }
+    } else if (_resolve) {
+      _resolve(ctx);
+    }
+  });
+  // 检查上一个异步任务队列（即名为callbacks的任务数组）是否派发和执行完毕了。pending此处相当于一个锁
+  if (!pending) {
+    // 若上一个异步任务队列已经执行完毕，则将pending设定为true（把锁锁上）
+    pending = true;
+    // 调用判断Promise，MutationObserver，setTimeout的优先级
+    timerFunc();
+  }
+  // 第三步执行返回的状态
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(resolve => {
+      _resolve = resolve;
+    });
+  }
+}
+
 function flushCallbacks() {
   pending = false; // 把标志还原为false
-  // 依次执行回调
   for (let i = 0; i < callbacks.length; i++) {
     callbacks[i]();
   }
 }
+```
 
+`timerFunc` 内部实现，不断降级判断
+
+```js
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
     p.then(flushCallbacks);
-    if (isIOS) setTimeout(noop);
+    if (isIOS) setTimeout(noop); // 针对iOS系统需要加一个setTimeout 空函数
+    // iOS 不能正确中断Promise.resolve()
   };
   isUsingMicroTask = true;
 } else if (
@@ -49,25 +90,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
     setTimeout(flushCallbacks, 0);
   };
 }
-
-export function nextTick(cb) {
-  callbacks.push(cb);
-  if (!pending) {
-    pending = true;
-    timerFunc();
-  }
-}
 ```
-
-一句话：Promise **一路降级**，两个微任务，两个宏任务
-
-1. `Promise` => Promise.resolve().then()，针对 iOS 还需要增加一个 setTimeout noop（noop vue 工具函数 - 空函数）
-
-2. `MutationObserver`
-
-3. `setImmediate`
-
-4. `setTimeout`
 
 ## 异步更新原理
 
@@ -86,7 +109,7 @@ update () {
     /* istanbul ignore else */
     if (this.lazy) { // 计算属性  依赖的数据发生变化了 会让计算属性的watcher的dirty变成true
       this.dirty = true
-    } else if (this.sync) { // 同步watcher
+    } else if (this.sync) { // 同步 watcher，立刻更新视图
       this.run()
     } else {
       queueWatcher(this) // 将要更新的 watcher 放入队列
@@ -94,7 +117,7 @@ update () {
 }
 ```
 
-queueWatcher 方法
+`queueWatcher` 方法
 
 ```js
 export function queueWatcher(watcher: Watcher) {
@@ -138,7 +161,5 @@ nextTick 放在赋值后面异步更新视图后才会将 nextTick 入队，能�
 Vue2 组件级更新，如果每赋值一次都触发一次同步更新，性能会爆炸。
 
 异步更新的意思是：等本轮数据更新完成后再异步进行视图更新
-
-来看文档
 
 ![](https://cdn.jsdelivr.net/gh/aaronkwong929/pictures/20210820223700.png)
