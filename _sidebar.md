@@ -1,3 +1,7 @@
+- 每年一记
+
+  - [写在即将离开第一份工作时](2019.11-2021.08.md)
+
 - 实践
 
   - [封装 Storage](practices/encapsulating-storage.md)
@@ -289,10 +293,6 @@
   - [字节 - HR 面](interview/21-09-09-byte-dance.md)
 
   - [2021 年面试全记录](interview/2021-interview-summary.md)
-
-- 每年一记
-
-  - []()
 
 <!-- - (未填坑)一些设计模式的学习 -->
 
