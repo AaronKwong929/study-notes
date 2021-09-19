@@ -1,6 +1,14 @@
 - 随记
 
-  - [写在即将离开第一份工作时](anniversary/2019.11-2021.08.md)
+  - [Year.2021](anniversary/2019.11-2021.08.md)
+
+- 一些影视拙见
+
+  - [爱乐之城](film-review/la-la-land.md)
+
+  - [英雄本色](film-review/a-better-tomorrow.md)
+
+  - [神烦警探](film-review/brooklyn-nine-nine.md)
 
 - 实践
 
