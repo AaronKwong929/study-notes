@@ -264,6 +264,8 @@
 
   - [实现数组乱序](hand-write/random-array.md)
 
+  - [实现记忆函数](hand-write/memory-fn.md)
+
   - [Promise - 手写和 Api](hand-write/Promise.md)
 
   - [Promise - 控制超时](hand-write/timeout-control.md)
