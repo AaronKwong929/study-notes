@@ -1,6 +1,8 @@
 - 随记
 
-  - [Year.2021](anniversary/2019.11-2021.08.md)
+  - [Year.2021](notes/2019.11-2021.08.md)
+
+  - [写在胆囊息肉手术后](notes/after-surgery.md)
 
 - 一些影视拙见
 
