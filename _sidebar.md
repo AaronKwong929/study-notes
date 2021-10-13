@@ -102,6 +102,8 @@
 
   - [新服务器安装 Docker 和 Docker-compose](build/docker-install.md)
 
+  - [MacOS 安装 nvm](build/macos-nvm.md)
+
 - 组件
 
   - [README](components/README.md)
